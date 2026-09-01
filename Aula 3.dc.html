@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<script src="./auth-gate.js"></script>
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/colors.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/typography.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/styles.css">
+<script src="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: #2a2d33; }
+  * { box-sizing: border-box; }
+  .slide { position:relative; width:100%; height:100%; box-sizing:border-box; overflow:hidden; font-family:var(--font-sans); }
+</style>
+</helmet>
+
+<a href="index.dc.html" style="position:fixed; top:20px; left:20px; z-index:4000; display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:999px; background:rgba(28,33,39,.85); color:#F0F0F0; font-family:var(--font-sans); font-size:13px; font-weight:600; text-decoration:none;">← Curso</a>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1280" height="720" hint-size="100%,100%">
+
+<section class="slide" data-screen-label="01 Capa" style="padding:64px 72px; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:space-between;">
+  <div style="display:flex; align-items:center; justify-content:space-between;">
+    <img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:34px; width:auto;">
+    <img src="assets/logo/kunumi-mark-motion.gif" alt="" style="height:56px; width:56px;">
+  </div>
+  <div>
+    <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--urucum); margin-bottom:22px;">Contando Histórias com Dados — Aula 3 · 2h30</div>
+    <h1 style="font-weight:300; font-size:56px; line-height:1.1; letter-spacing:-0.02em; margin:0; max-width:24ch;">Aula 3</h1>
+  </div>
+  <div style="font-size:18px; color:rgba(240,240,240,.75);">com Ana</div>
+  <div style="font-size:14px; font-weight:600; letter-spacing:.06em; color:rgba(240,240,240,.85);">04.SET.2026</div>
+</section>
+
+</x-import>
+
+</x-dc>
+</body>
+</html>

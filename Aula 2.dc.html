@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<script src="./auth-gate.js"></script>
+<script>
+  (function () {
+    var UNLOCK_DATE = new Date('2026-09-03T00:00:00');
+    function showLocked() {
+      var style = document.createElement('style');
+      style.textContent = 'html,body{visibility:hidden !important;}';
+      document.head.appendChild(style);
+      var overlay = document.createElement('div');
+      overlay.style.cssText = 'visibility:visible !important;position:fixed;inset:0;z-index:2147483647;background:#1c2127;display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:24px;box-sizing:border-box;text-align:center;';
+      overlay.innerHTML = '<div style="visibility:visible;max-width:420px;color:#f0f0f0;">' +
+        '<div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#9355a0;margin-bottom:14px;">Em breve</div>' +
+        '<h1 style="font-size:24px;font-weight:500;margin:0 0 12px;">Esta aula ainda não foi liberada</h1>' +
+        '<p style="font-size:14px;line-height:1.6;color:rgba(240,240,240,.65);margin:0 0 24px;">A Aula 2 fica disponível a partir de 03 de setembro de 2026.</p>' +
+        '<a href="index.dc.html" style="color:#f0f0f0;font-size:14px;text-decoration:underline;">Voltar para o início</a>' +
+        '</div>';
+      document.body.appendChild(overlay);
+    }
+    function check() {
+      if (new Date() < UNLOCK_DATE) showLocked();
+    }
+    if (window.KunumiAuth) window.KunumiAuth.onReady(check);
+    else check();
+  })();
+</script>
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/colors.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/typography.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/styles.css">
+<script src="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; background: #2a2d33; }
+  * { box-sizing: border-box; }
+  .slide { position:relative; width:100%; height:100%; box-sizing:border-box; overflow:hidden; font-family:var(--font-sans); }
+  @keyframes drawSpiral { to { stroke-dashoffset:0; } }
+  @keyframes fadeRect { to { opacity:.6; } }
+  .zoom-btn { position:absolute; bottom:16px; right:16px; width:40px; height:40px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer; z-index:3; display:flex; align-items:center; justify-content:center; }
+  .ref-link { color:inherit; text-decoration:underline; text-decoration-color:rgba(240,78,68,.5); text-decoration-thickness:2px; }
+  .ref-link:hover { color:var(--urucum); }
+  .hdr { position:absolute; top:36px; left:64px; right:64px; display:flex; justify-content:space-between; align-items:flex-start; z-index:2; }
+  .hdr-mark { display:flex; align-items:center; gap:10px; }
+  .eyebrow { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; }
+  .tagchip { display:inline-flex; align-items:center; padding:10px 18px; border-radius:999px; font-size:15px; font-weight:600; }
+</style>
+</helmet>
+
+<a href="index.dc.html" style="position:fixed; top:20px; left:20px; z-index:4000; display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:999px; background:rgba(28,33,39,.85); color:#F0F0F0; font-family:var(--font-sans); font-size:13px; font-weight:600; text-decoration:none;">← Curso</a>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1280" height="720" hint-size="100%,100%" data-uneditable="">
+
+<section class="slide" data-screen-label="01 Capa" style="padding:64px 72px; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:space-between;" data-om-slide-id="3169ef5a">
+  <div style="display:flex; align-items:center; justify-content:space-between;">
+    <img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:34px; width:auto;">
+    <img src="assets/logo/kunumi-mark-motion.gif" alt="" style="height:56px; width:56px;">
+  </div>
+  <div>
+    <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--urucum); margin-bottom:22px;">Contando Histórias com Dados — Aula 2 · 2h30</div>
+    <h1 style="font-weight:300; font-size:56px; line-height:1.1; letter-spacing:-0.02em; margin:0; max-width:24ch;">Visualizações de dados que falam por si</h1>
+  </div>
+  <div style="font-size:18px; color:rgba(240,240,240,.75);">com Ana</div>
+  <div style="font-size:14px; font-weight:600; letter-spacing:.06em; color:rgba(240,240,240,.85);">03.SET.2026</div>
+</section>
+
+<section class="slide" data-screen-label="Persuasão aristotélica" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;" data-om-slide-id="a2c9f1d4">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="position: absolute; left: 187px; top: 312px; width: 451px; height: 234px; background: var(--concreto); opacity: .6; mix-blend-mode: multiply"></div>
+  <div style="position: absolute; left: 385px; top: 146px; width: 353px; height: 281px; background: var(--urucum); opacity: .6; mix-blend-mode: multiply"></div>
+  <div style="position: absolute; left: 489px; top: 314px; width: 474px; height: 301px; background: var(--indigo-600); opacity: .6; mix-blend-mode: multiply"></div>
+  <div style="position: absolute; left: 409px; top: 168px; max-width: 220px">
+    <div style="font-size:16px; font-weight:700; letter-spacing:.02em; margin-bottom:12px;">PATHOS</div>
+    <div style="font-size:15px; line-height:1.7; color:var(--grafite);">emoção, empatia</div>
+  </div>
+  <div style="position:absolute; left:215px; top:447px; font-size:16px; font-weight:700; letter-spacing:.02em; color:var(--chumbo);">ETHOS</div>
+  <div style="position:absolute; left:216px; top:474px; font-size:15px; line-height:1.7; color:var(--grafite);">ética, confiabilidade</div>
+  <div style="position:absolute; left:470px; top:349px; width:180px; text-align:center; font-size:19px; font-weight:700; color:#fff;">persuasão<br>aristotélica</div>
+  <div style="position:absolute; left:810px; top:530px; font-size:16px; font-weight:700; color:#fff; letter-spacing:.02em;">LOGOS</div>
+  <div style="position:absolute; left:811px; top:554px; width:182px; font-size:15px; line-height:1.7; color:rgba(255,255,255,.75);">lógica, razão</div>
+</section>
+
+
+
+<section class="slide" data-screen-label="07 Section porque graficos" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; align-items:center; justify-content:center;" data-om-slide-id="1fe05b0c">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:52px; text-align:center; margin:0; max-width:22ch;">Por que contar histórias com <span style="color:var(--urucum); font-weight:600;">gráficos?</span></h1>
+</section><section class="slide" data-screen-label="08 Cerebro identifica imagem" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; display:flex;" data-om-slide-id="9392e16a">
+  <div style="width:50%; height:100%; background:var(--urucum); position:relative; display:flex; align-items:center; justify-content:center;">
+    <div style="font-size:220px; font-weight:900; line-height:1; font-variant-numeric:tabular-nums; color:#fff;">13</div>
+    <div style="position:absolute; left:0; right:0; bottom:56px; text-align:center; font-size:13px; line-height:1.5; color:rgba(255,255,255,.85); padding:0 48px;">limitação técnica do monitor usado no experimento, não do cérebro humano</div>
+  </div>
+  <div style="width:50%; height:100%; display:flex; align-items:center; justify-content:center; padding:0 56px;">
+    <div>
+      <h1 style="font-weight:300; font-size:32px; line-height:1.35; text-align:left; margin:0 0 20px; max-width:24ch;">O nosso cérebro consegue identificar o conteúdo de uma imagem mesmo que ela tenha sido vista por apenas milissegundos.</h1>
+      <a class="ref-link" href="https://www.psychonomic.org/news/296289/MIT-neuroscientists-find-the-brain-can-identify-images-seen-for-as-little-as-13-milliseconds..htm" target="_blank" style="font-size:13px;">Ver referência →</a>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Experimento gráfico 3 passos" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); position:relative; display:flex; flex-direction:column;" data-om-slide-id="e71c4a09">
+  <div style="position:absolute; top:28px; right:64px; display:inline-flex; align-items:center; gap:6px; padding:6px 13px; border-radius:999px; background:rgba(240,78,68,.08); border:1px solid rgba(240,78,68,.3); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--urucum);">↗ slide interativo</div>
+  <h1 style="font-weight:400; font-size:26px; line-height:1.35; margin:0 0 40px; max-width:56ch;">Porcentagem de pessoas que <strong>incorretamente</strong> acredita que as temperaturas globais vem diminuindo ou se mantendo nos últimos 30 anos</h1>
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:16px; min-height:0;">
+    <div style="flex:0 0 auto; display:flex; gap:64px;">
+      <div style="flex:1; display:flex; min-height:0;">
+        <div style="width:52px; height:320px; display:flex; flex-direction:column; justify-content:space-between; font-size:15px; font-weight:700; color:var(--grafite); text-align:right; padding-right:12px; box-sizing:border-box;">
+          <span>50%</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0%</span>
+        </div>
+        <div style="flex:1; height:320px; position:relative; border-left:2px solid var(--concreto); border-bottom:2px solid var(--concreto); box-sizing:border-box;">
+          <sc-for list="{{ gridLines }}" as="gl" hint-placeholder-count="4">
+            <div style="position:absolute; left:0; right:0; height:1px; background:rgba(28,33,39,.12); bottom:{{ gl.px }}px;"></div>
+          </sc-for>
+          <div style="position:absolute; inset:0; display:flex; align-items:flex-end; padding-left:36px; gap:96px;">
+            <sc-for list="{{ groups }}" as="grp" hint-placeholder-count="2">
+              <div style="width:188px; flex-shrink:0; display:flex; align-items:flex-end; justify-content:center; gap:10px; height:100%;">
+                <sc-for list="{{ grp.bars }}" as="bar" hint-placeholder-count="3">
+                  <div style="width:56px; height:{{ bar.height }}px; background:{{ bar.color }}; opacity:{{ bar.opacity }}; transition:opacity .5s ease-out;"></div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="width:280px; height:320px; align-self:flex-start; flex-shrink:0; display:flex; flex-direction:column; justify-content:flex-end; gap:20px;">
+        <sc-for list="{{ legendItems }}" as="li" hint-placeholder-count="3">
+          <div style="display:flex; align-items:flex-start; gap:14px; opacity:{{ li.opacity }}; transition:opacity .5s ease-out;">
+            <div style="width:36px; height:24px; flex-shrink:0; background:{{ li.color }}; margin-top:2px;"></div>
+            <div style="font-size:15px; line-height:1.4; color:var(--chumbo);">{{ li.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex; gap:64px;">
+      <div style="flex:1; display:flex;">
+        <div style="width:52px;"></div>
+        <div style="flex:1; display:flex; padding-left:36px; gap:96px;">
+          <sc-for list="{{ groups }}" as="grp" hint-placeholder-count="2">
+            <div style="width:188px; flex-shrink:0; text-align:center; font-size:16px; font-weight:700;">{{ grp.label }}</div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="width:280px; flex-shrink:0;"></div>
+    </div>
+  </div>
+  <div style="display:flex; justify-content:center; margin-top:32px;">
+    <sc-if value="{{ hasNextStep }}" hint-placeholder-val="{{ true }}">
+      <button onClick="{{ nextStep }}" style="background:var(--urucum); color:#fff; border:1px solid var(--urucum); border-radius:999px; padding:14px 28px; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:.02em;">Próximo passo do experimento →</button>
+    </sc-if>
+    <sc-if value="{{ !hasNextStep }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ resetSteps }}" style="background:transparent; color:var(--grafite); border:1px solid var(--concreto); border-radius:999px; padding:14px 28px; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:.02em;">↺ Reiniciar experimento</button>
+    </sc-if>
+  </div>
+</section><section class="slide" data-screen-label="10 Nao precisei provar" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:center; gap:20px;" data-om-slide-id="2c6a50ae">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:32ch;">Mas eu não precisei provar isso para vocês acreditarem em mim.</h2>
+  <p style="font-size:15px; color:var(--concreto); margin:0; max-width:52ch;">Essas informações são reais, publicadas no <a class="ref-link" href="https://www.washingtonpost.com/news/wonk/wp/2018/06/15/study-charts-change-hearts-and-minds-better-than-words-do/" target="_blank" style="color:var(--concreto);">The Washington Post</a>, a partir de um artigo no Journal of Elections, Public Opinion and Parties.</p>
+</section><section class="slide" data-screen-label="História com dados" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;" data-om-slide-id="a2c9f1d5">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="position: absolute; left: 187px; top: 312px; width: 451px; height: 234px; background: var(--concreto); opacity: .6; mix-blend-mode: multiply"></div>
+  <div style="position: absolute; left: 385px; top: 146px; width: 353px; height: 281px; background: var(--urucum); opacity: .6; mix-blend-mode: multiply"></div>
+  <div style="position: absolute; left: 489px; top: 314px; width: 474px; height: 301px; background: var(--indigo-600); opacity: .6; mix-blend-mode: multiply"></div>
+  <div style="position: absolute; left: 409px; top: 168px; max-width: 220px">
+    <div style="font-size:16px; font-weight:700; letter-spacing:.02em; margin-bottom:12px;">PATHOS</div>
+    <div style="font-size:15px; line-height:1.7; color:var(--grafite);">HISTÓRIA</div>
+  </div>
+  <div style="position:absolute; left:216px; top:474px; width:174px; font-size:15px; line-height:1.7; color:var(--grafite);">"Mas é muita mão ter inventado isso tudo..."</div>
+  <div style="position:absolute; left:504px; top:346px; width:118px; text-align:center; font-size:19px; font-weight:700; color:#fff;">história com gráficos</div>
+  <div style="position:absolute; left:748px; top:484px; font-size:16px; font-weight:700; color:#fff; letter-spacing:.02em;">LOGOS</div>
+  <div style="position:absolute; left:748px; top:508px; width:182px; font-size:15px; line-height:1.7; color:rgba(255,255,255,.75);">"Eu consigo chegar à mesma conclusão vendo os dados/resultados"</div>
+  <div style="position:absolute; left:215px; top:447px; font-size:16px; font-weight:700; letter-spacing:.02em; color:var(--chumbo);">ETHOS</div>
+</section>
+
+<section class="slide" data-screen-label="14 Tukey e Borges" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:center; gap:36px;" data-om-slide-id="41cb81ea">
+  <x-import component-from-global-scope="KunumiDesignSystem_c10d9a.Quote" author="John Tukey, Exploratory Data Analysis" tone="inverse" hint-size="100%,140px">O maior valor de uma imagem é quando ela nos força a perceber algo que nós nunca esperávamos ver.</x-import>
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    
+    <div style="display:flex; gap:10px; flex:none;"></div>
+  </div>
+</section><section class="slide" data-screen-label="Grafico placeholder" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;" data-om-slide-id="c14ab902">
+  <img src="uploads/pasted-1788199209624-0.png" alt="Heatmap de casos de pólio por estado americano, 1928-1965, com a introdução da vacina em 1955" style="width:100%; max-width:900px; border-radius:12px; box-shadow:0 16px 40px rgba(28,33,39,.12);">
+  <p style="font-size:12px; color:var(--concreto); margin:0;">Fonte: <a class="ref-link" href="https://graphics.wsj.com/infectious-diseases-and-vaccines/" target="_blank" style="color:var(--concreto);">The Wall Street Journal, "Battling Infectious Diseases in the 20th Century"</a></p>
+</section><section class="slide" data-screen-label="Citacao Borges" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:center; gap:28px;" data-om-slide-id="75c2723d">
+  <p style="font-family: var(--font-sans); font-size: 26px; font-weight: 300; font-style: normal; line-height: 1.25; letter-spacing: -0.01em; margin: 0; max-width: 60ch">Naquele Império, a Arte da Cartografia logrou tal perfeição que o mapa de uma única Província ocupava toda uma Cidade, e o mapa do Império, toda uma Província. Com o tempo, esses Mapas Desmedidos não satisfizeram mais e os Colégios de Cartógrafos levantaram um Mapa do Império, que tinha o tamanho do Império e coincidia pontualmente com ele.<br><br>Menos dedicadas ao Estudo da Cartografia, as Gerações Seguintes entenderam que esse dilatado Mapa era Inútil e não sem Impiedade o entregaram às Inclemências do Sol e dos Invernos.</p>
+  <div style="font-family:var(--font-sans); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--concreto);">Jorge Luis Borges, "Do Rigor na Ciência"</div>
+</section><section class="slide" data-screen-label="Espiral de Fibonacci" style="padding:0; background:var(--urucum); overflow:hidden; position:relative;" data-om-slide-id="5b843928">
+  <svg viewBox="0 0 1280 792" style="position:absolute; top:0; left:0; width:1280px; height:792px;">
+    <path d="M0.0,832.4 L0.2,788.9 L2.2,746.1 L6.1,704.0 L11.6,662.6 L18.8,622.0 L27.7,582.3 L38.1,543.5 L50.0,505.7 L63.3,469.0 L78.0,433.3 L94.0,398.7 L111.3,365.3 L129.7,333.1 L149.2,302.2 L169.8,272.4 L191.4,244.0 L213.8,216.9 L237.1,191.1 L261.1,166.7 L285.9,143.6 L311.3,121.9 L337.2,101.6 L363.6,82.6 L390.5,65.1 L417.8,48.9 L445.3,34.1 L473.1,20.7 L501.1,8.6 L529.1,-2.1 L557.3,-11.4 L585.5,-19.5 L613.5,-26.2 L641.5,-31.7 L669.4,-35.9 L697.0,-38.8 L724.4,-40.5 L751.4,-41.1 L778.1,-40.5 L804.4,-38.8 L830.3,-36.0 L855.6,-32.1 L880.5,-27.2 L904.8,-21.4 L928.5,-14.5 L951.6,-6.8 L974.1,1.8 L995.8,11.2 L1016.9,21.4 L1037.2,32.4 L1056.8,44.1 L1075.6,56.4 L1093.7,69.4 L1110.9,82.9 L1127.3,97.0 L1142.9,111.6 L1157.7,126.7 L1171.6,142.1 L1184.6,158.0 L1196.8,174.1 L1208.2,190.6 L1218.7,207.3 L1228.3,224.2 L1237.1,241.3 L1245.1,258.5 L1252.2,275.9 L1258.4,293.2 L1263.9,310.6 L1268.5,328.0 L1272.4,345.4 L1275.4,362.6 L1277.7,379.8 L1279.2,396.8 L1280.0,413.6 L1280.0,430.3 L1279.3,446.7 L1278.0,462.8 L1276.0,478.7 L1273.3,494.2 L1270.1,509.4 L1266.2,524.3 L1261.7,538.8 L1256.7,552.9 L1251.2,566.6 L1245.2,579.9 L1238.7,592.7 L1231.7,605.1 L1224.3,617.0 L1216.5,628.4 L1208.3,639.4 L1199.8,649.8 L1191.0,659.8 L1181.9,669.2 L1172.4,678.1 L1162.8,686.5 L1152.9,694.3 L1142.9,701.6 L1132.6,708.4 L1122.2,714.7 L1111.7,720.5 L1101.1,725.7 L1090.5,730.4 L1079.7,734.5 L1069.0,738.2 L1058.2,741.4 L1047.5,744.0 L1036.8,746.2 L1026.1,747.9 L1015.6,749.1 L1005.1,749.8 L994.8,750.1 L984.5,750.0 L974.5,749.4 L964.6,748.4 L954.8,747.0 L945.3,745.2 L936.0,743.0 L926.9,740.4 L918.0,737.5 L909.4,734.3 L901.0,730.8 L893.0,726.9 L885.1,722.8 L877.6,718.4 L870.4,713.7 L863.4,708.8 L856.8,703.6 L850.5,698.3 L844.5,692.7 L838.8,687.0 L833.4,681.1 L828.4,675.1 L823.6,669.0 L819.2,662.7 L815.2,656.3 L811.4,649.9 L808.0,643.4 L804.9,636.8 L802.2,630.2 L799.7,623.5 L797.6,616.9 L795.8,610.3 L794.2,603.6 L793.0,597.0 L792.1,590.5 L791.5,584.0 L791.1,577.5 L791.1,571.2 L791.3,564.9 L791.8,558.7 L792.5,552.6 L793.5,546.6 L794.7,540.8 L796.1,535.1 L797.8,529.5 L799.6,524.1 L801.7,518.9 L804.0,513.8 L806.4,508.8 L809.1,504.1 L811.9,499.5 L814.8,495.1 L817.9,490.9 L821.2,486.9 L824.5,483.0 L828.0,479.4 L831.6,476.0 L835.2,472.7 L839.0,469.7 L842.8,466.9 L846.7,464.2 L850.7,461.8 L854.7,459.6 L858.7,457.6 L862.8,455.7 L866.9,454.1 L871.0,452.7 L875.1,451.4 L879.2,450.4 L883.3,449.5 L887.4,448.8 L891.4,448.4 L895.4,448.0 L899.4,447.9 L903.3,447.9 L907.1,448.1 L910.9,448.5 L914.7,449.0 L918.3,449.7 L921.9,450.5 L925.4,451.4 L928.8,452.5 L932.1,453.7 L935.3,455.0 L938.4,456.5 L941.4,458.1 L944.3,459.7 L947.1,461.5 L949.8,463.4 L952.3,465.3 L954.8,467.3 L957.1,469.4 L959.3,471.6 L961.3,473.9 L963.3,476.1 L965.1,478.5 L966.8,480.9 L968.4,483.3 L969.8,485.8 L971.2,488.2 L972.4,490.8 L973.4,493.3 L974.4,495.8 L975.2,498.3 L975.9,500.9 L976.5,503.4 L977.0,505.9 L977.4,508.4 L977.7,510.9 L977.8,513.4 L977.8,515.8 L977.8,518.2 L977.6,520.6 L977.4,522.9 L977.0,525.2 L976.6,527.5 L976.0,529.7 L975.4,531.8 L974.7,533.9 L973.9,535.9 L973.1,537.8 L972.1,539.7 L971.1,541.6 L970.1,543.3 L969.0,545.0 L967.8,546.6 L966.6,548.2 L965.3,549.7 L964.0,551.1 L962.6,552.4 L961.2,553.6 L959.8,554.8 L958.3,555.9 L956.8,556.9 L955.3,557.9 L953.8,558.7 L952.3,559.5 L950.7,560.2 L949.2,560.9 L947.6,561.4 L946.0,561.9 L944.5,562.3 L942.9,562.7 L941.3,562.9 L939.8,563.1 L938.3,563.3 L936.7,563.3 L935.2,563.3 L933.8,563.3 L932.3,563.1 L930.9,562.9 L929.5,562.7 L928.1,562.4 L926.8,562.1 L925.5,561.6 L924.2,561.2 L923.0,560.7 L921.8,560.1 L920.6,559.6 L919.5,558.9 L918.4,558.3 L917.4,557.5 L916.4,556.8 L915.5,556.0 L914.6,555.2 L913.7,554.4 L912.9,553.6 L912.2,552.7 L911.5,551.8 L910.8,550.9 L910.2,550.0 L909.7,549.0 L909.1,548.1 L908.7,547.1 L908.3,546.2 L907.9,545.2 L907.6,544.2 L907.3,543.3 L907.0,542.3 L906.8,541.3 L906.7,540.4 L906.6,539.4 L906.5,538.5 L906.5,537.5 L906.5,536.6 L906.6,535.7 L906.7,534.8 L906.8,533.9 L907.0,533.1 L907.2,532.2 L907.4,531.4" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" style="stroke-dasharray:3600; stroke-dashoffset:3600; animation:drawSpiral 9s ease-in-out infinite;"></path>
+  </svg><div style="position: absolute; left: 196px; text-align: right; font-size: 60px; font-weight: 900; letter-spacing: .02em; color: #fff; height: 58px; top: 461px; width: 553px">uma história dentro de uma história</div>
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="slide" data-screen-label="Framework storytelling" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="6c34b60c">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  
+  <div style="height: 3px; background: linear-gradient(90deg, #1C2127 0%, #3A2FDFEB, #F04E45EB, #F09745EB); margin-bottom: 18px"></div>
+  <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:20px;">
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">1. PARA QUEM?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Para quem estou contando essa história?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">2. POR QUE?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Por que eu quero que ela saiba isso e por que ela está me dando atenção?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">3. O QUÊ?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Quais as mensagens mais importantes da minha história?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">4. COMO?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Qual narrativa e quais elementos vou usar para passar essas mensagens?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">5. COM O QUÊ?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Qual meio ou produto vou usar para contar a história?</p></div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="16 Foco mensagem vs dados" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="ccb982e4">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+    <div style="background:#fff; border:1px solid rgba(240,78,68,.3); border-radius:12px; padding:24px;">
+      <div style="font-size:14px; font-weight:700; color:var(--urucum); margin-bottom:12px;">FOCO NA MENSAGEM</div>
+      <p style="font-size:14px; color:var(--grafite); margin:0 0 10px;">Processo começa com "Por que eu estou criando esse gráfico?"</p>
+      <p style="font-size:14px; color:var(--grafite); margin:0 0 10px;">Escolhas guiadas pela mensagem.</p>
+      <p style="font-size:14px; color:var(--grafite); margin:0;">Qualidade medida pela eficiência em fazer a audiência entender a mensagem.</p>
+    </div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:24px;">
+      <div style="font-size:14px; font-weight:700; color:var(--grafite); margin-bottom:12px;">FOCO NA REPRESENTAÇÃO DOS DADOS</div>
+      <p style="font-size:14px; color:var(--grafite); margin:0 0 10px;">Processo começa com "Qual o melhor jeito de visualizar os dados?"</p>
+      <p style="font-size:14px; color:var(--grafite); margin:0 0 10px;">Escolhas guiadas pela natureza dos dados.</p>
+      <p style="font-size:14px; color:var(--grafite); margin:0;">Qualidade medida pela habilidade de representar os dados (?)</p>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Adaptado da palestra de <a class="ref-link" href="https://www.youtube.com/watch?v=Ktgwvv-V60I" target="_blank" style="color:var(--concreto);">Nick Desbarats no Outlier 2023</a></p>
+</section>
+
+<section class="slide" data-screen-label="Pesquisa antes e depois" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="f31a7c02">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:14px;">PESQUISA FICTÍCIA ANTES E DEPOIS DO TREINAMENTO</div>
+  <h1 style="font-weight:300; font-size:30px; line-height:1.3; margin:0 0 40px; max-width:48ch;">Como você se sente em relação a contar histórias com dados?</h1>
+
+  <table style="width:100%; border-collapse:collapse; font-size:16px;">
+    <thead>
+      <tr>
+        <th style="text-align:left; padding:12px 16px; border-bottom:2px solid var(--chumbo); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);"></th>
+        <th style="text-align:center; padding:12px 16px; border-bottom:2px solid var(--chumbo); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);">Otimista</th>
+        <th style="text-align:center; padding:12px 16px; border-bottom:2px solid var(--chumbo); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);">Bem</th>
+        <th style="text-align:center; padding:12px 16px; border-bottom:2px solid var(--chumbo); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);">Neutro</th>
+        <th style="text-align:center; padding:12px 16px; border-bottom:2px solid var(--chumbo); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);">Mal</th>
+        <th style="text-align:center; padding:12px 16px; border-bottom:2px solid var(--chumbo); font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);">Péssimo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:16px; border-bottom:1px solid rgba(28,33,39,.12); font-weight:700; color:var(--chumbo);">Antes</td>
+        <td style="text-align:center; padding:16px; border-bottom:1px solid rgba(28,33,39,.12);">19%</td>
+        <td style="text-align:center; padding:16px; border-bottom:1px solid rgba(28,33,39,.12);">25%</td>
+        <td style="text-align:center; padding:16px; border-bottom:1px solid rgba(28,33,39,.12);">40%</td>
+        <td style="text-align:center; padding:16px; border-bottom:1px solid rgba(28,33,39,.12);">5%</td>
+        <td style="text-align:center; padding:16px; border-bottom:1px solid rgba(28,33,39,.12);">11%</td>
+      </tr>
+      <tr>
+        <td style="padding:16px; font-weight:700; color:var(--chumbo);">Depois</td>
+        <td style="text-align:center; padding:16px;">38%</td>
+        <td style="text-align:center; padding:16px;">30%</td>
+        <td style="text-align:center; padding:16px;">14%</td>
+        <td style="text-align:center; padding:16px;">6%</td>
+        <td style="text-align:center; padding:16px;">12%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="slide" data-screen-label="Grafico intencao template 1" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a1f4b901">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; gap:48px; align-items:center; height:100%;">
+    <div style="width:38%; flex-shrink:0;">
+      <div class="eyebrow" style="color:var(--urucum); margin-bottom:16px;">VENDER NO INSTAGRAM</div>
+      <h1 style="font-weight:300; font-size:34px; line-height:1.3; margin:0; max-width:16ch;">A Ana é ótima!<br>Melhor treinamento da vida!</h1>
+    </div>
+    <div style="flex:1; height:520px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:24px;">
+      <p style="font-size:22px; line-height:1.4; text-align:center; margin:0; max-width:26ch; color:var(--grafite);">depois do curso</p><div style="font-size: 180px; font-weight: 900; line-height: 1; color: var(--urucum); font-variant-numeric: tabular-nums">68%</div>
+      <p style="font-size:22px; line-height:1.4; text-align:center; margin:0; max-width:26ch; color:var(--grafite);">ficaram animadas para contar histórias com dados</p>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Adaptado de um estudo de caso do livro <a class="ref-link" href="https://altabooks.com.br/produto/storytelling-com-dados-2/" target="_blank" style="color:var(--concreto);">Storytelling com Dados</a>, de Cole Nussbaumer Knaflic (Alta Books)</p>
+</section>
+
+<section class="slide" data-screen-label="Grafico intencao template 2" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a1f4b902">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; gap:48px; align-items:center; height:100%;">
+    <div style="width:38%; flex-shrink:0;">
+      <div class="eyebrow" style="color:var(--urucum); margin-bottom:16px;">POSITIVO MAS DETALHADO</div>
+      <h1 style="font-weight:300; font-size:34px; line-height:1.3; margin:0; max-width:16ch;">Após o treinamento, a maioria das pessoas se sentiu animada a contar histórias com dados</h1>
+    </div>
+    <div style="flex: 1; height: 520px; display: flex; flex-direction: column; justify-content: center; gap: 24px; position: relative">
+      <div style="display:flex; gap:16px; padding:0 24px;">
+        
+        
+      </div>
+      <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 280px; padding: 0 12px; position: relative">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="display:flex; align-items:flex-end; gap:6px; height:260px;">
+            <div style="width:34px; height:72px; background:var(--concreto); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">11%</span></div>
+            <div style="width:34px; height:78px; background:var(--indigo-200); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">12%</span></div>
+          </div>
+          <div style="font-size:13px; color:var(--grafite);">Péssimo</div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="display:flex; align-items:flex-end; gap:6px; height:260px;">
+            <div style="width:34px; height:33px; background:var(--concreto); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">5%</span></div>
+            <div style="width:34px; height:39px; background:var(--indigo-200); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">6%</span></div>
+          </div>
+          <div style="font-size:13px; color:var(--grafite);">Mal</div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="display:flex; align-items:flex-end; gap:6px; height:260px;">
+            <div style="width:34px; height:260px; background:var(--grafite); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">40%</span></div>
+            <div style="width:34px; height:91px; background:var(--indigo-200); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">14%</span></div>
+          </div>
+          <div style="font-size:13px; color:var(--grafite);">Neutro</div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="display:flex; align-items:flex-end; gap:6px; height:260px;">
+            <div style="width:34px; height:163px; background:var(--concreto); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">25%</span></div>
+            <div style="width:34px; height:195px; background:var(--indigo-600); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--indigo-600);">30%</span></div>
+          </div>
+          <div style="font-size:13px; color:var(--grafite);">Bem</div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="display:flex; align-items:flex-end; gap:6px; height:260px;">
+            <div style="width:34px; height:124px; background:var(--concreto); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--grafite);">19%</span></div>
+            <div style="width:34px; height:247px; background:var(--indigo-600); position:relative;"><span style="position:absolute; top:-20px; left:0; right:0; text-align:center; font-size:12px; font-weight:700; color:var(--indigo-600);">38%</span></div>
+          </div>
+          <div style="font-size:13px; color:var(--grafite);">Otimista</div>
+        </div>
+      <p style="flex: 1; margin: 0; font-size: 13px; line-height: 1.4; color: var(--grafite); font-style: italic; padding: 10px 12px; position: absolute; left: 42px; top: -5px; width: 239px; height: 45px; text-align: right"><b>ANTES</b>, o maior grupo era das pessoas neutras em relação ao assunto.</p></div>
+      <div style="display:flex; gap:24px; justify-content:center;">
+      </div>
+    <p style="flex: 1; margin: 0; font-size: 13px; line-height: 1.4; color: var(--indigo-600); font-style: italic; padding: 10px 12px; position: absolute; left: 412px; top: 81px; width: 165px; height: 47px; text-align: right"><b>DEPOIS</b>, os maiores grupos são os de sentimentos bons a respeito.</p></div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Adaptado de um estudo de caso do livro <a class="ref-link" href="https://altabooks.com.br/produto/storytelling-com-dados-2/" target="_blank" style="color:var(--concreto);">Storytelling com Dados</a>, de Cole Nussbaumer Knaflic (Alta Books)</p>
+</section>
+
+<section class="slide" data-screen-label="Grafico intencao template 3" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a1f4b903">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  
+<div style="display:flex; gap:48px; align-items:center; height:100%;">
+    <div style="width:38%; flex-shrink:0;">
+      <div class="eyebrow" style="color:var(--urucum); margin-bottom:16px;">DETALHADO CRÍTICO</div>
+      <h1 style="font-weight:300; font-size:34px; line-height:1.3; margin:0; max-width:16ch;">Apesar de ter aumentado as reações positivas, o mesmo aconteceu com as negativas.<br>Um indício de polarização.</h1>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:22px;">
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:60px; flex-shrink:0; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);">Antes</div>
+        <div style="flex:1; display:flex; height:48px; border-radius:8px; overflow:hidden;">
+          <div style="width:11%; background:var(--urucum); display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:700;">11%</div>
+          <div style="width: 5%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 700; background-color: var(--amarelo)">5%</div>
+          <div style="width:40%; background:var(--concreto); display:flex; align-items:center; justify-content:center; color:var(--chumbo); font-size:13px; font-weight:700;">40%</div>
+          <div style="width: 25%; display: flex; align-items: center; justify-content: center; color: var(--chumbo); font-size: 13px; font-weight: 700; background-color: var(--indigo-200)">25%</div>
+          <div style="width: 19%; display: flex; align-items: center; justify-content: center; color: var(--chumbo); font-size: 13px; font-weight: 700; background-color: var(--indigo-400)">19%</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div style="width:60px; flex-shrink:0; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--grafite);">Depois</div>
+        <div style="flex:1; display:flex; height:48px; border-radius:8px; overflow:hidden;">
+          <div style="width:12%; background:var(--urucum); display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:700;">12%</div>
+          <div style="width: 6%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px; font-weight: 700; background-color: var(--amarelo)">6%</div>
+          <div style="width:14%; background:var(--concreto); display:flex; align-items:center; justify-content:center; color:var(--chumbo); font-size:13px; font-weight:700;">14%</div>
+          <div style="width: 30%; display: flex; align-items: center; justify-content: center; color: var(--chumbo); font-size: 13px; font-weight: 700; background-color: var(--indigo-200)">30%</div>
+          <div style="width: 38%; display: flex; align-items: center; justify-content: center; color: var(--chumbo); font-size: 14px; font-weight: 700; background-color: var(--indigo-400)">38%</div>
+        </div>
+      </div>
+      <div style="display:flex; padding-left:76px;">
+        <div style="width:12%; text-align:center; font-size:13px; font-weight:700; color:var(--urucum);">Péssimo</div>
+        <div style="width:6%; text-align:center; font-size:13px; font-weight:700; color:var(--amarelo);">Mal</div>
+        <div style="width:14%; text-align:center; font-size:13px; font-weight:700; color:var(--concreto);">Neutro</div>
+        <div style="width:30%; text-align:center; font-size:13px; font-weight:700; color:var(--indigo-200);">Bem</div>
+        <div style="width:38%; text-align:center; font-size:13px; font-weight:700; color:var(--indigo-400);">Otimista</div>
+      </div>
+      <div style="display:flex; gap:6px; padding-left:76px;">
+        <p style="width: 220px; margin: 0; font-size: 16px; line-height: 1.3; color: var(--urucum); font-style: italic; padding: 6px; height: 89px">As reações <b>NEGATIVAS</b> aumentaram, ambas, ligeiramente</p>
+        <p style="width: 8px; margin: 0; padding: 6px; height: 121px; visibility: hidden"></p>
+        <p style="width: 8px; margin: 0; padding: 6px; height: 112px; visibility: hidden"></p>
+        <p style="width: 84px; margin: 0; padding: 6px; height: 112px; visibility: hidden"></p>
+        <p style="width: 222px; margin: 0; font-size: 16px; line-height: 1.3; color: var(--indigo-400); font-style: italic; padding: 6px; text-align: right; height: 107px">Os dois grupos positivos aumentaram, especialmente o <b>OTIMISTA</b>.</p>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Adaptado de um estudo de caso do livro <a class="ref-link" href="https://altabooks.com.br/produto/storytelling-com-dados-2/" target="_blank" style="color:var(--concreto);">Storytelling com Dados</a>, de Cole Nussbaumer Knaflic (Alta Books)</p>
+</section>
+
+<section class="slide" data-screen-label="Grafico intencao template 4" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a1f4b904">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; gap:48px; align-items:center; height:100%;">
+    <div style="width:38%; flex-shrink:0;">
+      <div class="eyebrow" style="color:var(--urucum); margin-bottom:16px;">MUDANÇA</div>
+      <h1 style="font-weight:300; font-size:34px; line-height:1.3; margin:0; max-width:16ch;">Poucas pessoas permaneceram neutras após o treinamento.</h1>
+    </div>
+    <div style="flex:1; display:flex; align-items:center; justify-content:center;">
+      <svg viewBox="0 0 600 530" style="width:480px; max-width:460px; height:460px;">
+        <text x="120" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="var(--grafite)" style="text-transform:uppercase; letter-spacing:.06em;">Antes</text>
+        <text x="480" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="var(--grafite)" style="text-transform:uppercase; letter-spacing:.06em;">Depois</text>
+        <line x1="120" y1="373" x2="480" y2="365" stroke="var(--concreto)" stroke-width="2.5"></line>
+        <line x1="120" y1="422" x2="480" y2="414" stroke="var(--concreto)" stroke-width="2.5"></line>
+        <line x1="120" y1="138" x2="480" y2="349" stroke="var(--urucum)" stroke-width="2.5"></line>
+        <line x1="120" y1="259" x2="480" y2="219" stroke="var(--grafite)" stroke-width="2.5"></line>
+        <line x1="120" y1="308" x2="480" y2="154" stroke="var(--grafite)" stroke-width="2.5"></line>
+        <circle cx="120" cy="373" r="6" fill="var(--concreto)"></circle>
+        <circle cx="120" cy="422" r="6" fill="var(--concreto)"></circle>
+        <circle cx="120" cy="138" r="6" fill="var(--urucum)"></circle>
+        <circle cx="120" cy="259" r="6" fill="var(--grafite)"></circle>
+        <circle cx="120" cy="308" r="6" fill="var(--grafite)"></circle>
+        <circle cx="480" cy="365" r="6" fill="var(--concreto)"></circle>
+        <circle cx="480" cy="414" r="6" fill="var(--concreto)"></circle>
+        <circle cx="480" cy="349" r="6" fill="var(--urucum)"></circle>
+        <circle cx="480" cy="219" r="6" fill="var(--grafite)"></circle>
+        <circle cx="480" cy="154" r="6" fill="var(--grafite)"></circle>
+        <text x="108" y="377" text-anchor="end" font-size="16" font-weight="700" fill="var(--concreto)">Péssimo · 11%</text>
+        <text x="108" y="426" text-anchor="end" font-size="16" font-weight="700" fill="var(--concreto)">Mal · 5%</text>
+        <text x="108" y="142" text-anchor="end" font-size="16" font-weight="700" fill="var(--urucum)">Neutro · 40%</text>
+        <text x="108" y="263" text-anchor="end" font-size="16" font-weight="700" fill="var(--grafite)">Bem · 25%</text>
+        <text x="108" y="312" text-anchor="end" font-size="16" font-weight="700" fill="var(--grafite)">Otimista · 19%</text>
+        <text x="492" y="369" font-size="16" font-weight="700" fill="var(--concreto)">Péssimo · 12%</text>
+        <text x="492" y="418" font-size="16" font-weight="700" fill="var(--concreto)">Mal · 6%</text>
+        <text x="492" y="353" font-size="16" font-weight="700" fill="var(--urucum)">Neutro · 14%</text>
+        <text x="492" y="223" font-size="16" font-weight="700" fill="var(--grafite)">Bem · 30%</text>
+        <text x="492" y="158" font-size="16" font-weight="700" fill="var(--grafite)">Otimista · 38%</text>
+      </svg>
+      
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Adaptado de um estudo de caso do livro <a class="ref-link" href="https://altabooks.com.br/produto/storytelling-com-dados-2/" target="_blank" style="color:var(--concreto);">Storytelling com Dados</a>, de Cole Nussbaumer Knaflic (Alta Books)</p>
+</section>
+
+<section class="slide" data-screen-label="17 Grafico como frase" style="padding:0; background:url('uploads/pasted-1788202342418-0.png') center/cover no-repeat, var(--chumbo); display:flex; align-items:flex-start; justify-content:center; padding-top:140px;" data-om-slide-id="24c18f2e">
+  <h1 style="font-weight: 700; font-size: 56px; line-height: 1; color: #fff; text-align: center; margin: 0; max-width: 26ch; font-style: italic">Se o meu gráfico fosse uma frase, o que ele diria?</h1>
+</section>
+
+<section class="slide" data-screen-label="17b Tres frases" style="padding:0; background:var(--gelo); color:var(--chumbo); display:flex;" data-om-slide-id="2c62a9b7">
+  <div style="width:50%; height:100%; background:var(--chumbo); display:flex; align-items:center; justify-content:center; padding:0 48px;">
+    <h2 style="font-weight:300; font-size:32px; line-height:1.35; color:#fff; text-align:center; margin:0; max-width:22ch;">temperatura global ao longo do tempo</h2>
+  </div>
+  <div style="width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; gap:20px; padding:0 56px;">
+    <div style="font-size:16px; line-height:1.5; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:8px; padding:16px 20px;"><strong>1.</strong> Mostrar que o comportamento é muito diferente do registro histórico de longa data, mesmo dos casos extremos.</div>
+    <div style="font-size:16px; line-height:1.5; background:rgba(240,78,68,.08); border:1px solid rgba(240,78,68,.3); border-radius:8px; padding:16px 20px;"><strong>2.</strong> Mostrar que existe consenso entre órgãos do mundo todo sobre o aumento da temperatura nos últimos 30 anos.</div>
+    <div style="font-size:16px; line-height:1.5; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:8px; padding:16px 20px;"><strong>3.</strong> Reforçar o contraste entre os desvios da temperatura para conscientizar sobre o comportamento recente.</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="18 Intencao exposicao precisao" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; align-items:center; justify-content:center; gap:48px;" data-om-slide-id="9672be05">
+  <div style="text-align:center;"></div>
+  <h2 style="font-weight: 300; font-size: 32px; margin: 0; color: var(--urucum)">precisão</h2><h2 style="font-weight: 300; font-size: 32px; margin: 0; color: var(--violeta)">exposição</h2><h2 style="font-weight: 300; font-size: 32px; margin: 0; color: var(--amarelo)">intenção</h2><div style="text-align:center; opacity:.5;"></div>
+  <div style="text-align:center; opacity:.5;"></div>
+</section>
+
+
+
+
+
+<section class="slide" data-screen-label="21 Precisao perceptual" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="97a1b512">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:24px;">QUAL PRECISÃO MINHA AUDIÊNCIA PRECISA TER DOS DADOS?</div>
+  <div style="display:flex; align-items:center; justify-content:center; gap:0; max-width:760px; margin:0 auto;">
+    <div style="flex:1; text-align:center; padding:0 32px;">
+      <div style="font-size:56px; font-weight:900; color:var(--chumbo); margin-bottom:8px;">A</div>
+      <div style="font-size:26px; font-weight:300; color:var(--chumbo); white-space:nowrap;">é <span style="background:var(--urucum); color:#fff; border-radius:0; padding:2px 10px;">menor</span> que</div>
+      <div style="font-size:56px; font-weight:900; color:var(--chumbo); margin-top:8px;">B</div>
+    </div>
+    <div style="width:1px; height:180px; background:rgba(28,33,39,.15);"></div>
+    <div style="flex:1; text-align:center; padding:0 32px;">
+      <div style="font-size:56px; font-weight:900; color:var(--chumbo); margin-bottom:8px;">A</div>
+      <div style="font-size:26px; font-weight:300; color:var(--chumbo); white-space:nowrap;">é <span style="background:var(--urucum); color:#fff; border-radius:0; padding:2px 10px;">metade</span> de</div>
+      <div style="font-size:56px; font-weight:900; color:var(--chumbo); margin-top:8px;">B</div>
+    </div>
+  </div>
+</section><section class="slide" data-screen-label="21 Precisao perceptual" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:flex-start;" data-om-slide-id="ca4a472b">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color: var(--urucum); margin:56px 0 24px;">QUAL PRECISÃO MINHA AUDIÊNCIA PRECISA TER DOS DADOS?</div>
+  <div style="display:flex; align-items:flex-start; gap:6px; flex-shrink:0;">
+    <div style="flex:1; text-align:center; background:{{ colBg0 }}; border-radius:8px; padding:6px 0;">
+      <div style="font-size:14px; color:var(--chumbo); margin-bottom:14px;">contagem</div>
+      <div style="display:flex; gap:6px; justify-content:center; height:56px;">
+        <div style="display:flex; flex-direction:column; gap:6px;"><div style="width:20px; height:20px; background:var(--concreto);"></div><div style="width:20px; height:20px; background:var(--concreto);"></div><div style="width:20px; height:20px; background:var(--concreto);"></div></div>
+        <div style="display:flex; flex-direction:column; gap:6px; margin-top:20px;"><div style="width:20px; height:20px; background:var(--urucum);"></div><div style="width:20px; height:20px; background:var(--urucum);"></div></div>
+      </div>
+    </div>
+    <div style="flex:1; text-align:center;">
+      <div style="font-size:14px; color:var(--chumbo); margin-bottom:14px;">comp. relativo</div>
+      <div style="display:flex; gap:6px; justify-content:center; align-items:flex-end; height:56px;">
+        <div style="width:20px; height:56px; background:var(--concreto);"></div>
+        <div style="width:20px; height:38px; background:var(--urucum);"></div>
+      </div>
+    </div>
+    <div style="flex:1; text-align:center; background:{{ colBg2 }}; border-radius:8px; padding:6px 0;">
+      <div style="font-size:14px; color:var(--chumbo); margin-bottom:14px;">comprimento</div>
+      <div style="display:flex; gap:6px; justify-content:center; align-items:flex-end; height:56px;">
+        <div style="width:20px; height:44px; background:var(--concreto);"></div>
+        <div style="width: 20px; height: 26px; background: var(--urucum); z-index: 20; position: relative; top: -30px"></div>
+      </div>
+    </div>
+    <div style="flex:1; text-align:center; background:{{ colBg3 }}; border-radius:8px; padding:6px 0;">
+      <div style="font-size:14px; color:var(--chumbo); margin-bottom:14px;">área</div>
+      <div style="display:flex; align-items:flex-end; justify-content:center; gap:4px; height:56px;">
+        <div style="width:48px; height:48px; border-radius:50%; background:var(--concreto);"></div>
+        <div style="width:24px; height:24px; border-radius:50%; background:var(--urucum); margin-bottom:10px;"></div>
+      </div>
+    </div>
+    <div style="flex:1; text-align:center;">
+      <div style="font-size:14px; color:var(--chumbo); margin-bottom:14px;">ângulo</div>
+      <div style="display:flex; align-items:center; justify-content:center; gap:8px; height:56px;">
+        <div style="width:2px; height:56px; background:var(--concreto); transform:rotate(15deg);"></div>
+        <div style="width:2px; height:44px; background:var(--urucum); transform:rotate(35deg);"></div>
+      </div>
+    </div>
+    <div style="flex:1; text-align:center; background:{{ colBg5 }}; border-radius:8px; padding:6px 0;">
+      <div style="font-size:14px; color:var(--chumbo); margin-bottom:14px;">intensidade</div>
+      <div style="display:grid; grid-template-columns:repeat(2,20px); gap:6px; justify-content:center; height:56px; align-content:center;">
+        <div style="width:20px; height:20px; background:rgba(28,33,39,.08);"></div><div style="width:20px; height:20px; background:var(--urucum);"></div>
+        <div style="width:20px; height:20px; background:rgba(240,78,68,.35);"></div><div style="width:20px; height:20px; background:rgba(240,78,68,.7);"></div>
+      </div>
+    </div>
+    <div style="flex:1; text-align:center; background:{{ colBg6 }}; border-radius:8px; padding:6px 0;">
+      <div style="font-size:14px; color:var(--chumbo); margin-bottom:14px;">cor</div>
+      <div style="display:grid; grid-template-columns:repeat(2,20px); gap:6px; justify-content:center; height:56px; align-content:center;">
+        <div style="width:20px; height:20px; background:var(--urucum);"></div><div style="width: 20px; height: 20px; background-color: var(--violeta)"></div>
+        <div style="width: 20px; height: 20px; background-color: var(--indigo-600)"></div><div style="width: 20px; height: 20px; background-color: var(--chumbo)"></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative; height:2px; background:var(--chumbo); margin:28px 0 12px; flex-shrink:0;">
+    <div style="position:absolute; left:-2px; top:50%; transform:translateY(-50%) rotate(45deg); width:8px; height:8px; border-left:2px solid var(--chumbo); border-bottom:2px solid var(--chumbo);"></div>
+    <div style="position:absolute; right:-2px; top:50%; transform:translateY(-50%) rotate(-135deg); width:8px; height:8px; border-left:2px solid var(--chumbo); border-bottom:2px solid var(--chumbo);"></div>
+  </div>
+  <div style="display:flex; justify-content:space-between; font-size:15px; font-style:italic; font-weight:700; color:var(--grafite); flex-shrink:0;"><span>mais preciso</span><span>menos preciso</span></div>
+
+  <sc-if value="{{ !exampleOpen }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex; justify-content:center; margin-top:28px;">
+      <button onClick="{{ openExample }}" style="background:var(--urucum); color:#fff; border:none; border-radius:999px; padding:12px 26px; font-size:14px; font-weight:700; cursor:pointer;">acessar exemplo</button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ exampleOpen }}" hint-placeholder-val="{{ false }}">
+    <svg viewBox="0 0 1136 70" style="width:100%; height:70px; margin-top:4px; overflow:visible;">
+      <path d="{{ arcsPath }}" fill="none" stroke="var(--urucum)" stroke-width="2" opacity=".5"></path>
+      <sc-for list="{{ arcPoints }}" as="p" hint-placeholder-count="5">
+        <circle cx="{{ p.x }}" cy="0" r="{{ p.r }}" fill="{{ p.fill }}"></circle>
+      </sc-for>
+    </svg>
+    <div style="display:flex; align-items:center; justify-content:center; gap:24px; margin-top:8px;">
+      <button onClick="{{ prevStep }}" style="background:none; border:none; font-size:22px; cursor:pointer; color:var(--chumbo);">←</button>
+      <div style="width:190px; height:190px; background:#fff; border-radius:16px; box-shadow:0 12px 30px rgba(28,33,39,.12); display:flex; align-items:center; justify-content:center; gap:32px;">
+        <sc-if value="{{ isArea }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex; align-items:center; gap:20px;"><div style="width:24px; height:24px; border-radius:50%; background:var(--urucum);"></div><div style="width:72px; height:72px; border-radius:50%; background:var(--urucum);"></div></div>
+        </sc-if>
+        <sc-if value="{{ isLength }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; align-items:center; gap:20px;"><div style="width:24px; height:24px; background:var(--urucum);"></div><div style="width:72px; height:72px; background:var(--urucum);"></div></div>
+        </sc-if>
+        <sc-if value="{{ isCount }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; align-items:center; gap:20px;">
+            <div style="width:24px; height:24px; background:var(--urucum);"></div>
+            <div style="display:grid; grid-template-columns:repeat(3,22px); gap:4px;"><sc-for list="{{ nineDots }}" as="d" hint-placeholder-count="9"><div style="width:22px; height:22px; background:var(--urucum);"></div></sc-for></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isIntensity }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; gap:16px;"><div style="width:64px; height:64px; background:rgba(240,78,68,.15);"></div><div style="width:64px; height:64px; background:rgba(240,78,68,1);"></div></div>
+        </sc-if>
+        <sc-if value="{{ isColor }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; gap:16px;"><div style="width:64px; height:64px; background:var(--urucum);"></div><div style="width:64px; height:64px; background:var(--indigo-400);"></div></div>
+        </sc-if>
+      </div>
+      <button onClick="{{ nextStepEx }}" style="background:none; border:none; font-size:22px; cursor:pointer; color:var(--chumbo);">→</button>
+    </div>
+  </sc-if>
+</section>
+
+<section class="slide" data-screen-label="20 Exploratorio insight" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px;" data-om-slide-id="ca5c2453">
+  <div class="eyebrow" style="color:var(--urucum);">qual o tipo de exposição que a audiência precisa?</div>
+  <div style="display:flex; gap:24px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+      <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:24px 40px; text-align:center; font-weight:600;">Exploratório</div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; max-width:280px;">
+        <span style="border:1px solid rgba(28,33,39,.2); border-radius:20px; padding:6px 16px; font-size:13px; color:var(--grafite);">contemplativo</span>
+        <span style="border:1px solid rgba(28,33,39,.2); border-radius:20px; padding:6px 16px; font-size:13px; color:var(--grafite);">curioso</span>
+        <span style="border:1px solid rgba(28,33,39,.2); border-radius:20px; padding:6px 16px; font-size:13px; color:var(--grafite);">interativo</span>
+        <span style="border:1px solid rgba(28,33,39,.2); border-radius:20px; padding:6px 16px; font-size:13px; color:var(--grafite);">input</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+      <div style="background:var(--urucum); color:#fff; border-radius:12px; padding:24px 40px; text-align:center; font-weight:600;">Insight</div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; max-width:280px;">
+        <span style="border:1px solid rgba(240,78,68,.4); border-radius:20px; padding:6px 16px; font-size:13px; color:var(--urucum);">na cara</span>
+        <span style="border:1px solid rgba(240,78,68,.4); border-radius:20px; padding:6px 16px; font-size:13px; color:var(--urucum);">passo-a-passo</span>
+        <span style="border:1px solid rgba(240,78,68,.4); border-radius:20px; padding:6px 16px; font-size:13px; color:var(--urucum);">destaque</span>
+      </div>
+    </div>
+  </div>
+</section><section class="slide" data-screen-label="19 8 intencoes" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a7b75b88">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:24px;">qual a intenção do meu gráfico?</div>
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px;">
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Mudança no tempo</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Comparação de magnitude</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Composição</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Ranking</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Desvio</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Correlação</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Fluxo</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); justify-content:center;">Distribuição</span>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="17b Tres frases (interativo)" style="padding:0; background:var(--gelo); color:var(--chumbo); display:flex; position:relative;" data-om-slide-id="2fa654d7">
+  <div style="position:absolute; top:28px; right:64px; z-index:2; display:inline-flex; align-items:center; gap:6px; padding:6px 13px; border-radius:999px; background:rgba(240,240,240,.15); border:1px solid rgba(240,240,240,.35); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff;">↗ clique nas frases</div>
+  <div style="width:50%; height:100%; background:var(--chumbo); display:flex; align-items:center; justify-content:center; padding:0 48px; position:relative; overflow:hidden;">
+    <sc-if value="{{ !activeFraseImg }}" hint-placeholder-val="{{ true }}">
+      <h2 style="font-weight:300; font-size:32px; line-height:1.35; color:#fff; text-align:center; margin:0; max-width:22ch;">temperatura global ao longo do tempo</h2>
+    </sc-if>
+    <sc-if value="{{ activeFraseImg }}" hint-placeholder-val="{{ false }}">
+      <img src="{{ activeFraseImg }}" alt="Gráfico correspondente" style="width:100%; height:100%; object-fit:contain; padding:24px;">
+    </sc-if>
+  </div>
+  <div style="width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; gap:20px; padding:0 56px;">
+    <div onClick="{{ selectFrase0 }}" style="cursor:pointer; font-size:16px; line-height:1.5; background:{{ frase0Bg }}; border:1px solid {{ frase0Border }}; border-radius:8px; padding:16px 20px;"><strong>1.</strong> Mostrar que o comportamento é muito diferente do registro histórico de longa data, mesmo dos casos extremos.</div>
+    <div onClick="{{ selectFrase1 }}" style="cursor:pointer; font-size:16px; line-height:1.5; background:{{ frase1Bg }}; border:1px solid {{ frase1Border }}; border-radius:8px; padding:16px 20px;"><strong>2.</strong> Mostrar que existe consenso entre órgãos do mundo todo sobre o aumento da temperatura nos últimos 30 anos.</div>
+    <div onClick="{{ selectFrase2 }}" style="cursor:pointer; font-size:16px; line-height:1.5; background:{{ frase2Bg }}; border:1px solid {{ frase2Border }}; border-radius:8px; padding:16px 20px;"><strong>3.</strong> Reforçar o contraste entre os desvios da temperatura para conscientizar sobre o comportamento recente.</div>
+  </div>
+</section><section class="slide" data-screen-label="Warming stripes" style="padding:0; background:#000; display:flex; flex-direction:column; align-items:center; justify-content:center; height:720px; box-sizing:border-box; overflow:hidden;" data-om-slide-id="a8f5fff0">
+  <img src="uploads/pasted-1788211130811-0.png" alt="Global temperature change (1850-2022) — warming stripes" style="width:100%; flex:1; min-height:0; object-fit:contain;">
+  <a class="ref-link" href="https://www.britannica.com/science/climate-stripes" target="_blank" style="flex-shrink:0; font-size:12px; color:rgba(240,240,240,.6); padding:16px 0;">Fonte: Britannica, "Climate stripes" →</a>
+</section>
+
+<section class="slide" data-screen-label="Pausa" style="padding:64px 72px; background:var(--urucum); color:var(--white); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center;" data-om-slide-id="23b03110">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">PAUSA!</h2>
+  <h2 style="font-weight:700; font-size:34px; margin:0; max-width:36ch;"><br></h2>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Mudança no tempo" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomMudancaClick }}" data-om-slide-id="225d5e66">
+  <image-slot id="mosaic-mudanca-tempo-full" src="assets/images/mosaic-mudanca-tempo.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-mudanca-tempo-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Mudança no tempo</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Comparação de magnitude" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomComparacaoClick }}" data-om-slide-id="c7d9c32d">
+  <image-slot id="mosaic-comparacao-magnitude-full" src="assets/images/mosaic-comparacao-magnitude.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-comparacao-magnitude-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Comparação de magnitude</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Composição" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomComposicaoClick }}" data-om-slide-id="a1e97a88">
+  <image-slot id="mosaic-composicao-full" src="assets/images/mosaic-composicao.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-composicao-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Composição</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Gráfico de pizza" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="e7a4c19b">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:34px; margin:0 0 28px; max-width:24ch; color:var(--gelo);">Gráfico de pizza</h1>
+  <div style="display:flex; gap:32px; align-items:stretch;">
+    <div style="display:flex; flex-direction:column; gap:12px; width:220px; flex-shrink:0;">
+      <div onClick="{{ pizzaClick0 }}" style="cursor:pointer; flex:1; display:flex; align-items:center; justify-content:center; background:{{ pizzaBg0 }}; border:1px solid {{ pizzaBorder0 }}; border-radius:12px; padding:20px 14px; text-align:center;"><div style="font-size:16px; font-weight:700; letter-spacing:.04em; color:var(--gelo);">THE GOOD</div></div>
+      <div onClick="{{ pizzaClick1 }}" style="cursor:pointer; flex:1; display:flex; align-items:center; justify-content:center; background:{{ pizzaBg1 }}; border:1px solid {{ pizzaBorder1 }}; border-radius:12px; padding:20px 14px; text-align:center;"><div style="font-size:16px; font-weight:700; letter-spacing:.04em; color:var(--gelo);">THE BAD</div></div>
+      <div onClick="{{ pizzaClick2 }}" style="cursor:pointer; flex:1; display:flex; align-items:center; justify-content:center; background:{{ pizzaBg2 }}; border:1px solid {{ pizzaBorder2 }}; border-radius:12px; padding:20px 14px; text-align:center;"><div style="font-size:16px; font-weight:700; letter-spacing:.04em; color:var(--gelo);">THE UGLY</div></div>
+    </div>
+    <div style="width:884px; height:480px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:rgba(240,240,240,.05); border:1px solid rgba(240,240,240,.18); border-radius:12px; padding:16px; box-sizing:border-box; overflow:hidden;">
+      <sc-if value="{{ pizzaImgSrc }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; gap:12px; align-items:center; justify-content:center; height:100%; width:100%;">
+          <img src="{{ pizzaImgSrc }}" alt="{{ pizzaImgAlt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+          <sc-if value="{{ pizzaImg2Src }}" hint-placeholder-val="{{ false }}">
+            <img src="{{ pizzaImg2Src }}" alt="{{ pizzaImg2Alt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+          </sc-if>
+        </div>
+      </sc-if>
+      <sc-if value="{{ pizzaImgEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px; color:var(--concreto); text-align:center; max-width:30ch;">Clique em uma categoria para ver um exemplo.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Ranking" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomRankingClick }}" data-om-slide-id="9b8d64de">
+  <image-slot id="mosaic-ranking-full" src="assets/images/mosaic-ranking.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-ranking-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Ranking</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Desvio" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomDesvioClick }}" data-om-slide-id="2322d943">
+  <image-slot id="mosaic-desvio-full" src="assets/images/mosaic-desvio.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-desvio-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Desvio</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Correlação" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomCorrelacaoClick }}" data-om-slide-id="b4140f64">
+  <image-slot id="mosaic-correlacao-full" src="assets/images/mosaic-correlacao.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-correlacao-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Correlação</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Fluxo" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomFluxoClick }}" data-om-slide-id="128758c3">
+  <image-slot id="mosaic-fluxo-full" src="assets/images/mosaic-fluxo.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-fluxo-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Fluxo</div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="Intenção: Distribuição" style="padding:0; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; cursor:zoom-in;" onClick="{{ zoomDistribuicaoClick }}" data-om-slide-id="5db18baf">
+  <image-slot id="mosaic-distribuicao-full" src="assets/images/mosaic-distribuicao.png" shape="rect" placeholder="Print" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+  <button class="zoom-btn" data-zoom-id="mosaic-distribuicao-full" onClick="{{ handleZoom }}" aria-label="Ampliar imagem" style="z-index:2;">⤢</button>
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Distribuição</div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section class="slide" data-screen-label="17 Grafico como frase" style="padding:0; background:url('uploads/pasted-1788202342418-0.png') center/cover no-repeat, var(--chumbo); display:flex; align-items:flex-start; justify-content:center; padding-top:140px;" data-om-slide-id="86362376">
+  <h1 style="font-weight: 700; font-size: 56px; line-height: 1; color: #fff; text-align: center; margin: 0; max-width: 26ch; font-style: italic">Se o meu gráfico fosse uma frase, o que ele diria?</h1>
+</section><section class="slide" data-screen-label="26 Intervalo" style="padding:64px 72px; background:var(--urucum); color:var(--white); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center;" data-om-slide-id="0d6738dc">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">EXERCÍCIO!</h2>
+  <h2 style="font-weight:700; font-size:26px; margin:0; max-width:44ch; line-height:1.4;">Vamos retomar a nossa história de ontem e pensar quais os conceitos que queremos expressar através de gráficos.<br><br>Escreva as frases e, a partir delas, tome decisões sobre como representar visualmente os dados.</h2>
+</section>
+
+
+
+
+
+
+
+
+
+<section class="slide" data-screen-label="31 Section design" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; text-align:center;" data-om-slide-id="4bfe180f">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:40px; margin:0; max-width:30ch;">Há muito mais que dados em uma visualização de dados</h1>
+  <p style="font-size:19px; color:var(--concreto); margin:0; max-width:44ch;">O mínimo de design que todo mundo precisa saber, e boas práticas na hora de fazer gráficos.</p>
+</section>
+
+<section class="slide" data-screen-label="FT teens 1" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center;" data-om-slide-id="bff903ca">
+  <img src="assets/images/ft-teens-friends-1.png" alt="The share of US teens who only meet up with friends once a month or less" style="width:100%; height:100%; object-fit:contain;">
+</section>
+
+<section class="slide" data-screen-label="FT teens 2" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center;" data-om-slide-id="52cffa7a">
+  <img src="assets/images/ft-teens-friends-2.png" alt="The share of US teens who only meet up with friends once a month or less, smartphone era highlighted" style="width:100%; height:100%; object-fit:contain;">
+</section>
+
+
+
+<section class="slide" data-screen-label="31b Quote Burn-Murdoch" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:center; gap:24px;" data-om-slide-id="f74a5654">
+  <blockquote style="font-family:var(--font-sans); font-size:32px; font-weight:300; line-height:1.3; letter-spacing:-0.01em; margin:0; max-width:44ch;">Textos e anotações acrescentam enorme valor para pessoas que "não são de gráficos", agindo como guia ao mostrar qual mensagem o gráfico está comunicando, e preparando o terreno para a exploração.</blockquote>
+  <figcaption style="font-style:normal; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:var(--concreto);">JOHN BURN-MURDOCH, CHIEF DATA REPORTER NO FINANCIAL TIMES, NO OUTLIER 2023</figcaption>
+  
+</section>
+
+<section class="slide" data-screen-label="31c Section gestalt" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="174cab20">
+  <div class="eyebrow" style="color:var(--urucum); position:absolute; top:64px; left:72px;">um pouco de design</div>
+  <div style="max-width:56ch;">
+    <div style="display:flex; align-items:baseline; gap:16px; margin-bottom:20px;">
+      <h1 style="font-weight:300; font-size:56px; margin:0;">gestalt</h1>
+      <span style="font-size:17px; font-style:italic; color:var(--concreto);">substantivo, psicologia</span>
+    </div>
+    <p style="font-size:22px; font-weight:300; line-height:1.5; margin:0 0 16px; color:var(--gelo);">Princípios da Gestalt são leis da psicologia da percepção que explicam como o cérebro humano organiza elementos visuais em um todo coerente, em vez de ver apenas partes isoladas.</p>
+    <p style="font-size:12px; color:var(--concreto); margin:0;">Fonte: <a class="ref-link" href="https://gestalt.com.br/institucional/gestalt-terapia/" target="_blank" style="color:var(--concreto);">gestalt.com.br</a></p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31d Principios gestalt" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="b2976a7b">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:24px;">princípios da gestalt</div>
+  <div style="display:flex; gap:32px; align-items:stretch;">
+    <div style="display:flex; flex-direction:column; gap:12px; width:220px; flex-shrink:0;">
+      <div onClick="{{ gestaltClick0 }}" style="cursor:pointer; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; background:{{ gestaltBg0 }}; border:1px solid {{ gestaltBorder0 }}; border-radius:12px; padding:16px 14px; text-align:center;"><div style="display:flex; justify-content:center; gap:5px; margin-bottom:10px;"><div style="width:9px; height:9px; border-radius:50%; background:var(--chumbo);"></div><div style="width:9px; height:9px; border-radius:50%; background:var(--chumbo);"></div><div style="width:9px; height:9px; border-radius:50%; background:var(--chumbo); margin-left:8px;"></div><div style="width:9px; height:9px; border-radius:50%; background:var(--chumbo);"></div></div><div style="font-size:13px; font-weight:700;">proximidade</div></div>
+      <div onClick="{{ gestaltClick1 }}" style="cursor:pointer; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; background:{{ gestaltBg1 }}; border:1px solid {{ gestaltBorder1 }}; border-radius:12px; padding:16px 14px; text-align:center;"><div style="display:flex; justify-content:center; gap:5px; margin-bottom:10px;"><div style="width:9px; height:9px; border-radius:50%; background:var(--urucum);"></div><div style="width:9px; height:9px; background:var(--chumbo);"></div><div style="width:9px; height:9px; border-radius:50%; background:var(--urucum);"></div><div style="width:9px; height:9px; background:var(--chumbo);"></div></div><div style="font-size:13px; font-weight:700;">similaridade</div></div>
+      <div onClick="{{ gestaltClick2 }}" style="cursor:pointer; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; background:{{ gestaltBg2 }}; border:1px solid {{ gestaltBorder2 }}; border-radius:12px; padding:16px 14px; text-align:center;"><div style="display:flex; justify-content:center; align-items:center; margin-bottom:10px;"><div style="width:30px; height:30px; border-radius:50%; border:2px solid var(--chumbo); display:flex; align-items:center; justify-content:center;"><div style="width:12px; height:12px; border-radius:50%; background:var(--chumbo);"></div></div></div><div style="font-size:13px; font-weight:700;">acercamento</div></div>
+      <div onClick="{{ gestaltClick3 }}" style="cursor:pointer; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; background:{{ gestaltBg3 }}; border:1px solid {{ gestaltBorder3 }}; border-radius:12px; padding:16px 14px; text-align:center;"><div style="display:flex; justify-content:center; align-items:center; gap:0; margin-bottom:10px;"><div style="width:9px; height:9px; border-radius:50%; background:var(--chumbo);"></div><div style="width:24px; height:1px; background:var(--chumbo);"></div><div style="width:9px; height:9px; border-radius:50%; background:var(--chumbo);"></div></div><div style="font-size:13px; font-weight:700;">conexão</div></div>
+      <div onClick="{{ gestaltClick4 }}" style="cursor:pointer; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; background:{{ gestaltBg4 }}; border:1px solid {{ gestaltBorder4 }}; border-radius:12px; padding:16px 14px; text-align:center;"><div style="display:flex; justify-content:center; margin-bottom:10px;"><div style="width:26px; height:26px; border-radius:50%; border:2px dashed var(--chumbo);"></div></div><div style="font-size:13px; font-weight:700;">fechamento e continuidade</div></div>
+    </div>
+    <div style="width:884px; height:480px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; box-sizing:border-box; overflow:hidden;">
+      <sc-if value="{{ gestaltImgSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ gestaltImgSrc }}" alt="{{ gestaltImgAlt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+      </sc-if>
+      <sc-if value="{{ gestaltImgEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px; color:var(--concreto); text-align:center; max-width:30ch;">Clique em um princípio para ver um exemplo.</p>
+      </sc-if>
+    </div>
+  </div>
+</section><section class="slide" data-screen-label="Section dicas hoje" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; align-items:center; justify-content:center;" data-om-slide-id="f42c3541">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:52px; text-align:center; margin:0; max-width:22ch;">Dicas para usar <span style="color: var(--urucum); font-weight: 700">hoje</span> mesmo</h1>
+</section>
+
+
+
+
+
+<section class="slide" data-screen-label="31f Dicas titulos" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a1a8b353">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:20px;">títulos</div>
+  <div style="display:flex; gap:40px; align-items:flex-end;">
+    <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; font-size:19px; color:var(--grafite); width:380px; flex-shrink:0;">
+      <li onClick="{{ tituloClick0 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ tituloBg0 }}; color:{{ tituloColor0 }};">Conduza o olhar com o tamanho de fonte.</li>
+      <li onClick="{{ tituloClick1 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ tituloBg1 }}; color:{{ tituloColor1 }};">Formule para ser legível.</li>
+      <li onClick="{{ tituloClick2 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ tituloBg2 }}; color:{{ tituloColor2 }};">Se o título é a primeira coisa vista, não desperdice! Aproveite para expor o insight...</li>
+      <li onClick="{{ tituloClick3 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ tituloBg3 }}; color:{{ tituloColor3 }};">...ou deixar a audiência curiosa.</li>
+    </ul>
+    <div style="width:600px; height:420px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; box-sizing:border-box; overflow:hidden;">
+      <sc-if value="{{ tituloImgSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ tituloImgSrc }}" alt="{{ tituloImgAlt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+      </sc-if>
+      <sc-if value="{{ tituloImgEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px; color:var(--concreto); text-align:center; max-width:26ch;">Clique em uma dica para ver um exemplo.</p>
+      </sc-if>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Fonte: exemplos próprios e <a class="ref-link" href="https://www.datawrapper.de/blog/text-in-data-visualizations" target="_blank" style="color:var(--concreto);">Datawrapper, "Text in data visualizations"</a></p>
+</section>
+
+<section class="slide" data-screen-label="31g Dicas rotulos" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="456e52a0">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:20px;">rótulos</div>
+  <div style="display:flex; gap:40px; align-items:flex-end;">
+    <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; font-size:19px; color:var(--grafite); width:380px; flex-shrink:0;">
+      <li onClick="{{ rotuloClick0 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ rotuloBg0 }}; color:{{ rotuloColor0 }};">Relembre o que as pessoas estão vendo.</li>
+      <li onClick="{{ rotuloClick1 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ rotuloBg1 }}; color:{{ rotuloColor1 }};">Garanta legibilidade.</li>
+      <li onClick="{{ rotuloClick2 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ rotuloBg2 }}; color:{{ rotuloColor2 }};">Atenção com a formatação dos números.</li>
+      <li onClick="{{ rotuloClick3 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ rotuloBg3 }}; color:{{ rotuloColor3 }};">Não faça as pessoas terem torcicolo.</li>
+    </ul>
+    <div style="width:600px; height:420px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; box-sizing:border-box; overflow:hidden;">
+      <sc-if value="{{ rotuloImgSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ rotuloImgSrc }}" alt="{{ rotuloImgAlt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+      </sc-if>
+      <sc-if value="{{ rotuloImgEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px; color:var(--concreto); text-align:center; max-width:26ch;">Clique em uma dica para ver um exemplo.</p>
+      </sc-if>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Fonte: exemplos próprios e <a class="ref-link" href="https://www.datawrapper.de/blog/text-in-data-visualizations" target="_blank" style="color:var(--concreto);">Datawrapper, "Text in data visualizations"</a></p>
+</section>
+
+<section class="slide" data-screen-label="31h Eixos" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="3c65d2dc">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:20px;">eixos</div>
+  <div style="display:flex; gap:40px; align-items:flex-end;">
+    <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; font-size:19px; color:var(--grafite); width:380px; flex-shrink:0;">
+      <li onClick="{{ eixoClick0 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ eixoBg0 }}; color:{{ eixoColor0 }};">Barras começam em zero!</li>
+      <li onClick="{{ eixoClick1 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ eixoBg1 }}; color:{{ eixoColor1 }};">Não faça as pessoas terem torcicolo (2).</li>
+      <li onClick="{{ eixoClick2 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ eixoBg2 }}; color:{{ eixoColor2 }};">Não exagere na quantidade de divisões.</li>
+      <li onClick="{{ eixoClick3 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ eixoBg3 }}; color:{{ eixoColor3 }};">Precisa mesmo de rótulos e eixos?</li>
+      <li onClick="{{ eixoClick4 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ eixoBg4 }}; color:{{ eixoColor4 }};">Respeite a lógica do que é categórico e do que é sequencial.</li>
+    </ul>
+    <div style="width:600px; height:420px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; box-sizing:border-box; overflow:hidden;">
+      <sc-if value="{{ eixoImgSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ eixoImgSrc }}" alt="{{ eixoImgAlt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+      </sc-if>
+      <sc-if value="{{ eixoImgEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px; color:var(--concreto); text-align:center; max-width:26ch;">Clique em uma dica para ver um exemplo.</p>
+      </sc-if>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Fonte: exemplos próprios e <a class="ref-link" href="https://www.datawrapper.de/blog/text-in-data-visualizations" target="_blank" style="color:var(--concreto);">Datawrapper, "Text in data visualizations"</a></p>
+</section>
+
+<section class="slide" data-screen-label="31i Legendas" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="75e89eac">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:20px;">legendas</div>
+  <div style="display:flex; gap:40px; align-items:flex-end;">
+    <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; font-size:19px; color:var(--grafite); width:380px; flex-shrink:0;">
+      <li onClick="{{ legendaClick0 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ legendaBg0 }}; color:{{ legendaColor0 }};">Sempre que possível, legende diretamente.</li>
+      <li onClick="{{ legendaClick1 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ legendaBg1 }}; color:{{ legendaColor1 }};">Formule para ser legível.</li>
+    </ul>
+    <div style="width:600px; height:420px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; box-sizing:border-box; overflow:hidden;">
+      <sc-if value="{{ legendaImgSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ legendaImgSrc }}" alt="{{ legendaImgAlt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+      </sc-if>
+      <sc-if value="{{ legendaEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px; color:var(--concreto); text-align:center; max-width:26ch;">Clique em uma dica para ver um exemplo.</p>
+      </sc-if>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Fonte: exemplos próprios e <a class="ref-link" href="https://www.datawrapper.de/blog/text-in-data-visualizations" target="_blank" style="color:var(--concreto);">Datawrapper, "Text in data visualizations"</a></p>
+</section>
+
+<section class="slide" data-screen-label="31i2 Anotacoes" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="f1f29f01">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:20px;">anotações</div>
+  <div style="display:flex; gap:40px; align-items:flex-end;">
+    <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; font-size:19px; color:var(--grafite); width:380px; flex-shrink:0;">
+      <li onClick="{{ anotacaoClick0 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ anotacaoBg0 }}; color:{{ anotacaoColor0 }};">Textuais.</li>
+      <li onClick="{{ anotacaoClick1 }}" style="cursor:pointer; padding:10px 12px; border-radius:8px; background:{{ anotacaoBg1 }}; color:{{ anotacaoColor1 }};">Visuais.</li>
+    </ul>
+    <div style="width:600px; height:420px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; box-sizing:border-box; overflow:hidden;">
+      <sc-if value="{{ anotacaoImgSrc }}" hint-placeholder-val="{{ false }}">
+        <img src="{{ anotacaoImgSrc }}" alt="{{ anotacaoImgAlt }}" style="display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; border-radius:8px;">
+      </sc-if>
+      <sc-if value="{{ anotacaoEmpty }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15px; color:var(--concreto); text-align:center; max-width:26ch;">Clique em uma dica para ver um exemplo.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31i Section pathos" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; text-align:center;" data-om-slide-id="15c77e27">
+  <h1 style="font-weight:300; font-size:38px; margin:0; max-width:26ch;">Como acrescentar <span style="color:var(--urucum); font-weight:600;">pathos</span> nas visualizações?</h1>
+  <div style="display:flex; gap:14px;">
+    <span class="tagchip" style="background:rgba(240,240,240,.1); color:var(--gelo);">forma</span>
+    <span class="tagchip" style="background:rgba(240,240,240,.1); color:var(--gelo);">cor</span>
+    <span class="tagchip" style="background:rgba(240,240,240,.1); color:var(--gelo);">objeto</span>
+    <span class="tagchip" style="background:rgba(240,240,240,.1); color:var(--gelo);">metáfora</span>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31j Psicologia das formas" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="c3985915">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; gap:8px; margin-bottom:20px;">
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">forma</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">cor</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">objeto</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">metáfora</span>
+  </div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:24px;">psicologia das formas</div>
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;">
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:24px; text-align:center;"><div style="width:40px; height:40px; background:var(--chumbo); margin:0 auto 16px;"></div><div style="font-size:13px; font-weight:700; margin-bottom:8px;">QUADRADO</div><p style="font-size:12px; color:var(--grafite); margin:0;">Ordem, base, conformidade, estável, estrutura...</p></div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:24px; text-align:center;"><div style="width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent; border-bottom:36px solid var(--chumbo); margin:0 auto 16px;"></div><div style="font-size:13px; font-weight:700; margin-bottom:8px;">TRIÂNGULO</div><p style="font-size:12px; color:var(--grafite); margin:0;">Poder, energia, movimento, força, hierarquia...</p></div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:24px; text-align:center;"><div style="width:40px; height:40px; border-radius:50%; background:var(--chumbo); margin:0 auto 16px;"></div><div style="font-size:13px; font-weight:700; margin-bottom:8px;">CÍRCULO</div><p style="font-size:12px; color:var(--grafite); margin:0;">Perfeição, união, ciclo, afeto, completude...</p></div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:24px; text-align:center;"><div style="width:40px; height:40px; border-radius:60% 40% 55% 45% / 45% 55% 40% 60%; background:var(--chumbo); margin:0 auto 16px;"></div><div style="font-size:13px; font-weight:700; margin-bottom:8px;">ORGÂNICAS</div><p style="font-size:12px; color:var(--grafite); margin:0;">Natureza, artesanal, sensibilidade, conforto, tangível...</p></div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31j2 Efeito bouba-kiki" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="ad373775">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; gap:8px; margin-bottom:20px;">
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">forma</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">cor</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">objeto</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">metáfora</span>
+  </div>
+  <div style="display:flex; gap:24px; align-items:stretch; height:480px;">
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px;">
+      <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:12px;">
+        <img src="assets/images/bouba-kiki-science-article.png" alt="Artigo da Science sobre o efeito bouba-kiki em pintinhos" style="width:100%; display:block; border-radius:8px;">
+      </div>
+      <div style="flex:1; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; display:flex; align-items:center;">
+        <img src="assets/images/bouba-kiki-shapes.png" alt="Forma pontuda (kiki) e forma arredondada (bouba)" style="width: 502px; display: block; border-radius: 8px; height: 237px">
+      </div>
+    </div>
+    <div style="flex:1; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:16px; display:flex; align-items:center; justify-content:center;">
+      <img src="assets/images/bouba-mike-wazowski.png" alt="Mike Wazowski, personagem redondo e simpático" style="max-width:100%; max-height:100%; display:block;">
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--concreto); margin:16px 0 0;">Fonte: <a class="ref-link" href="https://www.science.org/doi/10.1126/science.adq7188" target="_blank" style="color:var(--concreto);">Loconsole, Benavides-Varela &amp; Regolin, Science (2026)</a></p>
+</section>
+
+<section class="slide" data-screen-label="31j3 Evolucao tabela para radial" style="padding:0; background:var(--gelo); display:flex; align-items:center; justify-content:center;" data-om-slide-id="7c81c219">
+  <img src="assets/images/data-viz-evolution-radial.png" alt="Evolução de uma tabela para um gráfico radial em três passos" style="width:100%; height:100%; object-fit:contain;">
+</section>
+
+<section class="slide" data-screen-label="31l Boa paleta" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="ce156c92">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; gap:8px; margin-bottom:20px;">
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">forma</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">cor</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">objeto</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">metáfora</span>
+  </div>
+  <h2 style="font-weight:400; font-size:32px; margin:0 0 28px;">O que faz uma boa paleta?</h2>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:18px;"><div style="font-size:13px; font-weight:700; color:var(--urucum); margin-bottom:6px;">Bom contraste</div><p style="font-size:13px; color:var(--grafite); margin:0;">Cores fáceis de diferenciar e comparar.</p></div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:18px;"><div style="font-size:13px; font-weight:700; color:var(--urucum); margin-bottom:6px;">Significativa</div><p style="font-size:13px; color:var(--grafite); margin:0;">Estão associadas a uma informação.</p></div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:18px;"><div style="font-size:13px; font-weight:700; color:var(--urucum); margin-bottom:6px;">Óbvia</div><p style="font-size:13px; color:var(--grafite); margin:0;">Ajuda a entender o contexto.</p></div>
+    <div style="background:var(--urucum); border:1px solid var(--urucum); border-radius:12px; padding:18px;"><div style="font-size:13px; font-weight:700; color:#fff; margin-bottom:6px;">Ética</div><p style="font-size:13px; color:rgba(255,255,255,.85); margin:0;">Considera e respeita o cenário no qual está inserida.</p></div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:18px;"><div style="font-size:13px; font-weight:700; color:var(--urucum); margin-bottom:6px;">Bonita</div><p style="font-size:13px; color:var(--grafite); margin:0;">Visualmente atraente e harmônica, associada ao tom de voz e sentimentos.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31l2 Simulacao daltonismo" style="padding:0; background:#fff; display:flex; align-items:center; justify-content:center;" data-om-slide-id="70a136ef">
+  <img src="assets/images/colorblind-simulation-radial.png" alt="Simulação de deuteranopia e protanopia em um gráfico radial" style="width:100%; height:100%; object-fit:contain;">
+</section>
+
+<section class="slide" data-screen-label="31l3 Simulacao daltonismo novas cores" style="padding:0; background:#fff; display:flex; align-items:center; justify-content:center;" data-om-slide-id="a9d6cdf7">
+  <img src="assets/images/colorblind-simulation-newcolors.png" alt="Simulação de deuteranopia e protanopia com nova paleta de cores" style="width:100%; height:100%; object-fit:contain;">
+</section>
+
+<section class="slide" data-screen-label="31k Tipos de paleta" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="4bd42c1f">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; gap:8px; margin-bottom:20px;">
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">forma</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">cor</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">objeto</span>
+    <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">metáfora</span>
+  </div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:24px;">tipos de paleta</div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px;">
+      <div style="display:flex; gap:4px; margin-bottom:14px;"><div style="flex:1; height:24px; background:#fce4e2;"></div><div style="flex:1; height:24px; background:#f6a29c;"></div><div style="flex:1; height:24px; background:#f04e44;"></div><div style="flex: 1; height: 24px; background-color: var(--magenta)"></div></div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Sequencial</div>
+      <p style="font-size:12px; color:var(--grafite); margin:0;">Uma cor principal (ou duas, vai), gradiente.<br><br>Representa:<br>Início/fim<br>maior/menor<br>baixo/alto.</p>
+    </div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px;">
+      <div style="display:flex; gap:4px; margin-bottom:14px;"><div style="flex:1; height:24px; background:#5a61b6;"></div><div style="flex:1; height:24px; background:#c3c6e6;"></div><div style="flex:1; height:24px; background:#f0f0f0; border:1px solid rgba(28,33,39,.12);"></div><div style="flex:1; height:24px; background:#f6a29c;"></div><div style="flex:1; height:24px; background:#f04e44;"></div></div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Divergente</div>
+      <p style="font-size:12px; color:var(--grafite); margin:0;">Duas cores principais e uma neutra. <br><br>Compara intensidade ou magnitude em relação a um valor padrão, médio ou de referência.</p>
+    </div>
+    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px;">
+      <div style="display:flex; gap:4px; margin-bottom:14px;"><div style="flex: 1; height: 24px; background-color: var(--urucum)"></div><div style="flex: 1; height: 24px; background-color: var(--chumbo)"></div><div style="flex: 1; height: 24px; background-color: var(--indigo-600)"></div><div style="flex: 1; height: 24px; background-color: var(--violeta)"></div></div>
+      <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Categórica</div>
+      <p style="font-size:12px; color:var(--grafite); margin:0;">Cores independentes, categorias não relacionadas.<br>Pode ter sub-categorias.<br><br><br>Limite recomendado: 12 cores.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31k2 Objeto e metafora Iraque" style="padding:0; background:#fff; position:relative;" data-om-slide-id="3a30d05a">
+  <img src="assets/images/objeto-metafora-iraq.png" alt="Gráfico de baixas no Iraque em forma de gotas de sangue" style="width:100%; height:100%; object-fit:cover;">
+  <div style="position:absolute; top:32px; right:32px; display:flex; gap:8px;">
+    <span class="tagchip" style="background:rgba(255,255,255,.9); color:var(--grafite); font-size:12px; padding:6px 14px;">forma</span>
+    <span class="tagchip" style="background:rgba(255,255,255,.9); color:var(--grafite); font-size:12px; padding:6px 14px;">cor</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">objeto</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">metáfora</span>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31k3 Objeto e metafora Gdynia" style="padding:0; background:#fff; position:relative;" data-om-slide-id="d8d51c4b">
+  <img src="assets/images/objeto-metafora-gdynia.png" alt="Gráfico climático de Gdynia em forma de sol nascendo" style="width:100%; height:100%; object-fit:cover;">
+  <div style="position:absolute; top:32px; left:32px; display:flex; gap:8px;">
+    <span class="tagchip" style="background:rgba(255,255,255,.9); color:var(--grafite); font-size:12px; padding:6px 14px;">forma</span>
+    <span class="tagchip" style="background:rgba(255,255,255,.9); color:var(--grafite); font-size:12px; padding:6px 14px;">cor</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">objeto</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">metáfora</span>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31k4 Objeto e metafora Gamers" style="padding:0; background:#fff; position:relative;" data-om-slide-id="b653e64a">
+  <img src="assets/images/objeto-metafora-gamers.png" alt="Percentual de preconceito com gamers, ilustrado com corações de pixel e de rubi" style="width:100%; height:100%; object-fit:cover;">
+  <div style="position:absolute; top:32px; left:32px; display:flex; gap:8px;">
+    <span class="tagchip" style="background:rgba(255,255,255,.9); color:var(--grafite); font-size:12px; padding:6px 14px;">forma</span>
+    <span class="tagchip" style="background:rgba(255,255,255,.9); color:var(--grafite); font-size:12px; padding:6px 14px;">cor</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">objeto</span>
+    <span class="tagchip" style="background:var(--urucum); color:#fff; font-size:12px; padding:6px 14px;">metáfora</span>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section class="slide" data-screen-label="Complicou" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="2c142baa">
+  <h1 style="font-weight:300; font-size:38px; margin:0 0 32px; max-width:30ch;">Acha que complicou? Não viu nada...</h1><div style="display:grid; grid-template-columns:repeat(2,557px); grid-template-rows:repeat(2,154px); gap:16px; justify-content:center;">
+    <a href="https://www.datawrapper.de/blog/colors-for-race-ethnicity-world-regions" target="_blank" style="display:block; background:rgba(240,240,240,.06); border:1px solid rgba(240,240,240,.14); border-radius:12px; overflow:hidden; text-decoration:none;">
+      <img src="assets/images/dw-colors-race-ethnicity.png" alt="What to consider when choosing colors for race, ethnicity, and world regions" style="width: 557px; height: 154px; object-fit: cover; display: block">
+    </a>
+    <a href="https://www.datawrapper.de/blog/colors-for-data-vis-style-guides" target="_blank" style="display:block; background:rgba(240,240,240,.06); border:1px solid rgba(240,240,240,.14); border-radius:12px; overflow:hidden; text-decoration:none;">
+      <img src="assets/images/dw-colors-style-guides.png" alt="A detailed guide to colors in data vis style guides" style="width:557px; height:154px; object-fit:cover; display:block;">
+    </a>
+    <a href="https://www.datawrapper.de/blog/10-ways-to-use-fewer-colors-in-your-data-visualizations" target="_blank" style="display:block; background:rgba(240,78,68,.12); border:2px solid var(--urucum); border-radius:12px; overflow:hidden; text-decoration:none; position:relative;">
+      
+      <span style="position:absolute; top:8px; right:8px; background:var(--urucum); color:#fff; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px;">imperdível</span>
+    <img src="assets/images/dw-10-ways-fewer-colors.png" alt="10 ways to use fewer colors in your data visualizations" style="width: 561px; height: 154px; object-fit: cover; display: block"></a>
+    <a href="https://www.datawrapper.de/blog/remind-readers-of-colors-in-data-vis" target="_blank" style="display:block; background:rgba(240,240,240,.06); border:1px solid rgba(240,240,240,.14); border-radius:12px; overflow:hidden; text-decoration:none;">
+      <img src="assets/images/dw-remind-readers-colors.png" alt="Remind readers of the colors in your data visualization" style="width:557px; height:154px; object-fit:cover; display:block;">
+    </a>
+  </div>
+  
+</section>
+
+<section class="slide" data-screen-label="31m Dicas praticas" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a3c8065e">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); position:absolute; top:64px; left:72px;">dicas práticas</div>
+  <div style="display:flex; flex-direction:column; gap:24px;">
+    <div><div style="font-size:14px; font-weight:700; color:var(--urucum); margin-bottom:10px;">APOSTE EM PALETAS PRONTAS</div><p style="font-size:14px; color:var(--grafite); margin:0;">Use todo esse conhecimento para te <b>ajudar a escolher</b>, testar acessibilidade e aplicar.</p></div>
+    <div><div style="font-size:20px; font-weight:700; color:var(--urucum); margin-bottom:10px;">USE CORES COM MODERAÇÃO</div><p style="font-size:20px; color:var(--grafite); margin:0;"><b>Resolva tudo que for possível com cinza</b>, depois coloque cores onde for indispensável.</p></div></div>
+    <div><div style="font-size:14px; font-weight:700; color:var(--urucum); margin-bottom:10px;">APOSTE NA CONSISTÊNCIA</div><p style="font-size:14px; color:var(--grafite); margin:0;">Defina <b>padrões</b> de cores, fontes, elementos visuais e tipos de gráficos — reduz a carga cognitiva da audiência e facilita sua vida.</p></div>
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="slide" data-screen-label="31s Voz propria" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center;" data-om-slide-id="73dba2d1">
+  <h1 style="font-weight:300; font-size:34px; margin:0; max-width:34ch;">O primeiro passo para seu gráfico ter voz própria é definir o quê ele precisa falar.</h1><h1 style="font-weight: 900; font-size: 20px; margin: 0; max-width: 34ch">E isso não aparece apenas na escolha do gráfico, mas nos detalhes que você adiciona.</h1>
+</section>
+
+<section class="slide" data-screen-label="Exercicio final" style="padding:64px 72px; background:var(--urucum); color:var(--white); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center;" data-om-slide-id="6c415773">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">EXERCÍCIO!</h2>
+  <h2 style="font-weight:700; font-size:26px; margin:0; max-width:44ch; line-height:1.4;">Voltem para os seus gráficos e façam os ajustes finos.<br><br>Quais dicas você conseguiu aplicar?</h2>
+</section>
+
+<section class="slide" data-screen-label="32 Fechamento" style="padding:64px 72px; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:space-between;" data-om-slide-id="2bb5859d">
+  <img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:34px; width:auto; align-self:flex-start;">
+  <h1 style="font-weight:300; font-size:96px; letter-spacing:-0.03em; margin:0;">Obrigada</h1>
+  <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:rgba(240,240,240,.7);">Contando Histórias com Dados — Aula 2</div>
+</section>
+
+</x-import>
+
+<sc-if value="{{ hasZoom }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeZoom }}" onWheel="{{ stopWheel }}" style="position:fixed; inset:0; background:rgba(10,10,12,.94); z-index:5000; display:flex; align-items:center; justify-content:center; cursor:zoom-out;">
+    <div style="position:relative; width:min(92vw, calc(92vh * 16 / 9)); aspect-ratio:16/9;">
+      <div style="width:100%; height:100%; background-image:url({{ zoomSrc }}); background-size:200% 200%; background-position:{{ zoomBgPos }}; background-repeat:no-repeat; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.5);"></div>
+      <button onClick="{{ panUp }}" aria-label="Navegar para cima" style="position:absolute; top:12px; left:50%; transform:translateX(-50%); width:36px; height:36px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer;">↑</button>
+      <button onClick="{{ panDown }}" aria-label="Navegar para baixo" style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); width:36px; height:36px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer;">↓</button>
+      <button onClick="{{ panLeft }}" aria-label="Navegar para a esquerda" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer;">←</button>
+      <button onClick="{{ panRight }}" aria-label="Navegar para a direita" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer;">→</button>
+    </div>
+  </div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { zoomSrc: null, zoomAlt: '', expStep: 1, exampleOpen: false, exStep: 0, activeFrase: null, gestaltIdx: null, pizzaIdx: null, tituloIdx: null, rotuloIdx: null, eixoIdx: null, legendaIdx: null, anotacaoIdx: null };
+  selectFrase = (i) => this.setState(s => ({ activeFrase: s.activeFrase === i ? null : i }));
+  selectGestalt = (i) => this.setState(s => ({ gestaltIdx: s.gestaltIdx === i ? null : i }));
+  selectPizza = (i) => this.setState(s => ({ pizzaIdx: s.pizzaIdx === i ? null : i }));
+  pizzaClick0 = () => this.selectPizza(0);
+  pizzaClick1 = () => this.selectPizza(1);
+  pizzaClick2 = () => this.selectPizza(2);
+  gestaltClick0 = () => this.selectGestalt(0);
+  gestaltClick1 = () => this.selectGestalt(1);
+  gestaltClick2 = () => this.selectGestalt(2);
+  gestaltClick3 = () => this.selectGestalt(3);
+  gestaltClick4 = () => this.selectGestalt(4);
+  selectTitulo = (i) => this.setState(s => ({ tituloIdx: s.tituloIdx === i ? null : i }));
+  tituloClick0 = () => this.selectTitulo(0);
+  tituloClick1 = () => this.selectTitulo(1);
+  tituloClick2 = () => this.selectTitulo(2);
+  tituloClick3 = () => this.selectTitulo(3);
+  selectRotulo = (i) => this.setState(s => ({ rotuloIdx: s.rotuloIdx === i ? null : i }));
+  rotuloClick0 = () => this.selectRotulo(0);
+  rotuloClick1 = () => this.selectRotulo(1);
+  rotuloClick2 = () => this.selectRotulo(2);
+  rotuloClick3 = () => this.selectRotulo(3);
+  selectEixo = (i) => this.setState(s => ({ eixoIdx: s.eixoIdx === i ? null : i }));
+  eixoClick0 = () => this.selectEixo(0);
+  eixoClick1 = () => this.selectEixo(1);
+  eixoClick2 = () => this.selectEixo(2);
+  eixoClick3 = () => this.selectEixo(3);
+  eixoClick4 = () => this.selectEixo(4);
+  selectLegenda = (i) => this.setState(s => ({ legendaIdx: s.legendaIdx === i ? null : i }));
+  legendaClick0 = () => this.selectLegenda(0);
+  legendaClick1 = () => this.selectLegenda(1);
+  selectAnotacao = (i) => this.setState(s => ({ anotacaoIdx: s.anotacaoIdx === i ? null : i }));
+  anotacaoClick0 = () => this.selectAnotacao(0);
+  anotacaoClick1 = () => this.selectAnotacao(1);
+  nextStep = () => this.setState(s => ({ expStep: Math.min(3, s.expStep + 1) }));
+  resetSteps = () => this.setState({ expStep: 1 });
+  openExample = () => this.setState({ exampleOpen: true });
+  nextStepEx = () => this.setState(s => ({ exStep: Math.min(4, s.exStep + 1) }));
+  prevStep = () => this.setState(s => ({ exStep: Math.max(0, s.exStep - 1) }));
+  handleZoom = (e) => {
+    e.stopPropagation();
+    const id = e.currentTarget.getAttribute('data-zoom-id');
+    const slot = document.getElementById(id);
+    const img = slot && slot.shadowRoot && slot.shadowRoot.querySelector('img[part="image"]');
+    if (img && img.src) this.setState({ zoomSrc: img.src, zoomAlt: slot.getAttribute('placeholder') || '', zoomX: 50, zoomY: 50 });
+  };
+  closeZoom = () => this.setState({ zoomSrc: null, zoomAlt: '' });
+  zoomAtPoint = (e, id) => {
+    const slot = document.getElementById(id);
+    const img = slot && slot.shadowRoot && slot.shadowRoot.querySelector('img[part="image"]');
+    if (!img || !img.src) return;
+    const rect = slot.getBoundingClientRect();
+    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+    this.setState({ zoomSrc: img.src, zoomAlt: slot.getAttribute('placeholder') || '', zoomX: x, zoomY: y });
+  };
+  zoomMudancaClick = (e) => this.zoomAtPoint(e, 'mosaic-mudanca-tempo-full');
+  zoomComparacaoClick = (e) => this.zoomAtPoint(e, 'mosaic-comparacao-magnitude-full');
+  zoomComposicaoClick = (e) => this.zoomAtPoint(e, 'mosaic-composicao-full');
+  zoomRankingClick = (e) => this.zoomAtPoint(e, 'mosaic-ranking-full');
+  zoomDesvioClick = (e) => this.zoomAtPoint(e, 'mosaic-desvio-full');
+  zoomCorrelacaoClick = (e) => this.zoomAtPoint(e, 'mosaic-correlacao-full');
+  zoomFluxoClick = (e) => this.zoomAtPoint(e, 'mosaic-fluxo-full');
+  zoomDistribuicaoClick = (e) => this.zoomAtPoint(e, 'mosaic-distribuicao-full');
+  panBy = (dx, dy) => this.setState(s => ({ zoomX: Math.max(0, Math.min(100, (s.zoomX ?? 50) + dx)), zoomY: Math.max(0, Math.min(100, (s.zoomY ?? 50) + dy)) }));
+  panUp = (e) => { e.stopPropagation(); this.panBy(0, -12); };
+  panDown = (e) => { e.stopPropagation(); this.panBy(0, 12); };
+  panLeft = (e) => { e.stopPropagation(); this.panBy(-12, 0); };
+  panRight = (e) => { e.stopPropagation(); this.panBy(12, 0); };
+  stopWheel = (e) => { e.stopPropagation(); e.preventDefault(); };
+  renderVals() {
+    const gestaltImages = [
+      { src: 'assets/images/gestalt-coronavirus.png', alt: 'Trajetória de casos de coronavírus por país (FT)' },
+      { src: 'assets/images/gestalt-voters.png', alt: 'Waffle chart de eleitores por partido, agrupados por cor' },
+      { src: 'assets/images/gestalt-brasil-map.png', alt: 'Mapa de cobertura no Brasil, estados vizinhos com cores parecidas' },
+      { src: 'assets/images/gestalt-hotdogs.png', alt: 'Gráfico de comedores de hot dog, pontos conectados por linha' },
+      { src: 'assets/images/gestalt-infant-mortality.png', alt: 'Pequenos múltiplos de mortalidade infantil, cada grupo em seu próprio painel' },
+    ];
+    const gi = this.state.gestaltIdx;
+    const pizzaImages = [
+      { src: 'assets/images/piechart-good.png', alt: 'Gráfico de rosca claro mostrando a proporção de gênero entre desenvolvedores' },
+      { src: 'assets/images/piechart-bad.png', alt: 'Dois gráficos de pizza lado a lado comparando gastos mensais em Nova York e Viena' },
+      { src: 'assets/images/piechart-ugly.png', alt: 'Exemplos de gráficos de pizza confusos ou mal construídos' },
+    ];
+    const pi = this.state.pizzaIdx;
+    const pizzaVals = {};
+    for (let i = 0; i < 3; i++) {
+      pizzaVals['pizzaBg' + i] = pi === i ? 'rgba(240,78,68,.18)' : 'rgba(240,240,240,.06)';
+      pizzaVals['pizzaBorder' + i] = pi === i ? 'var(--urucum)' : 'rgba(240,240,240,.18)';
+    }
+    pizzaVals.pizzaImgSrc = pi !== null ? pizzaImages[pi].src : null;
+    pizzaVals.pizzaImgAlt = pi !== null ? pizzaImages[pi].alt : '';
+    pizzaVals.pizzaImgEmpty = pi === null;
+    pizzaVals.pizzaImg2Src = pi === 0 ? 'assets/images/piechart-good-2.png' : null;
+    pizzaVals.pizzaImg2Alt = pi === 0 ? 'Gr\u00e1fico de rosca escuro mostrando perfil de g\u00eanero dos jogadores respondentes da pesquisa' : '';
+    const gestaltVals = {};
+    for (let i = 0; i < 5; i++) {
+      gestaltVals['gestaltBg' + i] = gi === i ? 'rgba(240,78,68,.08)' : '#fff';
+      gestaltVals['gestaltBorder' + i] = gi === i ? 'var(--urucum)' : 'rgba(28,33,39,.12)';
+    }
+    gestaltVals.gestaltImgSrc = gi !== null ? gestaltImages[gi].src : null;
+    gestaltVals.gestaltImgAlt = gi !== null ? gestaltImages[gi].alt : '';
+    gestaltVals.gestaltImgEmpty = gi === null;
+
+    const tituloImages = [
+      { src: 'assets/images/titulo-revenue-increases.png', alt: 'Revenue increases: título simples vs. título com destaque tipográfico' },
+      { src: 'assets/images/titulo-democratic-support.png', alt: 'Título reformulado para ser mais direto e legível' },
+      { src: 'assets/images/titulo-marriage-children.png', alt: 'Título que expõe o insight diretamente' },
+      { src: 'assets/images/titulo-doughnuts-america.png', alt: 'Título que deixa a audiência curiosa' },
+    ];
+    const ti = this.state.tituloIdx;
+    const tituloVals = {};
+    for (let i = 0; i < 4; i++) {
+      tituloVals['tituloBg' + i] = ti === i ? 'var(--urucum)' : 'transparent';
+      tituloVals['tituloColor' + i] = ti === i ? '#fff' : 'var(--grafite)';
+    }
+    tituloVals.tituloImgSrc = ti !== null ? tituloImages[ti].src : null;
+    tituloVals.tituloImgAlt = ti !== null ? tituloImages[ti].alt : '';
+    tituloVals.tituloImgEmpty = ti === null;
+
+    const rotuloImages = [
+      { src: 'assets/images/rotulo-unemployment-map.png', alt: 'Rótulo que repete o título do gráfico para reforçar contexto' },
+      { src: 'assets/images/rotulo-nuclear-energy.png', alt: 'Rótulo posicionado para ser lido com clareza sobre a linha' },
+      { src: 'assets/images/rotulo-bar-values.png', alt: 'Números formatados de forma simplificada nos rótulos' },
+      { src: 'assets/images/rotulo-stacked-bars.png', alt: 'Rótulos horizontais em vez de rotacionados' },
+    ];
+    const ri = this.state.rotuloIdx;
+    const rotuloVals = {};
+    for (let i = 0; i < 4; i++) {
+      rotuloVals['rotuloBg' + i] = ri === i ? 'var(--urucum)' : 'transparent';
+      rotuloVals['rotuloColor' + i] = ri === i ? '#fff' : 'var(--grafite)';
+    }
+    rotuloVals.rotuloImgSrc = ri !== null ? rotuloImages[ri].src : null;
+    rotuloVals.rotuloImgAlt = ri !== null ? rotuloImages[ri].alt : '';
+    rotuloVals.rotuloImgEmpty = ri === null;
+
+    const ei = this.state.eixoIdx;
+    const eixoVals = {};
+    for (let i = 0; i < 5; i++) {
+      eixoVals['eixoBg' + i] = ei === i ? 'var(--urucum)' : 'transparent';
+      eixoVals['eixoColor' + i] = ei === i ? '#fff' : 'var(--grafite)';
+    }
+    const eixoImages = [
+      { src: 'assets/images/eixo-barras-zero.png', alt: 'Barras que começam em zero vs. barras cortadas' },
+      { src: 'assets/images/eixo-torcicolo.png', alt: 'Rótulos de eixo horizontais vs. rotacionados' },
+      { src: 'assets/images/eixo-divisoes.png', alt: 'Grade com poucas divisões vs. excesso de linhas' },
+      { src: 'assets/images/eixo-precisa-rotulos.png', alt: 'Valores nas barras vs. eixo e grade tradicionais' },
+      { src: 'assets/images/eixo-japao.png', alt: 'Gráfico de sem-tetos no Japão, eixo sequencial de anos' },
+    ];
+    eixoVals.eixoImgSrc = ei !== null ? eixoImages[ei].src : null;
+    eixoVals.eixoImgAlt = ei !== null ? eixoImages[ei].alt : '';
+    eixoVals.eixoImgEmpty = ei === null;
+
+    const li = this.state.legendaIdx;
+    const legendaVals = {};
+    for (let i = 0; i < 2; i++) {
+      legendaVals['legendaBg' + i] = li === i ? 'var(--urucum)' : 'transparent';
+      legendaVals['legendaColor' + i] = li === i ? '#fff' : 'var(--grafite)';
+    }
+    const legendaImages = [
+      { src: 'assets/images/legenda-direta.png', alt: 'Legenda separada vs. legenda diretamente sobre a barra' },
+      { src: 'assets/images/legenda-legivel.png', alt: 'Rótulos longos vs. rótulos reformulados para legibilidade' },
+    ];
+    legendaVals.legendaImgSrc = li !== null ? legendaImages[li].src : null;
+    legendaVals.legendaImgAlt = li !== null ? legendaImages[li].alt : '';
+    legendaVals.legendaEmpty = li === null;
+
+    const ai = this.state.anotacaoIdx;
+    const anotacaoVals = {};
+    for (let i = 0; i < 2; i++) {
+      anotacaoVals['anotacaoBg' + i] = ai === i ? 'var(--urucum)' : 'transparent';
+      anotacaoVals['anotacaoColor' + i] = ai === i ? '#fff' : 'var(--grafite)';
+    }
+    const anotacaoImages = [
+      { src: 'assets/images/anotacao-textual.png', alt: 'Anotação textual apontando para um pico no gráfico' },
+      { src: 'assets/images/anotacao-visual.png', alt: 'Anotação visual: barra destacada em preto e negrito' },
+    ];
+    anotacaoVals.anotacaoImgSrc = ai !== null ? anotacaoImages[ai].src : null;
+    anotacaoVals.anotacaoImgAlt = ai !== null ? anotacaoImages[ai].alt : '';
+    anotacaoVals.anotacaoEmpty = ai === null;
+
+    const step = this.state.expStep;
+    const scale = 320 / 50;
+    const data = {
+      convictos: [{ v: 35, color: 'var(--grafite)' }, { v: 41, color: 'var(--indigo-900)' }, { v: 10, color: 'var(--urucum)' }],
+      restritos: [{ v: 48, color: 'var(--grafite)' }, { v: 33, color: 'var(--indigo-900)' }, { v: 10, color: 'var(--urucum)' }],
+    };
+    const makeBars = (arr) => arr.map((d, i) => ({ opacity: step > i ? 1 : 0, height: Math.round(d.v * scale), color: d.color }));
+    const groups = [
+      { label: 'Republicanos convictos', bars: makeBars(data.convictos) },
+      { label: 'Republicanos restritos', bars: makeBars(data.restritos) },
+    ];
+    const legendAll = [
+      { label: 'Pessoas que não receberam nenhuma informação', color: 'var(--grafite)' },
+      { label: 'Pessoas que receberam um resumo textual dos dados', color: 'var(--indigo-900)' },
+      { label: 'Pessoas que receberam um gráfico com os dados', color: 'var(--urucum)' },
+    ];
+    const legendItems = legendAll.map((l, i) => ({ ...l, opacity: step > i ? 1 : 0 })).slice().reverse();
+    const gridLines = [10, 20, 30, 40].map(v => ({ px: Math.round(v * scale) }));
+
+    const SEQUENCE = [3, 2, 0, 5, 6]; // área, comprimento, contagem, intensidade, cor (column indices)
+    const exStep = this.state.exampleOpen ? this.state.exStep : -1;
+    const activeCol = SEQUENCE[Math.max(0, exStep)];
+    const colBg = (i) => (this.state.exampleOpen && activeCol === i) ? 'rgba(240,78,68,.1)' : 'transparent';
+    const colW = (1136 - 6 * 6) / 7, colStep = colW + 6;
+    const arcPoints = SEQUENCE.map((colIdx, i) => ({ x: colIdx * colStep + colW / 2, r: i === exStep ? 6 : 3, fill: i === exStep ? 'var(--urucum)' : 'var(--concreto)' }));
+    const arcsPath = arcPoints.slice(1).reduce((acc, p, i) => {
+      const prev = arcPoints[i];
+      const mid = (prev.x + p.x) / 2;
+      return acc + ` M${prev.x},0 Q${mid},60 ${p.x},0`;
+    }, '');
+    const labels = ['área', 'comprimento', 'contagem', 'intensidade', 'cor'];
+
+    const FRASE_IMGS = ['uploads/C0_2-Details-2-abnormal_warming.png', 'uploads/image (5)_0.png', 'uploads/28722.jpeg'];
+    const activeFrase = this.state.activeFrase;
+    const fraseStyle = (i) => activeFrase === i
+      ? { bg: 'var(--urucum)', border: 'var(--urucum)' }
+      : { bg: '#fff', border: 'rgba(28,33,39,.12)' };
+    const f0 = fraseStyle(0), f1 = fraseStyle(1), f2 = fraseStyle(2);
+    return {
+      ...gestaltVals,
+      ...tituloVals,
+      ...rotuloVals,
+      ...eixoVals,
+      ...legendaVals,
+      ...anotacaoVals,
+      legendaClick0: this.legendaClick0, legendaClick1: this.legendaClick1,
+      anotacaoClick0: this.anotacaoClick0, anotacaoClick1: this.anotacaoClick1,
+      eixoClick0: this.eixoClick0, eixoClick1: this.eixoClick1, eixoClick2: this.eixoClick2, eixoClick3: this.eixoClick3, eixoClick4: this.eixoClick4,
+      rotuloClick0: this.rotuloClick0, rotuloClick1: this.rotuloClick1, rotuloClick2: this.rotuloClick2, rotuloClick3: this.rotuloClick3,
+      tituloClick0: this.tituloClick0, tituloClick1: this.tituloClick1, tituloClick2: this.tituloClick2, tituloClick3: this.tituloClick3,
+      gestaltClick0: this.gestaltClick0, gestaltClick1: this.gestaltClick1, gestaltClick2: this.gestaltClick2, gestaltClick3: this.gestaltClick3, gestaltClick4: this.gestaltClick4,
+      pizzaClick0: this.pizzaClick0, pizzaClick1: this.pizzaClick1, pizzaClick2: this.pizzaClick2, ...pizzaVals,
+      handleZoom: this.handleZoom, closeZoom: this.closeZoom, zoomSrc: this.state.zoomSrc, zoomAlt: this.state.zoomAlt, hasZoom: !!this.state.zoomSrc,
+      zoomMudancaClick: this.zoomMudancaClick, zoomBgPos: `${this.state.zoomX ?? 50}% ${this.state.zoomY ?? 50}%`,
+      zoomComparacaoClick: this.zoomComparacaoClick, zoomComposicaoClick: this.zoomComposicaoClick, zoomRankingClick: this.zoomRankingClick, zoomDesvioClick: this.zoomDesvioClick, zoomCorrelacaoClick: this.zoomCorrelacaoClick, zoomFluxoClick: this.zoomFluxoClick, zoomDistribuicaoClick: this.zoomDistribuicaoClick,
+      panUp: this.panUp, panDown: this.panDown, panLeft: this.panLeft, panRight: this.panRight, stopWheel: this.stopWheel,
+      groups, legendItems, gridLines, hasNextStep: step < 3, nextStep: this.nextStep, resetSteps: this.resetSteps,
+      colBg0: colBg(0), colBg2: colBg(2), colBg3: colBg(3), colBg5: colBg(5), colBg6: colBg(6),
+      exampleOpen: this.state.exampleOpen, openExample: this.openExample, nextStepEx: this.nextStepEx, prevStep: this.prevStep,
+      arcPoints, arcsPath, nineDots: Array.from({ length: 9 }),
+      isArea: exStep === 0, isLength: exStep === 1, isCount: exStep === 2, isIntensity: exStep === 3, isColor: exStep === 4,
+      activeLabel: labels[Math.max(0, exStep)],
+      selectFrase0: () => this.selectFrase(0), selectFrase1: () => this.selectFrase(1), selectFrase2: () => this.selectFrase(2),
+      frase0Bg: f0.bg, frase0Border: f0.border, frase1Bg: f1.bg, frase1Border: f1.border, frase2Bg: f2.bg, frase2Border: f2.border,
+      activeFraseImg: activeFrase !== null ? FRASE_IMGS[activeFrase] : null,
+    };
+  }
+}
+</script>
+</body>
+</html>

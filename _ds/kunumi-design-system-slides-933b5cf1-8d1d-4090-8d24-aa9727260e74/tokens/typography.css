@@ -1,0 +1,47 @@
+/* ============================================================
+   Kunumi · Typography
+   One typeface — Figtree. Headlines run LIGHT/REGULAR and large;
+   labels & footers run UPPERCASE with wide tracking. Lowercase
+   subtitles are a signature of the deck system.
+   ============================================================ */
+
+:root {
+  --font-sans: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* No separate display/mono faces in the brand — Figtree carries everything.
+     Tabular figures for data tables come from the font-feature below. */
+  --font-display: var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ---- Weights ------------------------------------------- */
+  --weight-light:    300;  /* big editorial headlines           */
+  --weight-regular:  400;  /* body                              */
+  --weight-medium:   500;  /* UI labels, emphasis               */
+  --weight-semibold: 600;  /* buttons, strong labels            */
+  --weight-bold:     700;  /* in-copy highlight word            */
+  --weight-black:    900;  /* big numbers, posters              */
+
+  /* ---- Type scale (rem; 1rem = 16px) --------------------- *
+   * Editorial, slide-friendly. Body never below 1rem on web.  */
+  --text-poster:  clamp(3.5rem, 6vw, 6rem);   /* big-quote / poster   */
+  --text-display: clamp(2.5rem, 4.5vw, 4rem); /* slide H1             */
+  --text-h1:      2.25rem;   /* 36 */
+  --text-h2:      1.75rem;   /* 28 */
+  --text-h3:      1.375rem;  /* 22 */
+  --text-h4:      1.125rem;  /* 18 */
+  --text-body-lg: 1.125rem;  /* 18 lead paragraph */
+  --text-body:    1rem;      /* 16 */
+  --text-sm:      0.875rem;  /* 14 captions */
+  --text-xs:      0.75rem;   /* 12 labels, legends */
+
+  /* ---- Line heights -------------------------------------- */
+  --leading-tight:   1.08;   /* posters, display              */
+  --leading-snug:    1.22;   /* headlines                     */
+  --leading-normal:  1.5;    /* body                          */
+  --leading-relaxed: 1.65;   /* long-form columns             */
+
+  /* ---- Letter spacing ------------------------------------ */
+  --tracking-tight:  -0.02em; /* large display                */
+  --tracking-normal: 0;
+  --tracking-label:  0.04em;  /* small UI labels              */
+  --tracking-caps:   0.14em;  /* UPPERCASE footers / eyebrows */
+}

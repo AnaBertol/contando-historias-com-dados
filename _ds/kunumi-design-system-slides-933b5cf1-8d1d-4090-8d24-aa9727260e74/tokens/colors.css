@@ -1,0 +1,81 @@
+/* ============================================================
+   Kunumi · Color
+   Reconstructed from the official "Template de Slides" (v1.1).
+   Three tiers: Principal (institutional), Apoio (support),
+   Estendida (charts/diagrams only). Plus the brand gradient.
+   ============================================================ */
+
+:root {
+  /* ---- Paleta principal (institutional) ------------------ */
+  --urucum:   #F04E44;  /* signature red — the Kunumi accent      */
+  --chumbo:   #1C2127;  /* near-black — primary text & dark surface*/
+  --grafite:  #5E5E5E;  /* mid grey — secondary text              */
+  --concreto: #B4ADA4;  /* warm taupe — muted / borders           */
+  --gelo:     #F0F0F0;  /* ice — light surface / page background   */
+
+  /* convenience light/dark anchors */
+  --white: #FFFFFF;
+  --black: #000000;
+
+  /* ---- Paleta de apoio (support) ------------------------- *
+   * Use only when the principal palette can't tell elements   *
+   * apart. Never let these out-shout urucum.                  */
+  --amarelo: #FF931E;  /* amber  */
+  --laranja: #F26638;  /* orange */
+  --magenta: #D73E5F;  /* magenta / rose */
+  --violeta: #9355A0;  /* violet */
+
+  /* ---- Paleta estendida (charts & diagrams ONLY) --------- */
+  --verde-900: #103C1F;
+  --verde-600: #246A3C;
+  --verde-400: #43F085;
+  --verde-200: #ADF3BE;
+
+  --indigo-900: #1A2052;
+  --indigo-600: #3A2FDF;
+  --indigo-400: #5A61B6;
+  --indigo-200: #D6E0FF;
+
+  --ambar-900: #481F00;
+  --ambar-600: #7D470A;
+  --ambar-200: #FFDFC1;
+
+  /* ---- Brand gradient (the "k" mark) --------------------- *
+   * chumbo → indigo → urucum, bottom-weighted.                */
+  --gradient-brand: linear-gradient(160deg, #1C2127 0%, #1C2127 38%, #3A2FDF 72%, #F04E44 100%); /* @kind other */
+  --gradient-brand-soft: linear-gradient(160deg, #1C2127 0%, #3A2FDF 70%, #F04E44 120%); /* @kind other */
+
+  /* The official atmospheric gradient texture (grainy black → índigo → urucum).
+     Use this for covers, dark hero slides and full-bleed sections — it is the
+     real brand artwork; --gradient-brand is the CSS fallback. */
+  --bg-aurora: url("../assets/backgrounds/gradient-aurora.png"); /* @kind other */
+
+  /* ============================================================
+     SEMANTIC ALIASES — author against these, not the raw names.
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-page:    var(--gelo);     /* default light canvas        */
+  --surface-card:    var(--white);    /* raised card on light        */
+  --surface-sunken:  #E6E6E6;         /* wells, table zebra          */
+  --surface-inverse: var(--chumbo);   /* dark slides / dark sections */
+  --surface-accent:  var(--urucum);   /* poster / highlight fills    */
+
+  /* Text on light */
+  --text-strong:  var(--chumbo);      /* headlines, body emphasis    */
+  --text-body:    #34383E;            /* default running text        */
+  --text-muted:   var(--grafite);     /* captions, metadata          */
+  --text-faint:   var(--concreto);    /* disabled, watermark         */
+  --text-accent:  var(--urucum);      /* the one red highlight        */
+  --text-on-dark: var(--gelo);        /* text on chumbo surfaces     */
+  --text-on-accent: var(--white);     /* text on urucum              */
+
+  /* Lines & borders */
+  --border-subtle:  rgba(28,33,39,0.12);
+  --border-default: rgba(28,33,39,0.22);
+  --border-strong:  var(--chumbo);
+  --border-on-dark: rgba(240,240,240,0.18);
+
+  /* Focus / interaction */
+  --focus-ring: var(--urucum);
+}

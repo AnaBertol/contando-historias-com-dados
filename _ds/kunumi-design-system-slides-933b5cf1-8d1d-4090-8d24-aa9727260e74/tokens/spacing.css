@@ -1,0 +1,54 @@
+/* ============================================================
+   Kunumi · Spacing, radius, shadow, layout
+   The deck is built on a 2×2 block grid with generous "respiro"
+   (breathing room). Geometry is crisp — small radii, restrained
+   shadows. The brand reads architectural, not soft.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale (4px base) -------------------------- */
+  --space-0:  0;
+  --space-1:  0.25rem;  /* 4  */
+  --space-2:  0.5rem;   /* 8  */
+  --space-3:  0.75rem;  /* 12 */
+  --space-4:  1rem;     /* 16 */
+  --space-5:  1.5rem;   /* 24 */
+  --space-6:  2rem;     /* 32 */
+  --space-7:  3rem;     /* 48 */
+  --space-8:  4rem;     /* 64 — slide margin / "respiro" */
+  --space-9:  6rem;     /* 96 */
+
+  /* ---- Radius -------------------------------------------- *
+   * Kunumi geometry is mostly square. Cards get a hair of     *
+   * rounding; pills/avatars go full.                          */
+  --radius-none: 0;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   20px;
+  --radius-pill: 999px;
+
+  /* ---- Borders ------------------------------------------- */
+  --border-width: 1px;
+  --border-width-strong: 1.5px;
+
+  /* ---- Shadow (restrained, cool-grey, never coloured) ---- */
+  --shadow-xs: 0 1px 2px rgba(28,33,39,0.06);
+  --shadow-sm: 0 1px 3px rgba(28,33,39,0.08), 0 1px 2px rgba(28,33,39,0.06);
+  --shadow-md: 0 4px 12px rgba(28,33,39,0.08), 0 2px 4px rgba(28,33,39,0.06);
+  --shadow-lg: 0 12px 32px rgba(28,33,39,0.12), 0 4px 8px rgba(28,33,39,0.06);
+
+  /* ---- Motion -------------------------------------------- *
+   * Calm and considered. Quick fades, gentle ease — no bounce.*/
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --duration-fast: 120ms; /* @kind other */
+  --duration-base: 200ms; /* @kind other */
+  --duration-slow: 360ms; /* @kind other */
+
+  /* ---- Layout -------------------------------------------- */
+  --slide-w: 1280px;
+  --slide-h: 720px;
+  --content-max: 1080px;   /* prose / kit content cap */
+}

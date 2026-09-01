@@ -1,0 +1,15 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" xmlns="http://www.w3.org/2000/svg">
+<rect width="900" height="1100" fill="#F0F0F0"></rect>
+<rect x="60" y="60" width="780" height="980" rx="16" fill="#FFFFFF" stroke="rgba(28,33,39,.1)" stroke-width="2"></rect>
+<text x="100" y="140" font-family="Figtree, sans-serif" font-size="34" font-weight="700" fill="#1C2127">Formulário</text>
+<text x="100" y="220" font-family="Figtree, sans-serif" font-size="18" fill="#5E5E5E">Nome</text>
+<rect x="100" y="235" width="700" height="52" rx="8" fill="#F0F0F0" stroke="rgba(28,33,39,.15)" stroke-width="1.5"></rect>
+<text x="100" y="340" font-family="Figtree, sans-serif" font-size="18" fill="#5E5E5E">E-mail</text>
+<rect x="100" y="355" width="700" height="52" rx="8" fill="#F0F0F0" stroke="rgba(28,33,39,.15)" stroke-width="1.5"></rect>
+<text x="100" y="460" font-family="Figtree, sans-serif" font-size="18" fill="#5E5E5E">Mensagem</text>
+<rect x="100" y="475" width="700" height="160" rx="8" fill="#F0F0F0" stroke="rgba(28,33,39,.15)" stroke-width="1.5"></rect>
+<rect x="100" y="670" width="24" height="24" rx="5" fill="none" stroke="rgba(28,33,39,.3)" stroke-width="2"></rect>
+<text x="136" y="689" font-family="Figtree, sans-serif" font-size="16" fill="#5E5E5E">Concordo com os termos</text>
+<rect x="100" y="920" width="200" height="56" rx="999" fill="#F04E44"></rect>
+<text x="200" y="955" font-family="Figtree, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">ENVIAR</text>
+</svg>

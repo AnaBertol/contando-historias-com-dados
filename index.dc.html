@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<script src="./auth-gate.js"></script>
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/colors.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/typography.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/styles.css">
+<script src="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--chumbo); }
+  * { box-sizing: border-box; }
+  a { color: var(--gelo); }
+  a:hover { color: var(--urucum); }
+  .lesson-card { display: block; border-radius: 16px; padding: 28px; background: rgba(28,33,39,.55); border: 1px solid rgba(240,240,240,.14); text-decoration: none; color: var(--gelo); transition: background var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out); }
+  .lesson-card:hover { background: rgba(28,33,39,.7); transform: translateY(-2px); }
+  .lesson-card.disabled { opacity: .45; cursor: default; pointer-events: none; }
+</style>
+<script>
+  (function () {
+    var UNLOCK_DATE = new Date('2026-09-03T00:00:00');
+    function lockAula2() {
+      if (new Date() < UNLOCK_DATE) {
+        document.addEventListener('DOMContentLoaded', function () {
+          var card = document.getElementById('aula2-card');
+          if (card) {
+            card.classList.add('disabled');
+            card.removeAttribute('href');
+          }
+        });
+      }
+    }
+    lockAula2();
+  })();
+</script>
+</helmet>
+
+<div style="min-height:100vh; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); font-family:var(--font-sans); color:var(--gelo); padding:72px 88px; display:flex; flex-direction:column; gap:56px;">
+
+  <div style="display:flex; align-items:center; justify-content:space-between;">
+    <img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:34px; width:auto;">
+    <img src="assets/logo/kunumi-mark-motion.gif" alt="" style="height:52px; width:52px;">
+  </div>
+
+  <div>
+    <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--urucum); margin-bottom:18px;">Curso</div>
+    <h1 style="font-weight:300; font-size:56px; line-height:1.1; letter-spacing:-0.02em; margin:0 0 16px; max-width:26ch;">Contando Histórias com Dados</h1>
+    <p style="font-size:19px; line-height:1.5; color:rgba(240,240,240,.75); margin:0 0 12px; max-width:56ch;">Um treinamento sobre como adaptar conteúdos complexos para vários tipos de audiência, e garantir que todo mundo vai lembrar do que você quer transmitir.</p>
+    <p style="font-size:15px; line-height:1.5; color:rgba(240,240,240,.55); margin:0; max-width:56ch;">Conteúdo e facilitação: Ana Bertol</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+    <a class="lesson-card" href="Aula 1 - Por que contar histórias.dc.html">
+      <div style="font-size:12px; font-weight:700; color:var(--indigo-400); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 1 · 2h30 · 02.SET.2026</div>
+      <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">Por que contar histórias com dados?</h3>
+      <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.65); margin:0;">Por que humanos gostam tanto de histórias e o que significa contar uma história em um contexto técnico e científico. Exemplos e dicas de como considerar a audiência e os seus objetivos na hora de planejar uma história.</p>
+    </a>
+    <a class="lesson-card" href="Aula 2.dc.html" id="aula2-card">
+      <div style="font-size:12px; font-weight:700; color:var(--violeta); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 2 · 2h30 · 03.SET.2026</div>
+      <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">Visualizações de dados que falam por si</h3>
+      <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.65); margin:0;">Visualizações de dados que falam por si. Qual o melhor tipo de gráfico? Posso usar gráficos de pizza? Dicas práticas de design para quem mal consegue segurar um lápis.</p>
+    </a>
+    <div class="lesson-card disabled">
+      <div style="font-size:12px; font-weight:700; color:var(--concreto); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 3 · 2h30 · 09.SET.2026</div>
+      <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">Aula 3</h3>
+      <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.65); margin:0;">A definir!</p>
+    </div>
+    <div class="lesson-card disabled">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;"><span style="font-size:12px; font-weight:700; color:var(--concreto); letter-spacing:.1em; text-transform:uppercase;">Workshop bônus · 2h</span><span style="font-size:11px; font-weight:700; color:var(--violeta); letter-spacing:.08em; text-transform:uppercase; background:rgba(147,85,160,.18); padding:3px 9px; border-radius:999px;">Em breve</span></div>
+      <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">O alfabeto visual das visualizações de dados da Kunumi</h3>
+      <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.6); margin:0;">Um mão na massa transdisciplinar para definir os padrões das visualizações de dados da Kunumi, para os dataviz nerds de todas as áreas.</p>
+    </div>
+    <a class="lesson-card" href="Referencias.dc.html" style="background:rgba(58,47,223,.18); border-color:rgba(90,97,182,.4);">
+      <div style="font-size:12px; font-weight:700; color:var(--indigo-400); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Biblioteca</div>
+      <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">Referências</h3>
+      <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.65); margin:0;">Filmes, cases de dados e artigos citados em todas as aulas.</p>
+    </a>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

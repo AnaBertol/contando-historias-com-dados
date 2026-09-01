@@ -1,0 +1,15 @@
+<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+<rect width="1000" height="700" fill="#0A0D10"></rect>
+<rect x="30" y="30" width="940" height="640" rx="10" fill="#111417" stroke="#2a2f35" stroke-width="2"></rect>
+<circle cx="60" cy="55" r="7" fill="#F04E44"></circle><circle cx="82" cy="55" r="7" fill="#5E5E5E"></circle><circle cx="104" cy="55" r="7" fill="#5E5E5E"></circle>
+<g font-family="Menlo, Consolas, monospace" font-size="18" fill="#3AF07A">
+<text x="60" y="110">$ conectando ao servidor...</text>
+<text x="60" y="140">$ autenticando usuário: kunumi_admin</text>
+<text x="60" y="170">$ acesso concedido ✔</text>
+<text x="60" y="220">$ carregando dados...</text>
+<text x="60" y="250">01001000 01101001 01110011 01110100 01101111 01110010 01101001 01100001</text>
+<text x="60" y="280">01100100 01101111 01110011 00100000 01100100 01100001 01100100 01101111 01110011</text>
+<text x="60" y="330">$ escrevendo relatório final...</text>
+</g>
+<rect x="60" y="345" width="14" height="24" fill="#3AF07A"></rect>
+</svg>
