@@ -12,6 +12,8 @@
 <script src="./auth-gate.js"></script>
 <script>
   (function () {
+    if (window.__kunumiAula2LockInit) return;
+    window.__kunumiAula2LockInit = true;
     var UNLOCK_DATE = new Date('2026-09-03T00:00:00');
     function showLocked() {
       var style = document.createElement('style');

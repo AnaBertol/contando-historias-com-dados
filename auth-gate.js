@@ -1,4 +1,6 @@
 (function (global) {
+  if (global.KunumiAuth) return;
+
   var STORAGE_KEY = 'kunumi_course_auth_v1';
   var PASSWORD = 'kunumi2026';
   var readyCallbacks = [];
