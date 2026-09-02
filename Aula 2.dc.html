@@ -1018,7 +1018,8 @@
   <img src="assets/images/colorblind-simulation-newcolors.png" alt="Simulação de deuteranopia e protanopia com nova paleta de cores" style="width:100%; height:100%; object-fit:contain;">
 </section>
 
-<section class="slide" data-screen-label="31k Tipos de paleta" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="4bd42c1f">
+<section class="slide" data-screen-label="31k Tipos de paleta" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center; position:relative;" data-om-slide-id="4bd42c1f">
+  <div style="position:absolute; bottom:28px; right:64px; display:inline-flex; align-items:center; gap:6px; padding:6px 13px; border-radius:999px; background:rgba(240,78,68,.08); border:1px solid rgba(240,78,68,.3); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--urucum);">↗ slide interativo</div>
   <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
   <div style="display:flex; gap:8px; margin-bottom:20px;">
     <span class="tagchip" style="background:rgba(28,33,39,.06); color:var(--grafite); font-size:12px; padding:6px 14px;">forma</span>
@@ -1028,20 +1029,23 @@
   </div>
   <div class="eyebrow" style="color:var(--urucum); margin-bottom:24px;">tipos de paleta</div>
   <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
-    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px;">
+    <div onClick="{{ openPaletteSeq }}" style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px; cursor:pointer;">
       <div style="display:flex; gap:4px; margin-bottom:14px;"><div style="flex:1; height:24px; background:#fce4e2;"></div><div style="flex:1; height:24px; background:#f6a29c;"></div><div style="flex:1; height:24px; background:#f04e44;"></div><div style="flex: 1; height: 24px; background-color: var(--magenta)"></div></div>
       <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Sequencial</div>
       <p style="font-size:12px; color:var(--grafite); margin:0;">Uma cor principal (ou duas, vai), gradiente.<br><br>Representa:<br>Início/fim<br>maior/menor<br>baixo/alto.</p>
+      <div style="font-size:11px; font-weight:700; color:var(--urucum); margin-top:14px;">↗ ver exemplo</div>
     </div>
-    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px;">
+    <div onClick="{{ openPaletteDiv }}" style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px; cursor:pointer;">
       <div style="display:flex; gap:4px; margin-bottom:14px;"><div style="flex:1; height:24px; background:#5a61b6;"></div><div style="flex:1; height:24px; background:#c3c6e6;"></div><div style="flex:1; height:24px; background:#f0f0f0; border:1px solid rgba(28,33,39,.12);"></div><div style="flex:1; height:24px; background:#f6a29c;"></div><div style="flex:1; height:24px; background:#f04e44;"></div></div>
       <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Divergente</div>
       <p style="font-size:12px; color:var(--grafite); margin:0;">Duas cores principais e uma neutra. <br><br>Compara intensidade ou magnitude em relação a um valor padrão, médio ou de referência.</p>
+      <div style="font-size:11px; font-weight:700; color:var(--urucum); margin-top:14px;">↗ ver exemplo</div>
     </div>
-    <div style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px;">
+    <div onClick="{{ openPaletteCat }}" style="background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:12px; padding:20px; cursor:pointer;">
       <div style="display:flex; gap:4px; margin-bottom:14px;"><div style="flex: 1; height: 24px; background-color: var(--urucum)"></div><div style="flex: 1; height: 24px; background-color: var(--chumbo)"></div><div style="flex: 1; height: 24px; background-color: var(--indigo-600)"></div><div style="flex: 1; height: 24px; background-color: var(--violeta)"></div></div>
       <div style="font-size:14px; font-weight:700; margin-bottom:8px;">Categórica</div>
       <p style="font-size:12px; color:var(--grafite); margin:0;">Cores independentes, categorias não relacionadas.<br>Pode ter sub-categorias.<br><br><br>Limite recomendado: 12 cores.</p>
+      <div style="font-size:11px; font-weight:700; color:var(--urucum); margin-top:14px;">↗ ver exemplo</div>
     </div>
   </div>
 </section>
@@ -1105,12 +1109,12 @@
 
 <section class="slide" data-screen-label="31m Dicas praticas" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="a3c8065e">
   <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
-  <div class="eyebrow" style="color:var(--urucum); position:absolute; top:64px; left:72px;">dicas práticas</div>
-  <div style="display:flex; flex-direction:column; gap:24px;">
-    <div><div style="font-size:14px; font-weight:700; color:var(--urucum); margin-bottom:10px;">APOSTE EM PALETAS PRONTAS</div><p style="font-size:14px; color:var(--grafite); margin:0;">Use todo esse conhecimento para te <b>ajudar a escolher</b>, testar acessibilidade e aplicar.</p></div>
-    <div><div style="font-size:20px; font-weight:700; color:var(--urucum); margin-bottom:10px;">USE CORES COM MODERAÇÃO</div><p style="font-size:20px; color:var(--grafite); margin:0;"><b>Resolva tudo que for possível com cinza</b>, depois coloque cores onde for indispensável.</p></div></div>
-    <div><div style="font-size:14px; font-weight:700; color:var(--urucum); margin-bottom:10px;">APOSTE NA CONSISTÊNCIA</div><p style="font-size:14px; color:var(--grafite); margin:0;">Defina <b>padrões</b> de cores, fontes, elementos visuais e tipos de gráficos — reduz a carga cognitiva da audiência e facilita sua vida.</p></div>
-  
+  <div class="eyebrow" style="color:var(--urucum); position:absolute; top:84px; left:72px;">dicas práticas</div>
+  <div style="display:flex; flex-direction:column; gap:36px; margin-top:12px;">
+    <div><div style="font-size:14px; font-weight:700; color:var(--chumbo); margin-bottom:14px; display:inline-block; text-decoration:underline; text-decoration-color:var(--urucum); text-decoration-thickness:1.5px; text-underline-offset:6px;">INVISTA EM PALETAS PRONTAS</div><p style="font-size:14px; color:var(--chumbo); line-height:1.6; margin:0;">Use todo esse conhecimento para te <b>ajudar a escolher</b>, testar acessibilidade e aplicar.</p></div>
+    <div><div style="font-size:14px; font-weight:700; color:var(--chumbo); margin-bottom:14px; display:inline-block; text-decoration:underline; text-decoration-color:var(--urucum); text-decoration-thickness:1.5px; text-underline-offset:6px;">USE CORES COM MODERAÇÃO</div><p style="font-size:14px; color:var(--chumbo); line-height:1.6; margin:0;"><b>Resolva tudo que for possível com cinza</b>, depois coloque cores onde for indispensável.</p></div>
+    <div><div style="font-size:14px; font-weight:700; color:var(--chumbo); margin-bottom:14px; display:inline-block; text-decoration:underline; text-decoration-color:var(--urucum); text-decoration-thickness:1.5px; text-underline-offset:6px;">APOSTE NA CONSISTÊNCIA</div><p style="font-size:14px; color:var(--chumbo); line-height:1.6; margin:0;">Defina <b>padrões</b> de cores, fontes, elementos visuais e tipos de gráficos — reduz a carga cognitiva da audiência e facilita sua vida.</p></div>
+  </div>
 </section>
 
 
@@ -1160,10 +1164,19 @@
   </div>
 </sc-if>
 
+<sc-if value="{{ hasPalette }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closePalette }}" style="position:fixed; inset:0; background:rgba(10,10,12,.94); z-index:5000; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:zoom-out; padding:40px; box-sizing:border-box; gap:18px;">
+    <a href="{{ paletteRefUrl }}" target="_blank" rel="noopener" onClick="{{ stopPropagation }}" style="cursor:pointer; display:block; max-width:90vw; max-height:78vh;">
+      <img src="{{ paletteImgSrc }}" alt="{{ paletteImgAlt }}" style="max-width:90vw; max-height:78vh; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.5); display:block;">
+    </a>
+    <div style="font-size:13px; color:rgba(240,240,240,.7); text-align:center;">Clique na imagem para ver a fonte ↗ · clique fora para fechar</div>
+  </div>
+</sc-if>
+
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { zoomSrc: null, zoomAlt: '', expStep: 1, exampleOpen: false, exStep: 0, activeFrase: null, gestaltIdx: null, pizzaIdx: null, tituloIdx: null, rotuloIdx: null, eixoIdx: null, legendaIdx: null, anotacaoIdx: null };
+  state = { zoomSrc: null, zoomAlt: '', expStep: 1, exampleOpen: false, exStep: 0, activeFrase: null, gestaltIdx: null, pizzaIdx: null, tituloIdx: null, rotuloIdx: null, eixoIdx: null, legendaIdx: null, anotacaoIdx: null, paletteOpen: null };
   selectFrase = (i) => this.setState(s => ({ activeFrase: s.activeFrase === i ? null : i }));
   selectGestalt = (i) => this.setState(s => ({ gestaltIdx: s.gestaltIdx === i ? null : i }));
   selectPizza = (i) => this.setState(s => ({ pizzaIdx: s.pizzaIdx === i ? null : i }));
@@ -1210,6 +1223,11 @@ class Component extends DCLogic {
     if (img && img.src) this.setState({ zoomSrc: img.src, zoomAlt: slot.getAttribute('placeholder') || '', zoomX: 50, zoomY: 50 });
   };
   closeZoom = () => this.setState({ zoomSrc: null, zoomAlt: '' });
+  openPaletteSeq = () => this.setState({ paletteOpen: 'sequencial' });
+  openPaletteDiv = () => this.setState({ paletteOpen: 'divergente' });
+  openPaletteCat = () => this.setState({ paletteOpen: 'categorica' });
+  closePalette = () => this.setState({ paletteOpen: null });
+  stopPropagation = (e) => e.stopPropagation();
   zoomAtPoint = (e, id) => {
     const slot = document.getElementById(id);
     const img = slot && slot.shadowRoot && slot.shadowRoot.querySelector('img[part="image"]');
@@ -1376,6 +1394,13 @@ class Component extends DCLogic {
     }, '');
     const labels = ['área', 'comprimento', 'contagem', 'intensidade', 'cor'];
 
+    const PALETTE_INFO = {
+      sequencial: { img: 'assets/images/paleta-sequencial.png', alt: 'Pin Point: mapa de calor dos PINs de 4 dígitos mais comuns, exemplo de paleta sequencial', url: 'https://informationisbeautiful.net/visualizations/most-common-pin-codes/' },
+      divergente: { img: 'assets/images/paleta-divergente.png', alt: 'Concrete jungles: mapa da Europa com a cobertura de árvores por cidade, exemplo de paleta divergente', url: 'https://europeancorrespondent.com/en/r/concrete-jungles' },
+      categorica: { img: 'assets/images/paleta-categorica.png', alt: 'Who’s Suing Whom in AI: diagrama de processos de direitos autorais por empresa, exemplo de paleta categórica', url: 'https://informationisbeautiful.net/visualizations/the-rise-of-generative-ai-large-language-models-llms-like-chatgpt/#suing' },
+    };
+    const paletteInfo = this.state.paletteOpen ? PALETTE_INFO[this.state.paletteOpen] : null;
+
     const FRASE_IMGS = ['uploads/C0_2-Details-2-abnormal_warming.png', 'uploads/image (5)_0.png', 'uploads/28722.jpeg'];
     const activeFrase = this.state.activeFrase;
     const fraseStyle = (i) => activeFrase === i
@@ -1397,6 +1422,8 @@ class Component extends DCLogic {
       gestaltClick0: this.gestaltClick0, gestaltClick1: this.gestaltClick1, gestaltClick2: this.gestaltClick2, gestaltClick3: this.gestaltClick3, gestaltClick4: this.gestaltClick4,
       pizzaClick0: this.pizzaClick0, pizzaClick1: this.pizzaClick1, pizzaClick2: this.pizzaClick2, ...pizzaVals,
       handleZoom: this.handleZoom, closeZoom: this.closeZoom, zoomSrc: this.state.zoomSrc, zoomAlt: this.state.zoomAlt, hasZoom: !!this.state.zoomSrc,
+      openPaletteSeq: this.openPaletteSeq, openPaletteDiv: this.openPaletteDiv, openPaletteCat: this.openPaletteCat, closePalette: this.closePalette, stopPropagation: this.stopPropagation,
+      hasPalette: !!paletteInfo, paletteImgSrc: paletteInfo ? paletteInfo.img : null, paletteImgAlt: paletteInfo ? paletteInfo.alt : '', paletteRefUrl: paletteInfo ? paletteInfo.url : '#',
       zoomMudancaClick: this.zoomMudancaClick, zoomBgPos: `${this.state.zoomX ?? 50}% ${this.state.zoomY ?? 50}%`,
       zoomComparacaoClick: this.zoomComparacaoClick, zoomComposicaoClick: this.zoomComposicaoClick, zoomRankingClick: this.zoomRankingClick, zoomDesvioClick: this.zoomDesvioClick, zoomCorrelacaoClick: this.zoomCorrelacaoClick, zoomFluxoClick: this.zoomFluxoClick, zoomDistribuicaoClick: this.zoomDistribuicaoClick,
       panUp: this.panUp, panDown: this.panDown, panLeft: this.panLeft, panRight: this.panRight, stopWheel: this.stopWheel,
