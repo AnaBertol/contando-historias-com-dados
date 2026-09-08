@@ -11,6 +11,7 @@
 <helmet>
 <script src="./auth-gate.js"></script>
 <script src="./rail-toggle.js"></script>
+<script src="./image-slot.js"></script>
 <link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/fonts.css">
 <link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/colors.css">
 <link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/typography.css">
@@ -21,29 +22,731 @@
   body { margin: 0; background: #2a2d33; }
   * { box-sizing: border-box; }
   .slide { position:relative; width:100%; height:100%; box-sizing:border-box; overflow:hidden; font-family:var(--font-sans); }
+  .hdr { position:absolute; top:36px; left:64px; right:64px; display:flex; justify-content:space-between; align-items:flex-start; z-index:2; }
+  .hdr-mark { display:flex; align-items:center; gap:10px; }
+  .eyebrow { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; }
+  @keyframes growTri { 0% { transform: translate(-50%,-50%) scale(0); } 55% { transform: translate(-50%,-50%) scale(34); } 100% { transform: translate(-50%,-50%) scale(34); } }
 </style>
 </helmet>
 
 <a href="index.dc.html" style="position:fixed; top:20px; left:20px; z-index:4000; display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:999px; background:rgba(28,33,39,.85); color:#F0F0F0; font-family:var(--font-sans); font-size:13px; font-weight:600; text-decoration:none;">← Curso</a>
 <button id="rail-toggle-btn" type="button" style="position:fixed; top:20px; right:20px; z-index:4000; display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:999px; background:rgba(28,33,39,.85); color:#F0F0F0; font-family:var(--font-sans); font-size:13px; font-weight:600; border:none; cursor:pointer;">⛶ Tela cheia</button>
 
-<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1280" height="720" hint-size="100%,100%">
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1280" height="720" hint-size="100%,100%" data-uneditable="">
 
-<section class="slide" data-screen-label="01 Capa" style="padding:64px 72px; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:space-between;">
+<section class="slide" data-screen-label="01 Capa" style="padding:64px 72px; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:space-between;" data-om-slide-id="00006a88">
   <div style="display:flex; align-items:center; justify-content:space-between;">
     <img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:34px; width:auto;">
     <img src="assets/logo/kunumi-mark-motion.gif" alt="" style="height:56px; width:56px;">
   </div>
   <div>
     <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--urucum); margin-bottom:22px;">Contando Histórias com Dados — Aula 3 · 2h30</div>
-    <h1 style="font-weight:300; font-size:56px; line-height:1.1; letter-spacing:-0.02em; margin:0; max-width:24ch;">Aula 3</h1>
+    <h1 style="font-weight:300; font-size:56px; line-height:1.1; letter-spacing:-0.02em; margin:0; max-width:24ch;">E agora, o que eu faço com tudo isso?</h1>
   </div>
   <div style="font-size:18px; color:rgba(240,240,240,.75);">com Ana</div>
   <div style="font-size:14px; font-weight:600; letter-spacing:.06em; color:rgba(240,240,240,.85);">04.SET.2026</div>
 </section>
 
+<section class="slide" data-screen-label="01b Check-in" style="padding:64px 72px; background:var(--urucum); color:var(--gelo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; text-align:center;" data-om-slide-id="a8efa6d4">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">CHECK-IN</h2>
+  <h2 style="font-weight:700; font-size:34px; margin:0; max-width:36ch;">Se o feriadão de vocês fosse um gênero de filme, qual seria?</h2>
+</section>
+
+<section class="slide" data-screen-label="02 Descrição" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="1d2d2c4d">
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:20px;">aula 3</div>
+  <h2 style="font-weight:300; font-size:44px; line-height:1.2; margin:0 0 28px; max-width:20ch;">E agora, o que eu faço com tudo isso?</h2>
+  <p style="font-size:22px; line-height:1.5; color:var(--grafite); margin:0; max-width:52ch;">Um novo mundo se abriu e agora a gente descobriu possibilidades e preocupações que nem tínhamos antes. É hora de respirar fundo e convergir. Como seguir expandindo nossa criatividade sem ficar congelados pelas opções?</p>
+</section>
+
+<section class="slide" data-screen-label="03 Framework recap" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center;" data-om-slide-id="3fdda221">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div class="eyebrow" style="color:var(--urucum); margin-bottom:20px;">recapitulando</div>
+  <div style="height: 3px; background: linear-gradient(90deg, #1C2127 0%, #3A2FDFEB, #F04E45EB, #F09745EB); margin-bottom: 18px"></div>
+  <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:20px;">
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">1. PARA QUEM?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Para quem estou contando essa história?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">2. POR QUE?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Por que eu quero que ela saiba isso e por que ela está me dando atenção?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">3. O QUÊ?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Quais as mensagens mais importantes da minha história?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">4. COMO?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Qual narrativa e quais elementos vou usar para passar essas mensagens?</p></div>
+    <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">5. COM O QUÊ?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Qual meio ou produto vou usar para contar a história?</p></div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="04 Section como" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; align-items:center; justify-content:center;" data-om-slide-id="37caea56">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:64px; margin:0; text-align:center;">4. <strong style="font-weight:700; color:var(--urucum);">Como?</strong></h1>
+</section>
+
+<section class="slide" data-screen-label="05 Bolhas tecnicas" style="padding:0; background:var(--chumbo); color:var(--gelo); position:relative;" data-om-slide-id="64a666d1">
+  <div style="position:absolute; left:120px; top:80px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle, transparent 0%, transparent 30%, rgba(240,78,68,.9) 62%, rgba(240,78,68,.95) 100%); display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;"><span style="font-size:15px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+  <div style="position:absolute; left:430px; top:40px; width:170px; height:170px; border-radius:50%; background:radial-gradient(circle, transparent 0%, transparent 30%, rgba(255,147,30,.9) 62%, rgba(255,147,30,.95) 100%); display:flex; align-items:center; justify-content:center; text-align:center; padding:20px;"><span style="font-size:14px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+  <div style="position: absolute; left: 607px; top: 160px; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, transparent 0%, transparent 30%, rgba(242,102,56,.9) 62%, rgba(242,102,56,.95) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 22px"><span style="font-size:15px; font-weight:600; color:var(--gelo);">JORNADA DA HEROÍNA</span></div>
+  <div style="position: absolute; left: 979px; top: 45px; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, transparent 0%, transparent 30%, rgba(215,62,95,.9) 62%, rgba(215,62,95,.95) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 18px"><span style="font-size:13px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+  <div style="position:absolute; left:150px; top:400px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, transparent 0%, transparent 30%, rgba(147,85,160,.9) 62%, rgba(147,85,160,.95) 100%); display:flex; align-items:center; justify-content:center; text-align:center; padding:26px;"><span style="font-size:16px; font-weight:600; color:var(--gelo);">JORNADA DO HERÓI</span></div>
+  <div style="position: absolute; left: 492px; top: 376px; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, transparent 0%, transparent 30%, rgba(240,78,68,.9) 62%, rgba(240,78,68,.95) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px"><span style="font-size:14px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+  <div style="position: absolute; left: 717px; top: 446px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, transparent 0%, transparent 30%, rgba(255,147,30,.9) 62%, rgba(255,147,30,.95) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 22px"><span style="font-size:15px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+  <div style="position: absolute; left: 374px; top: 257px; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, transparent 0%, transparent 30%, rgba(242,102,56,.9) 62%, rgba(242,102,56,.95) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px"><span style="font-size:13px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+  <div style="position: absolute; left: 937px; top: 281px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, transparent 0%, transparent 30%, rgba(215,62,95,.9) 62%, rgba(215,62,95,.95) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 22px"><span style="font-size:15px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+  <div style="position: absolute; left: 779px; top: 23px; width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle, transparent 0%, transparent 30%, rgba(147,85,160,.9) 62%, rgba(147,85,160,.95) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 18px"><span style="font-size:13px; font-weight:600; color:var(--gelo);">Nome da técnica</span></div>
+</section>
+
+<section class="slide" data-screen-label="05b Vídeo" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;" data-om-slide-id="9eedaf29">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <iframe src="https://www.youtube.com/embed/oP3c1h8v2ZQ" title="YouTube video" style="width:960px; height:540px; border:none; border-radius:12px; background:var(--concreto);" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  <p style="font-size:15px; color:var(--grafite); margin:0;">Baseado em <a class="ref-link" href="https://storytellingedge.substack.com/p/the-simple-shapes-of-great-stories" style="color:var(--grafite);">storytellingedge.substack.com</a></p>
+</section>
+
+<section class="slide" data-screen-label="05c Arcos emocionais" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:48px;" data-om-slide-id="0df3d49a">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; flex-direction:column; gap:24px;">
+    <div class="eyebrow" style="color:var(--urucum);">1327 histórias estudadas</div>
+    <h2 style="font-weight:300; font-size:36px; line-height:1.25; margin:0; max-width:24ch;">The emotional arcs of stories are dominated by six basic shapes</h2>
+    <p style="font-size:15px; color:var(--grafite); margin:0;">Fonte: <a class="ref-link" href="https://arxiv.org/pdf/1606.07772" style="color:var(--grafite);">arxiv.org/pdf/1606.07772</a></p>
+  </div>
+  <img src="uploads/pasted-1788821465379-0.png" alt="Seis arcos emocionais" style="width:100%; height:100%; object-fit:contain;">
+</section>
+
+<section class="slide" data-screen-label="06 Gif triangulos" style="padding:0; background:var(--chumbo); overflow:hidden; position:relative;" data-om-slide-id="026f43fe">
+  <img src="uploads/Nexusstudios_AlexCourtes_TheWhiteStripes_7NationArmy_Gifs_2-1.gif" alt="" style="width:100%; height:100%; object-fit:cover;">
+</section>
+
+<section class="slide" data-screen-label="07 Piramides" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center; gap:40px;" data-om-slide-id="19c98330">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:48px; align-items:end;">
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+      <div style="font-size:15px; font-weight:600; color:var(--grafite); text-transform:uppercase; letter-spacing:.08em;">Pirâmide tradicional</div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+        <div style="width:190px; height:64px; background:var(--concreto); color:var(--chumbo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Introdução</div>
+        <div style="width:270px; height:64px; background:var(--grafite); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Contexto</div>
+        <div style="width:350px; height:64px; background:var(--urucum); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Mensagem principal ou conclusão</div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+      <div style="font-size:15px; font-weight:600; color:var(--grafite); text-transform:uppercase; letter-spacing:.08em;">Pirâmide invertida</div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+        <div style="width:350px; height:64px; background:var(--urucum); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Mensagem principal ou conclusão</div>
+        <div style="width:270px; height:64px; background:var(--grafite); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Contexto</div>
+        <div style="width:190px; height:64px; background:var(--concreto); color:var(--chumbo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Detalhes</div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+      <div style="font-size:15px; font-weight:600; color:var(--grafite); text-transform:uppercase; letter-spacing:.08em;">Pirâmide de lado</div>
+      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px;">
+        <div style="width:270px; height:64px; background:var(--grafite); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Contexto</div>
+        <div style="width:350px; height:64px; background:var(--urucum); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Mensagem principal ou conclusão</div>
+        <div style="width:190px; height:64px; background:var(--concreto); color:var(--chumbo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:14px; font-weight:600; padding:6px;">Encerramento</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="slide" data-screen-label="08 Pros-contras tradicional" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:0.8fr 1.2fr; align-items:center; gap:56px;" data-om-slide-id="c6b29316">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+    <div style="font-size:15px; font-weight:600; color:var(--grafite); text-transform:uppercase; letter-spacing:.08em;">Pirâmide tradicional</div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <div style="width:150px; height:52px; background:var(--concreto); color:var(--chumbo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Introdução</div>
+      <div style="width:215px; height:52px; background:var(--grafite); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Contexto</div>
+      <div style="width:280px; height:52px; background:var(--urucum); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Mensagem principal ou conclusão</div>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; row-gap:32px; column-gap:40px;">
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Prós</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>entrega todo o contexto necessário para compreensão da mensagem;</li>
+        <li>embasa o material de maneira a criar conexão com o público.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Contras</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>exige atenção da audiência;</li>
+        <li>pode criar percepções incorretas antes do tempo.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Usar com</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>pessoas que não conhecem do assunto;</li>
+        <li>quando se busca construir confiança.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Evitar com</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>quem já ouviu essa história;<br></li><li>quem tem dificuldade de prestar atenção ou pouco tempo.<br></li>
+      </ul>
+    </div>
+    
+    <div>
+      
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        
+        
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="09 Pros-contras invertida" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:0.8fr 1.2fr; align-items:center; gap:56px;" data-om-slide-id="f1987833">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+    <div style="font-size:15px; font-weight:600; color:var(--grafite); text-transform:uppercase; letter-spacing:.08em;">Pirâmide invertida</div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <div style="width:280px; height:52px; background:var(--urucum); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Mensagem principal ou conclusão</div>
+      <div style="width:215px; height:52px; background:var(--grafite); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Contexto</div>
+      <div style="width:150px; height:52px; background:var(--concreto); color:var(--chumbo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Detalhes</div>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; row-gap:32px; column-gap:40px;">
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Prós</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>traz a informação rápida e direta;</li>
+        <li>prende a atenção logo no início.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Contras</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>não prepara a audiência para receber o conteúdo;</li>
+        <li>pode ser interpretado de forma precipitada.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Usar com</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>audiência cansada ou com pouco tempo;</li>
+        <li>audiência que já tem a sua confiança;</li>
+        <li>audiência que já conhece o contexto.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Evitar com</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        
+        <li>quando você precisa convencer as pessoas a ter alguma ação.</li><li></li>
+      </ul>
+    </div>
+    
+    
+  </div>
+</section>
+
+<section class="slide" data-screen-label="10 Pros-contras de lado" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:0.8fr 1.2fr; align-items:center; gap:56px;" data-om-slide-id="e7137f28">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:24px;">
+    <div style="font-size:15px; font-weight:600; color:var(--grafite); text-transform:uppercase; letter-spacing:.08em;">Pirâmide de lado</div>
+    <div style="display:flex; flex-direction:column; align-items:flex-start; gap:4px;">
+      <div style="width:215px; height:52px; background:var(--grafite); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Contexto</div>
+      <div style="width:280px; height:52px; background:var(--urucum); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Mensagem principal ou conclusão</div>
+      <div style="width:150px; height:52px; background:var(--concreto); color:var(--chumbo); display:flex; align-items:center; justify-content:center; text-align:center; font-size:12px; font-weight:600; padding:6px;">Encerramento</div>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; row-gap:32px; column-gap:40px;">
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Prós</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li style="position: relative">fornece contexto sem exagerar na explicação;</li>
+        <li>permite um encerramento voltado para ações da audiência.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Contras</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>não fisga a atenção de imediato;</li>
+        <li>pode não dar todo o contexto necessário.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Usar com</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>quem já tem alguma familiaridade com o conteúdo;</li>
+        <li>colegas e pares.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:13px; font-weight:700; color:var(--urucum); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Evitar com</div>
+      <ul style="margin:0; padding-left:20px; font-size:16px; line-height:1.5; color:var(--chumbo);">
+        <li>pessoas que não precisam ou não querem detalhes;</li>
+        <li>audiência que não tem nenhuma familiaridade com o assunto.</li>
+      </ul>
+    </div>
+    
+    
+  </div>
+</section>
+
+<section class="slide" data-screen-label="11 Exemplos piramides" style="padding:0; background:var(--chumbo); color:var(--gelo); position:relative; overflow:hidden; display:flex; flex-direction:column;" data-om-slide-id="102ae559">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:36px; padding:96px 72px 24px;">
+    <div style="position:absolute; top:88px; right:64px; z-index:2; display:inline-flex; align-items:center; gap:6px; padding:6px 13px; border-radius:999px; background:rgba(240,240,240,.1); border:1px solid rgba(240,240,240,.3); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--gelo);">↗ clique para explorar</div>
+    <div style="font-size:15px; font-weight:600; color:var(--concreto); text-transform:uppercase; letter-spacing:.08em;">Escolha o tipo de pirâmide</div>
+    <div style="display:flex; gap:28px;">
+      <sc-for list="{{ pyramidTypes }}" as="p" hint-placeholder-count="3">
+        <button onClick="{{ p.onClick }}" style="{{ p.buttonStyle }}">
+          <div style="display:flex; flex-direction:column; align-items:{{ p.align }}; gap:2px;">
+            <sc-for list="{{ p.rects }}" as="r" hint-placeholder-count="3">
+              <div style="height:8px; width:{{ r.width }}; background:{{ r.color }};"></div>
+            </sc-for>
+          </div>
+          <span>{{ p.label }}</span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="display:flex; padding:0; background:rgba(0,0,0,.25);">
+    <sc-for list="{{ thumbnails }}" as="t" hint-placeholder-count="5">
+      <div style="position:relative; flex:1 1 0; min-width:0; height:150px; cursor:pointer;" onClick="{{ t.onClick }}">
+        <img src="{{ t.src }}" alt="Exemplo" style="width:100%; height:100%; object-fit:cover; display:block; border:none;">
+        <div style="position:absolute; top:0; left:0; width:46px; height:46px; background:{{ t.bg }}; display:flex; align-items:center; justify-content:center;">
+          <div style="display:flex; flex-direction:column; align-items:{{ activeIcon.align }}; gap:1px; transform:scale(0.4);">
+            <sc-for list="{{ activeIcon.rects }}" as="r" hint-placeholder-count="3">
+              <div style="height:8px; width:{{ r.width }}; background:{{ r.color }};"></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:80; display:flex; align-items:center; justify-content:center;" onClick="{{ closeModal }}" onWheel="{{ blockScroll }}">
+      <button onClick="{{ prevImage }}" style="position:absolute; left:32px; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; border:none; background:rgba(255,255,255,.12); color:#fff; font-size:22px; cursor:pointer;">←</button>
+      <div style="position:relative; max-width:82%; max-height:82%;" onClick="{{ stopClick }}">
+        <img src="{{ modalSrc }}" alt="" style="display:block; max-width:100%; max-height:82vh; object-fit:contain; border-radius:8px;">
+        <div style="position:absolute; top:0; left:0; width:64px; height:64px; background:{{ modalBg }}; display:flex; align-items:center; justify-content:center; border-radius:8px 0 0 0;">
+          <div style="display:flex; flex-direction:column; align-items:{{ activeIcon.align }}; gap:2px; transform:scale(0.55);">
+            <sc-for list="{{ activeIcon.rects }}" as="r" hint-placeholder-count="3">
+              <div style="height:8px; width:{{ r.width }}; background:{{ r.color }};"></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <button onClick="{{ nextImage }}" style="position:absolute; right:32px; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:50%; border:none; background:rgba(255,255,255,.12); color:#fff; font-size:22px; cursor:pointer;">→</button>
+      <button onClick="{{ closeModal }}" style="position:absolute; top:28px; right:28px; width:40px; height:40px; border-radius:50%; border:none; background:rgba(255,255,255,.12); color:#fff; font-size:18px; cursor:pointer;">×</button>
+    </div>
+  </sc-if>
+</section>
+
+<section class="slide" data-screen-label="11b Exercício" style="padding:64px 72px; background:var(--urucum); color:var(--gelo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; text-align:center;" data-om-slide-id="11b3d7b3">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">EXERCÍCIO!</h2>
+  <h2 style="font-weight:700; font-size:26px; margin:0; max-width:48ch; line-height:1.4;">Escolha uma pirâmide e use ela para conectar os elementos da sua história.</h2>
+  
+  <div style="font-weight:300; font-size:19px; max-width:40ch; line-height:1.5;">Volte para o miro, finalize seus pontos e conecte eles conforme a pirâmide se encaixa com seus objetivos e sua audiência.</div>
+</section><section class="slide" data-screen-label="11c Fluxo do piloto" style="padding:0; background:#fff; color:var(--chumbo); display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden;" data-om-slide-id="b6200365">
+  <img id="fluxo-piloto-img" src="assets/images/fluxo-piloto-diagrama.jpg" alt="Diagrama do fluxo de experimentação dos pilotos" style="position:absolute; inset:64px 72px; width:calc(100% - 144px); height:calc(100% - 128px); object-fit:contain; background:#fff;">
+  <div style="position:relative; z-index:1; align-self:flex-start; padding:10px 20px; margin:40px 0 0 72px; background:var(--chumbo); border-radius:6px;">
+    <div class="eyebrow" style="color:var(--urucum); margin:0;">Apresentação AP Piloto</div>
+  </div>
+</section>
+
+
+
+<section class="slide" data-screen-label="17 Section com o que" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; align-items:center; justify-content:center;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:64px; margin:0; text-align:center;">5. <strong style="font-weight:700; color:var(--urucum);">Com o quê?</strong></h1>
+</section>
+
+<section class="slide" data-screen-label="18 Frase slides" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:48px; line-height:1.3; margin:0; max-width:32ch;">Vocês não são obrigados a sempre usar slides</h1>
+</section>
+
+<section class="slide" data-screen-label="19 Mosaico imagens" style="padding:0; background:var(--gelo); position:relative; overflow:hidden;">
+  <img src="assets/images/mosaic-report-brand.png" alt="" style="position: absolute; left: 384px; top: 327px; object-fit: cover; height: 116px; width: 523px">
+  <img src="assets/images/mosaic-string-wall.png" alt="" style="position: absolute; left: 381px; top: 29px; width: 527px; height: 272px; object-fit: cover">
+  <img src="assets/images/mosaic-geothermal-mural.png" alt="" style="position: absolute; left: 383px; top: 465px; width: 370px; height: 216px; object-fit: cover">
+  <img src="assets/images/mosaic-control-room.png" alt="" style="position: absolute; left: 775px; top: 465px; width: 476px; height: 216px; object-fit: cover">
+  <img src="assets/images/mosaic-dear-data.png" alt="" style="position: absolute; left: 850px; top: 25px; width: 471px; height: 422px; object-fit: contain">
+  
+  <img src="assets/images/mosaic-phone-gif.gif" alt="" style="position: absolute; left: -34px; top: 29px; width: 448px; height: 656px; object-fit: contain">
+  <img src="assets/images/mosaic-wage-gap.png" alt="" style="position:absolute; left:1380px; top:613px; width:508px; height:435px; object-fit:contain;">
+</section>
+
+<section class="slide" data-screen-label="20 Destaque criatividade" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; align-items:center; justify-content:center; text-align:center;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:700; font-size:56px; line-height:1.25; margin:0; max-width:28ch;">Vamos falar sobre <span style="color:var(--urucum);">criatividade</span></h1>
+</section>
+
+<section class="slide" data-screen-label="21 Imagem escafandro" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <img src="assets/images/historia-escafandro.png" alt="" style="width:100%; height:100%; object-fit:cover;">
+</section>
+
+<section class="slide" data-screen-label="22 Imagem barco" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <img src="assets/images/historia-barco.png" alt="" style="width:100%; height:100%; object-fit:cover;">
+</section>
+
+<section class="slide" data-screen-label="23 Imagem tesla" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <img src="assets/images/historia-tesla.png" alt="" style="width:100%; height:100%; object-fit:cover;">
+</section>
+
+<section class="slide" data-screen-label="24 Imagem raio-x" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <img src="assets/images/historia-raiox.png" alt="" style="width:100%; height:100%; object-fit:cover;">
+</section>
+
+<section class="slide" data-screen-label="25 Citação Einstein" style="padding:0; background:var(--chumbo); color:var(--gelo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/einstein.png" alt="Albert Einstein" style="position:absolute; left:0; bottom:0; height:92%; width:auto; object-fit:contain; filter:grayscale(1);">
+  <div style="position:absolute; right:72px; top:50%; transform:translateY(-50%); max-width:38ch; text-align:right;">
+    <p style="font-weight:300; font-size:40px; line-height:1.4; margin:0 0 32px 0;">"A imaginação é mais importante que o conhecimento."</p>
+    <p style="font-size:20px; letter-spacing:0.05em; text-transform:uppercase; color:var(--concreto); margin:0;">Albert Einstein</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="26 Citação Mileva" style="padding:0; background:var(--chumbo); color:var(--gelo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/mileva-maric.png" alt="Mileva Marić" style="position:absolute; right:0; bottom:0; height:92%; width:auto; object-fit:contain; filter:grayscale(1);">
+  <div style="position:absolute; left:72px; top:50%; transform:translateY(-50%); max-width:38ch;">
+    <p style="font-weight:300; font-size:40px; line-height:1.4; margin:0 0 32px 0;">"É fácil dizer isso quando não foi você quem fez as contas."</p>
+    <p style="font-size:20px; letter-spacing:0.05em; text-transform:uppercase; color:var(--concreto); margin:0;">Mileva Marić</p>
+    <p style="font-size:16px; color:var(--concreto); margin:8px 0 0 0; font-style:italic;">primeira esposa de Einstein, na minha imaginação</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="27 Ciência precisa de criatividade" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center; gap:40px;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:48px; line-height:1.3; margin:0; max-width:26ch;">apesar de parecer óbvio que <strong style="font-weight:700;">ciência</strong> precisa de<br><strong style="font-weight:700;">criatividade</strong></h1>
+  <p style="font-size:24px; line-height:1.5; margin:0; max-width:48ch; color:var(--grafite);">não é costume que cursos relacionados às ciências tenham disciplinas focadas nisso.</p>
+</section>
+
+<section class="slide" data-screen-label="28 Citação Royal Society" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center; gap:56px;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; flex-direction:column; gap:24px;">
+    <p style="font-weight: 300; font-size: 22px; line-height: 1.55; margin: 0">"A ciência tem tradicionalmente sido altamente criativa. Observações têm levado a teorias em todos os domínios do mundo natural e gerado novas descobertas. A criatividade, o uso de ideias e da imaginação, está no cerne disso. (...) No entanto, em tempos mais recentes e em muitas áreas e setores, a ciência está operando cada vez mais dentro de um modelo de produção pós-revolução industrial com uma base econômica racional que busca, valoriza e recompensa medidas estreitamente definidas (muitas vezes quantitativas) de produtividade e excelência."</p>
+    <p style="font-size:15px; color:var(--grafite); margin:0;">Fonte: <a class="ref-link" href="https://royalsocietypublishing.org/rsos/article/10/5/230134/66049/Regaining-creativity-in-science-insights-from" style="color:var(--grafite);">Regaining creativity in science: insights from conversation</a></p>
+  </div>
+  <img src="assets/images/royal-society-creativity-paper.png" alt="Artigo Regaining creativity in science" style="width:100%; height:auto; object-fit:contain; box-shadow:var(--shadow-sm);">
+</section>
+
+<section class="slide" data-screen-label="29 Eureka" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:0.9fr 1.1fr; align-items:center; gap:56px;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <div style="display:flex; flex-direction:column; justify-content:space-between; height:100%; padding:24px 0;">
+    <div>
+      <h1 style="font-weight:300; font-style:italic; font-size:56px; margin:0 0 16px 0;">eureka!</h1>
+      <p style="font-size:22px; margin:0; color:var(--grafite);">em grego, ηὕρηκα/εὕρηκα — "Encontrei!"</p>
+    </div>
+    <p style="font-size:14px; line-height:1.5; margin:0; color:var(--grafite);">Ilustração do século 16 de Arquimedes no banho,<br>com a coroa de Hiero no canto inferior direito.</p>
+  </div>
+  <img src="assets/images/arquimedes-banho.png" alt="Arquimedes no banho" style="width:100%; height:100%; object-fit:contain;">
+</section>
+
+<section class="slide" data-screen-label="30 Momento eureka" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; justify-content:center; gap:40px;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:48px; line-height:1.3; margin:0; max-width:26ch;">na ciência, criatividade é vista como o <strong style="font-weight:700;">momento eureka:</strong></h1>
+  <div>
+    <p style="font-size:24px; line-height:1.5; margin:0; max-width:52ch; color:var(--grafite);">a habilidade — ou sorte — de encontrar a solução certa* no meio de infinitas possibilidades que poderiam ser testadas.</p>
+    <p style="font-size:14px; margin:12px 0 0 0; color:var(--grafite);">*e existe isso, de solução certa?</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="31 Destaque intuição e talento" style="padding:64px 72px; background:var(--chumbo); display:flex; align-items:center; justify-content:center;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:56px; line-height:1.4; margin:0; max-width:34ch; text-align:center;"><span style="color:rgba(240,240,240,.18);">o cientista criativo é visto com a mesma </span><span style="font-style:italic; color:rgba(240,240,240,.18);">mística</span><span style="color:rgba(240,240,240,.18);"> do artista: </span><strong style="font-weight:700; font-style:italic; color:var(--urucum);">intuição e talento natos</strong></h1>
+</section>
+
+<section class="slide" data-screen-label="32 Imagem referência coringa" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <img src="assets/images/joker-harley-pose-comparison.png" alt="" style="width:100%; height:100%; object-fit:cover;">
+</section>
+
+<section class="slide" data-screen-label="33 Imagem referência mulher-aranha" style="padding:0; background:#000; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <img src="assets/images/spiderman-reference-photos.png" alt="" style="width:100%; height:100%; object-fit:cover;">
+</section>
+
+<section class="slide" data-screen-label="34 Criatividade alimentada por referências" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:0.9fr 1.1fr; align-items:center; gap:56px;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:44px; line-height:1.3; margin:0; max-width:22ch;">criatividade é alimentada por <strong style="font-weight:700;">referências</strong></h1>
+  <img src="assets/images/referencias-colagem.png" alt="" style="width: 703px; height: 604px; object-fit: contain">
+</section>
+
+<section class="slide" data-screen-label="35 Citação Chacrinha" style="padding:0; background:var(--chumbo); color:var(--gelo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/chacrinha.png" alt="Chacrinha" style="position: absolute; left: -85px; bottom: 0; height: 736px; width: 895px; object-fit: contain; filter: grayscale(1)">
+  <div style="position:absolute; right:72px; top:50%; transform:translateY(-50%); max-width:38ch; text-align:right;">
+    <p style="font-weight:300; font-size:40px; line-height:1.4; margin:0 0 32px 0;">"Nada se cria, tudo se copia."</p>
+    <p style="font-size:20px; letter-spacing:0.05em; text-transform:uppercase; color:var(--concreto); margin:0;">José Abelardo Barbosa de Medeiros, o Chacrinha</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="36 Citação Lavoisier" style="padding:0; background:var(--chumbo); color:var(--gelo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/lavoisier.png" alt="Antoine-Laurent de Lavoisier" style="position:absolute; right:0; bottom:0; height:92%; width:auto; object-fit:contain; filter:grayscale(1);">
+  <div style="position:absolute; left:72px; top:50%; transform:translateY(-50%); max-width:38ch;">
+    <p style="font-weight:300; font-size:40px; line-height:1.4; margin:0 0 32px 0;">"Nada se cria, nada se perde, tudo se transforma"</p>
+    <p style="font-size:20px; letter-spacing:0.05em; text-transform:uppercase; color:var(--concreto); margin:0;">Antoine-Laurent de Lavoisier</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="37 Bio Ada Lovelace" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/ada-lovelace.png" alt="Ada Lovelace" style="position:absolute; left:0; bottom:0; height:92%; width:auto; object-fit:contain;">
+  <div style="position:absolute; right:72px; top:50%; transform:translateY(-50%); max-width:38ch;">
+    <h1 style="font-weight:300; font-size:48px; margin:0 0 24px 0;">Ada Lovelace</h1>
+    <p style="font-size:20px; line-height:1.5; margin:0 0 24px 0; color:var(--grafite);">Matemática e escritora, é considerada a mãe da programação por ter escrito o primeiro algoritmo a ser processado por uma máquina.</p>
+    <p style="font-size:20px; line-height:1.5; margin:0; color:var(--grafite);">Filha do Lord Byron, usou o funcionamento dos teares como inspiração para seu trabalho.</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="38 Bio Kurt Gödel" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/kurt-godel.png" alt="Kurt Gödel" style="position: absolute; left: -22px; height: 758px; width: 616px; object-fit: contain; top: -34px">
+  <div style="position:absolute; right:72px; top:50%; transform:translateY(-50%); max-width:38ch; text-align:right;">
+    <h1 style="font-weight:300; font-size:48px; margin:0 0 24px 0;">Kurt Gödel</h1>
+    <p style="font-size:20px; line-height:1.5; margin:0 0 24px 0; color:var(--grafite);">Matemático, lógico e filósofo, criador dos teoremas da incompletude.</p>
+    <p style="font-size:20px; line-height:1.5; margin:0; color:var(--grafite);">Quando jovem, se interessou por linguística e filosofia, e se inspirou no paradoxo do mentiroso para criar seus teoremas.</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="39 Bio Louis Pasteur" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/louis-pasteur.png" alt="Louis Pasteur" style="position: absolute; left: -18px; height: 733px; width: 759px; object-fit: contain; top: -10px">
+  <div style="position:absolute; right:72px; top:50%; transform:translateY(-50%); max-width:38ch; text-align:right;">
+    <h1 style="font-weight:300; font-size:48px; margin:0 0 24px 0;">Louis Pasteur</h1>
+    <p style="font-size:20px; line-height:1.5; margin:0 0 24px 0; color:var(--grafite);">Cientista reconhecido pelas suas contribuições na química, medicina, microbiologia e cristalografia.</p>
+    <p style="font-size:20px; line-height:1.5; margin:0; color:var(--grafite);">Suas descobertas sobre simetria das moléculas foram influenciadas pelo seu treinamento em litografia.</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="40 Bio Suzana Herculano-Houzel" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/suzana-herculano-houzel.png" alt="Suzana Herculano-Houzel" style="position: absolute; left: -79px; height: 730px; width: 672px; object-fit: contain; top: 21px">
+  <div style="position:absolute; right:72px; top:50%; transform:translateY(-50%); max-width:38ch; text-align:right;">
+    <h1 style="font-weight:300; font-size:48px; margin:0 0 24px 0;">Suzana Herculano-Houzel</h1>
+    <p style="font-size:20px; line-height:1.5; margin:0 0 24px 0; color:var(--grafite);">Neurocientista brasileira que desenvolveu um método de contagem de neurônios em cérebros.</p>
+    <p style="font-size:20px; line-height:1.5; margin:0; color:var(--grafite);">A relação entre a área e espessura do córtex cerebral e o número de dobras em sua superfície foi pensada em uma conversa sobre bolinhas de papel amassado.</p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="41 Cubismo e mecânica quântica" style="padding:0; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:0.9fr 1.1fr;">
+  <img src="assets/images/femme-au-cheval-metzinger.png" alt="La Femme au Cheval, de Jean Metzinger" style="width:100%; height:100%; object-fit:cover;">
+  <div style="position:relative; padding:64px 72px; display:flex; flex-direction:column; justify-content:space-between;">
+    <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+    <h1 style="font-weight:300; font-size:40px; line-height:1.35; margin:56px 0 0 0; max-width:22ch;">Estudos mostram a influência do conceito de <strong style="font-weight:700;">simultaneidade, do cubismo,</strong> nas bases da <strong style="font-weight:700;">mecânica quântica.</strong></h1>
+    <p style="font-size:14px; line-height:1.5; margin:0; color:var(--grafite);">La Femme au Cheval (Woman with a Horse), de Jean Metzinger, comprado por Niels Bohr para decorar seu escritório.<br>Fonte: <a class="ref-link" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12210229/" style="color:var(--grafite);">Creativity across domains: Thoughts in science, engineering, mathematics, computer science, technology, and art — Julio M Ottino</a></p>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="42 Cérebro massaroca de conexões" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; gap:40px;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-white.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:32px;"></div>
+  <img src="assets/images/cerebro-rede-neural.png" alt="" style="position:absolute; right:-60px; bottom:-40px; width:640px; height:auto; opacity:.5;">
+  <h1 style="font-weight:300; font-size:48px; line-height:1.3; margin:0; max-width:22ch; position:relative; z-index:1;">nosso cérebro é uma <strong style="font-weight:700; color:var(--urucum);">massaroca</strong> de conexões</h1>
+  <p style="font-size:24px; line-height:1.5; margin:0; max-width:44ch; color:var(--concreto); position:relative; z-index:1;">e não uma sequência de caixas organizadas por disciplinas arbitrariamente definidas.</p>
+</section>
+
+<section class="slide" data-screen-label="43 Referências diversas" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; gap:32px;">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+  <h1 style="font-weight:300; font-size:36px; margin:40px 0 0 0;">Referências para <strong style="font-weight:700;">alimentar sua criatividade</strong></h1>
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, 1fr); gap:20px; flex:1; min-height:0;">
+    <a href="https://100.datavizproject.com" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-datavizproject.png" alt="1 dataset 100 visualizations" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">1 dataset 100 visualizations</span>
+        <span style="font-size:11px; color:var(--grafite); text-transform:uppercase; letter-spacing:.05em;">por Data Viz Project</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">100 visualizações criadas com um único conjunto de dados.</p>
+      </div>
+    </a>
+    <a href="https://www.nexojornal.com.br/grafico" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-nexojornal.png" alt="Nexo Jornal" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">Nexo Jornal</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">Um ótimo exemplo de jornalismo de dados à brasileira.</p>
+      </div>
+    </a>
+    <a href="https://giorgialupi.com/" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-datahumanism.png" alt="Data Humanism" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">Data Humanism</span>
+        <span style="font-size:11px; color:var(--grafite); text-transform:uppercase; letter-spacing:.05em;">por Giorgia Lupi</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">Uma das maiores vozes na arte com dados.</p>
+      </div>
+    </a>
+    <a href="https://flowingdata.com/" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-flowingdata.png" alt="The Flow" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">The Flow</span>
+        <span style="font-size:11px; color:var(--grafite); text-transform:uppercase; letter-spacing:.05em;">a newsletter do flowing data</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">Uma seleção das melhores visualizações de dados em diversos campos.</p>
+      </div>
+    </a>
+    <a href="https://informationisbeautiful.net/" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-informationisbeautiful.png" alt="Information is Beautifull" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">Information is Beautifull</span>
+        <span style="font-size:11px; color:var(--grafite); text-transform:uppercase; letter-spacing:.05em;">por David McCandless</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">Os livros deles são lindos, e as histórias digitais também.</p>
+      </div>
+    </a>
+    <a href="https://www.theplot.media/" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-theplot.png" alt="The Plot" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">The Plot</span>
+        <span style="font-size:11px; color:var(--grafite); text-transform:uppercase; letter-spacing:.05em;">por Evelina Parrou</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">Newsletter com textos curtos e inspiradores sobre storytelling com dados.</p>
+      </div>
+    </a>
+    <a href="https://super.abril.com.br/" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-superinteressante.png" alt="Revista Superinteressante" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">Revista Superinteressante</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">Especialmente a versão física, é um show de inspiração sobre como organizar conteúdo.</p>
+      </div>
+    </a>
+    <a href="https://pudding.cool/" target="_blank" class="ref-link" style="display:flex; flex-direction:column; min-height:0; border:1px solid rgba(28,33,39,.12); border-radius:12px; overflow:hidden; text-decoration:none; color:var(--chumbo); box-shadow:var(--shadow-sm);">
+      <img src="assets/images/ref-thepudding.png" alt="The Pudding" style="width:100%; height:120px; object-fit:cover; background:var(--concreto); flex-shrink:0;">
+      <div style="padding:16px; display:flex; flex-direction:column; gap:5px; overflow:hidden;">
+        <span style="font-size:15px; font-weight:700; line-height:1.3;">The Pudding</span>
+        <p style="font-size:12px; line-height:1.4; color:var(--grafite); margin:6px 0 0 0;">Impossível descrever quão aleatórias e quão incríveis são as histórias dessa galera. Apenas gastam alguns minutos.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="44 Exercício final" style="padding:64px 72px; background:var(--urucum); color:var(--gelo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; text-align:center;">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">EXERCÍCIO!</h2>
+  <h2 style="font-weight:700; font-size:26px; margin:0; max-width:48ch; line-height:1.4;">Quais histórias criamos?</h2>
+  <div style="font-weight:300; font-size:19px; max-width:52ch; line-height:1.5;">Pode ter sido um gráfico que conseguimos atualizar, ou a estrutura de uma história, ou apenas entender melhor porque estamos contando algo para certas pessoas. Chegou a hora de compartilhar o que vocês conseguiram aplicar até agora.</div>
+</section>
+
+<section class="slide" data-screen-label="45 Fechamento" style="padding:64px 72px; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:space-between;">
+  <img src="assets/logo/kunumi-wordmark-white.png" alt="kunumi" style="height:34px; width:auto; align-self:flex-start;">
+  <h1 style="font-weight:300; font-size:96px; letter-spacing:-0.03em; margin:0;">Obrigada</h1>
+  <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:rgba(240,240,240,.7);">Contando Histórias com Dados · Aula 3</div>
+</section>
+
 </x-import>
 
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { selected: 'tradicional', modalIndex: null, wideZoomOpen: false, wideZoomScale: 1, wideZoomPanX: 0, wideZoomPanY: 0 };
+
+  handleWideZoom = (e) => { e.stopPropagation(); this.setState({ wideZoomOpen: true, wideZoomScale: 1, wideZoomPanX: 0, wideZoomPanY: 0 }); };
+  closeWideZoom = () => this.setState({ wideZoomOpen: false });
+  stopClickWide = (e) => e.stopPropagation();
+  stopWideWheel = (e) => { e.stopPropagation(); e.preventDefault(); };
+  toggleWideZoomScale = (e) => {
+    e.stopPropagation();
+    this.setState(s => s.wideZoomScale === 1 ? { wideZoomScale: 2, wideZoomPanX: 0, wideZoomPanY: 0 } : { wideZoomScale: 1, wideZoomPanX: 0, wideZoomPanY: 0 });
+  };
+  widePanBy = (dx, dy) => {
+    if (this.state.wideZoomScale === 1) return;
+    this.setState(s => ({ wideZoomPanX: Math.max(-20, Math.min(20, s.wideZoomPanX + dx)), wideZoomPanY: Math.max(-20, Math.min(20, s.wideZoomPanY + dy)) }));
+  };
+  wideZoomPanUp = (e) => { e.stopPropagation(); this.widePanBy(0, -8); };
+  wideZoomPanDown = (e) => { e.stopPropagation(); this.widePanBy(0, 8); };
+  wideZoomPanLeft = (e) => { e.stopPropagation(); this.widePanBy(-8, 0); };
+  wideZoomPanRight = (e) => { e.stopPropagation(); this.widePanBy(8, 0); };
+
+  images = {
+    tradicional: [
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.36.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.21.00.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.07.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.23.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.48.png'
+    ],
+    invertida: [
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.48.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.23.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.07.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.36.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.21.00.png'
+    ],
+    lado: [
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.07.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.23.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.36.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.20.48.png',
+      'uploads/Captura de Tela 2026-09-07 a\u0300s 20.21.00.png'
+    ]
+  };
+
+  imageBg = {};
+  select(key) { this.setState({ selected: key, modalIndex: null }); }
+  openModal(i) { this.setState({ modalIndex: i }); }
+  closeModal() { this.setState({ modalIndex: null }); }
+  prevImage(e) {
+    e.stopPropagation();
+    const imgs = this.images[this.state.selected];
+    this.setState(s => ({ modalIndex: (s.modalIndex - 1 + imgs.length) % imgs.length }));
+  }
+  nextImage(e) {
+    e.stopPropagation();
+    const imgs = this.images[this.state.selected];
+    this.setState(s => ({ modalIndex: (s.modalIndex + 1) % imgs.length }));
+  }
+  stopClick(e) { e.stopPropagation(); }
+  blockScroll(e) { e.stopPropagation(); e.preventDefault(); }
+
+  bgFor(src) {
+    if (src.includes('20.20.48')) return '#ec1a6b';
+    if (src.includes('20.21.00')) return '#000000';
+    return '#efeeec';
+  }
+
+  renderVals() {
+    const defs = [
+      { key: 'tradicional', label: 'Tradicional', align: 'center', rects: [
+        { width: '30px', color: 'var(--concreto)' },
+        { width: '45px', color: 'var(--grafite)' },
+        { width: '60px', color: 'var(--urucum)' }
+      ] },
+      { key: 'invertida', label: 'Invertida', align: 'center', rects: [
+        { width: '60px', color: 'var(--urucum)' },
+        { width: '45px', color: 'var(--grafite)' },
+        { width: '30px', color: 'var(--concreto)' }
+      ] },
+      { key: 'lado', label: 'De lado', align: 'flex-start', rects: [
+        { width: '45px', color: 'var(--grafite)' },
+        { width: '60px', color: 'var(--urucum)' },
+        { width: '30px', color: 'var(--concreto)' }
+      ] }
+    ];
+    const pyramidTypes = defs.map(t => {
+      const active = this.state.selected === t.key;
+      const buttonStyle = 'display:flex; flex-direction:column; align-items:center; gap:10px; padding:20px 28px; border-radius:12px; border:1.5px solid ' + (active ? 'var(--urucum)' : 'rgba(240,240,240,.25)') + '; background:' + (active ? 'rgba(240,78,68,.14)' : 'transparent') + '; color:var(--gelo); cursor:pointer; font-family:var(--font-sans); font-size:14px; font-weight:600;';
+      return { key: t.key, label: t.label, align: t.align, rects: t.rects, buttonStyle, onClick: () => this.select(t.key) };
+    });
+
+    const currentImages = this.images[this.state.selected];
+    const thumbnails = currentImages.map((src, i) => ({ src, onClick: () => this.openModal(i), bg: this.bgFor(src) }));
+    const activeDef = defs.find(t => t.key === this.state.selected);
+    const modalSrc = this.state.modalIndex !== null ? currentImages[this.state.modalIndex] : '';
+
+    return {
+      pyramidTypes,
+      thumbnails,
+      activeIcon: { align: activeDef.align, rects: activeDef.rects },
+      modalOpen: this.state.modalIndex !== null,
+      modalSrc,
+      modalBg: modalSrc ? this.bgFor(modalSrc) : '#efeeec',
+      prevImage: (e) => this.prevImage(e),
+      nextImage: (e) => this.nextImage(e),
+      closeModal: () => this.closeModal(),
+      stopClick: (e) => this.stopClick(e),
+      blockScroll: (e) => this.blockScroll(e),
+      wideZoomOpen: this.state.wideZoomOpen,
+      wideZoomSrc: 'assets/images/fluxo-piloto-diagrama.jpg',
+      wideZoomScale: this.state.wideZoomScale,
+      wideZoomPanX: this.state.wideZoomPanX,
+      wideZoomPanY: this.state.wideZoomPanY,
+      wideZoomCursor: this.state.wideZoomScale === 1 ? 'zoom-in' : 'zoom-out',
+      wideZoomArrowOpacity: this.state.wideZoomScale === 1 ? 0.3 : 1,
+      handleWideZoom: this.handleWideZoom,
+      closeWideZoom: this.closeWideZoom,
+      stopClickWide: this.stopClickWide,
+      toggleWideZoomScale: this.toggleWideZoomScale,
+      stopWideWheel: this.stopWideWheel,
+      wideZoomPanUp: this.wideZoomPanUp,
+      wideZoomPanDown: this.wideZoomPanDown,
+      wideZoomPanLeft: this.wideZoomPanLeft,
+      wideZoomPanRight: this.wideZoomPanRight
+    };
+  }
+}
+</script>
 </body>
 </html>
