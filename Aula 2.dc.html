@@ -460,7 +460,7 @@
 
 <section class="slide" data-screen-label="17b Tres frases" style="padding:0; background:var(--gelo); color:var(--chumbo); display:flex;" data-om-slide-id="2c62a9b7">
   <div style="width:50%; height:100%; background:var(--chumbo); display:flex; align-items:center; justify-content:center; padding:0 48px;">
-    <h2 style="font-weight:300; font-size:32px; line-height:1.35; color:#fff; text-align:center; margin:0; max-width:22ch;">temperatura global ao longo do tempo</h2>
+    <h2 style="font-weight:300; font-size:32px; line-height:1.35; color:#fff; text-align:center; margin:0; max-width:22ch; text-decoration:line-through;">temperatura global ao longo do tempo</h2>
   </div>
   <div style="width:50%; height:100%; display:flex; flex-direction:column; justify-content:center; gap:20px; padding:0 56px;">
     <div style="font-size:16px; line-height:1.5; background:#fff; border:1px solid rgba(28,33,39,.12); border-radius:8px; padding:16px 20px;"><strong>1.</strong> Mostrar que o comportamento é muito diferente do registro histórico de longa data, mesmo dos casos extremos.</div>
@@ -635,7 +635,7 @@
   <div style="position:absolute; top:28px; right:64px; z-index:2; display:inline-flex; align-items:center; gap:6px; padding:6px 13px; border-radius:999px; background:rgba(240,240,240,.15); border:1px solid rgba(240,240,240,.35); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff;">↗ clique nas frases</div>
   <div style="width:50%; height:100%; background:var(--chumbo); display:flex; align-items:center; justify-content:center; padding:0 48px; position:relative; overflow:hidden;">
     <sc-if value="{{ !activeFraseImg }}" hint-placeholder-val="{{ true }}">
-      <h2 style="font-weight:300; font-size:32px; line-height:1.35; color:#fff; text-align:center; margin:0; max-width:22ch;">temperatura global ao longo do tempo</h2>
+      <h2 style="font-weight:300; font-size:32px; line-height:1.35; color:#fff; text-align:center; margin:0; max-width:22ch; text-decoration:line-through;">temperatura global ao longo do tempo</h2>
     </sc-if>
     <sc-if value="{{ activeFraseImg }}" hint-placeholder-val="{{ false }}">
       <img src="{{ activeFraseImg }}" alt="Gráfico correspondente" style="width:100%; height:100%; object-fit:contain; padding:24px;">
@@ -1155,7 +1155,7 @@
 <sc-if value="{{ hasZoom }}" hint-placeholder-val="{{ false }}">
   <div onClick="{{ closeZoom }}" onWheel="{{ stopWheel }}" style="position:fixed; inset:0; background:rgba(10,10,12,.94); z-index:5000; display:flex; align-items:center; justify-content:center; cursor:zoom-out;">
     <div style="position:relative; width:min(92vw, calc(92vh * 16 / 9)); aspect-ratio:16/9;">
-      <div style="width:100%; height:100%; background-image:url({{ zoomSrc }}); background-size:200% 200%; background-position:{{ zoomBgPos }}; background-repeat:no-repeat; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.5);"></div>
+      <div onPointerDown="{{ zoomDragStart }}" onPointerMove="{{ zoomDragMove }}" onPointerUp="{{ zoomDragEnd }}" onPointerLeave="{{ zoomDragEnd }}" onPointerCancel="{{ zoomDragEnd }}" onClick="{{ zoomClickGuard }}" onWheel="{{ zoomWheel }}" style="width:100%; height:100%; background-image:url({{ zoomSrc }}); background-size:{{ zoomBgSize }} {{ zoomBgSize }}; background-position:{{ zoomBgPos }}; background-repeat:no-repeat; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,.5); cursor:grab; touch-action:none;"></div>
       <button onClick="{{ panUp }}" aria-label="Navegar para cima" style="position:absolute; top:12px; left:50%; transform:translateX(-50%); width:36px; height:36px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer;">↑</button>
       <button onClick="{{ panDown }}" aria-label="Navegar para baixo" style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); width:36px; height:36px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer;">↓</button>
       <button onClick="{{ panLeft }}" aria-label="Navegar para a esquerda" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; background:rgba(28,33,39,.75); border:none; color:#fff; font-size:16px; cursor:pointer;">←</button>
@@ -1220,7 +1220,7 @@ class Component extends DCLogic {
     const id = e.currentTarget.getAttribute('data-zoom-id');
     const slot = document.getElementById(id);
     const img = slot && slot.shadowRoot && slot.shadowRoot.querySelector('img[part="image"]');
-    if (img && img.src) this.setState({ zoomSrc: img.src, zoomAlt: slot.getAttribute('placeholder') || '', zoomX: 50, zoomY: 50 });
+    if (img && img.src) this.setState({ zoomSrc: img.src, zoomAlt: slot.getAttribute('placeholder') || '', zoomX: 50, zoomY: 50, zoomScale: 200 });
   };
   closeZoom = () => this.setState({ zoomSrc: null, zoomAlt: '' });
   openPaletteSeq = () => this.setState({ paletteOpen: 'sequencial' });
@@ -1235,7 +1235,7 @@ class Component extends DCLogic {
     const rect = slot.getBoundingClientRect();
     const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
     const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-    this.setState({ zoomSrc: img.src, zoomAlt: slot.getAttribute('placeholder') || '', zoomX: x, zoomY: y });
+    this.setState({ zoomSrc: img.src, zoomAlt: slot.getAttribute('placeholder') || '', zoomX: x, zoomY: y, zoomScale: 200 });
   };
   zoomMudancaClick = (e) => this.zoomAtPoint(e, 'mosaic-mudanca-tempo-full');
   zoomComparacaoClick = (e) => this.zoomAtPoint(e, 'mosaic-comparacao-magnitude-full');
@@ -1246,10 +1246,39 @@ class Component extends DCLogic {
   zoomFluxoClick = (e) => this.zoomAtPoint(e, 'mosaic-fluxo-full');
   zoomDistribuicaoClick = (e) => this.zoomAtPoint(e, 'mosaic-distribuicao-full');
   panBy = (dx, dy) => this.setState(s => ({ zoomX: Math.max(0, Math.min(100, (s.zoomX ?? 50) + dx)), zoomY: Math.max(0, Math.min(100, (s.zoomY ?? 50) + dy)) }));
+  panTo = (x, y) => this.setState({ zoomX: Math.max(0, Math.min(100, x)), zoomY: Math.max(0, Math.min(100, y)) });
   panUp = (e) => { e.stopPropagation(); this.panBy(0, -12); };
   panDown = (e) => { e.stopPropagation(); this.panBy(0, 12); };
   panLeft = (e) => { e.stopPropagation(); this.panBy(-12, 0); };
   panRight = (e) => { e.stopPropagation(); this.panBy(12, 0); };
+  zoomDragStart = (e) => {
+    if (e.button !== undefined && e.button !== 0) return;
+    e.stopPropagation();
+    this._dragStartX = e.clientX;
+    this._dragStartY = e.clientY;
+    this._dragStartZoomX = this.state.zoomX ?? 50;
+    this._dragStartZoomY = this.state.zoomY ?? 50;
+    this._dragMoved = false;
+    this._dragging = true;
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+  zoomDragMove = (e) => {
+    if (!this._dragging) return;
+    e.stopPropagation();
+    const rect = e.currentTarget.getBoundingClientRect();
+    const dxPct = (e.clientX - this._dragStartX) / rect.width * 100;
+    const dyPct = (e.clientY - this._dragStartY) / rect.height * 100;
+    if (Math.abs(dxPct) > 1 || Math.abs(dyPct) > 1) this._dragMoved = true;
+    this.panTo(this._dragStartZoomX - dxPct, this._dragStartZoomY - dyPct);
+  };
+  zoomDragEnd = (e) => { this._dragging = false; e.stopPropagation(); };
+  zoomClickGuard = (e) => { if (this._dragMoved) { e.stopPropagation(); this._dragMoved = false; } };
+  zoomWheel = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    const dir = e.deltaY < 0 ? 1 : -1;
+    this.setState(s => ({ zoomScale: Math.max(100, Math.min(400, (s.zoomScale ?? 200) + dir * 8)) }));
+  };
   stopWheel = (e) => { e.stopPropagation(); e.preventDefault(); };
   renderVals() {
     const gestaltImages = [
@@ -1424,9 +1453,10 @@ class Component extends DCLogic {
       handleZoom: this.handleZoom, closeZoom: this.closeZoom, zoomSrc: this.state.zoomSrc, zoomAlt: this.state.zoomAlt, hasZoom: !!this.state.zoomSrc,
       openPaletteSeq: this.openPaletteSeq, openPaletteDiv: this.openPaletteDiv, openPaletteCat: this.openPaletteCat, closePalette: this.closePalette, stopPropagation: this.stopPropagation,
       hasPalette: !!paletteInfo, paletteImgSrc: paletteInfo ? paletteInfo.img : null, paletteImgAlt: paletteInfo ? paletteInfo.alt : '', paletteRefUrl: paletteInfo ? paletteInfo.url : '#',
-      zoomMudancaClick: this.zoomMudancaClick, zoomBgPos: `${this.state.zoomX ?? 50}% ${this.state.zoomY ?? 50}%`,
+      zoomMudancaClick: this.zoomMudancaClick, zoomBgPos: `${this.state.zoomX ?? 50}% ${this.state.zoomY ?? 50}%`, zoomBgSize: `${this.state.zoomScale ?? 200}%`, zoomWheel: this.zoomWheel,
       zoomComparacaoClick: this.zoomComparacaoClick, zoomComposicaoClick: this.zoomComposicaoClick, zoomRankingClick: this.zoomRankingClick, zoomDesvioClick: this.zoomDesvioClick, zoomCorrelacaoClick: this.zoomCorrelacaoClick, zoomFluxoClick: this.zoomFluxoClick, zoomDistribuicaoClick: this.zoomDistribuicaoClick,
       panUp: this.panUp, panDown: this.panDown, panLeft: this.panLeft, panRight: this.panRight, stopWheel: this.stopWheel,
+      zoomDragStart: this.zoomDragStart, zoomDragMove: this.zoomDragMove, zoomDragEnd: this.zoomDragEnd, zoomClickGuard: this.zoomClickGuard,
       groups, legendItems, gridLines, hasNextStep: step < 3, nextStep: this.nextStep, resetSteps: this.resetSteps,
       colBg0: colBg(0), colBg2: colBg(2), colBg3: colBg(3), colBg5: colBg(5), colBg6: colBg(6),
       exampleOpen: this.state.exampleOpen, openExample: this.openExample, nextStepEx: this.nextStepEx, prevStep: this.prevStep,
