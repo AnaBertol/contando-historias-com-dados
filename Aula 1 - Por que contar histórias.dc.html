@@ -46,10 +46,7 @@
     <div style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--urucum); margin-bottom:22px;">Contando Histórias com Dados · Aula 1 · 2h30</div>
     <h1 style="font-weight:300; font-size:64px; line-height:1.08; letter-spacing:-0.02em; margin:0; max-width:22ch;">Por que contar histórias com dados?</h1>
   </div>
-  <div style="display:flex; flex-direction:column; gap:8px;">
-    <div style="font-size:18px; color:rgba(240,240,240,.75);">com Ana</div>
-    <div style="font-size:14px; font-weight:600; letter-spacing:.06em; color:rgba(240,240,240,.85);">02.SET.2026</div>
-  </div>
+  <div style="font-size:18px; color:rgba(240,240,240,.75);">com Ana</div>
 </section>
 
 <section class="slide" data-screen-label="02 Apresentação" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:340px 1fr; gap:56px; align-items:center;" data-om-slide-id="265d96c0">
@@ -101,7 +98,7 @@
 
 <section class="slide" data-screen-label="07 O Rei Leão" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch;" data-om-slide-id="e948f2f3">
   <div style="display:flex; flex-direction:column; justify-content:center; padding-right:48px;">
-    <h2 style="font-weight:300; font-size:44px; margin:0;"><a class="ref-link" href="Referencias.dc.html#rei-leao">O Rei Leão</a></h2>
+    <h2 style="font-weight:300; font-size:44px; margin:0;">O Rei Leão</h2>
   </div>
   <div style="position:relative;">
     <image-slot id="img-rei-leao" shape="rect" placeholder="Cena de O Rei Leão"></image-slot>
@@ -111,7 +108,7 @@
 
 <section class="slide" data-screen-label="08 Hamlet" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch;" data-om-slide-id="e682856d">
   <div style="display:flex; flex-direction:column; justify-content:center; padding-right:48px;">
-    <h2 style="font-weight:300; font-size:44px; margin:0;"><a class="ref-link" href="Referencias.dc.html#hamlet">Hamlet</a></h2>
+    <h2 style="font-weight:300; font-size:44px; margin:0;">Hamlet</h2>
   </div>
   <div style="position:relative;">
     <image-slot id="img-hamlet" shape="rect" placeholder="Cena de Hamlet"></image-slot>
@@ -121,7 +118,7 @@
 
 <section class="slide" data-screen-label="09 O Homem do Norte" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch;" data-om-slide-id="047e7544">
   <div style="display:flex; flex-direction:column; justify-content:center; padding-right:48px;">
-    <h2 style="font-weight:300; font-size:44px; margin:0;"><a class="ref-link" href="Referencias.dc.html#homem-do-norte">O Homem do Norte</a></h2>
+    <h2 style="font-weight:300; font-size:44px; margin:0;">O Homem do Norte</h2>
   </div>
   <div style="position:relative;">
     <image-slot id="img-homem-norte" shape="rect" placeholder="Cena de O Homem do Norte"></image-slot>
@@ -224,6 +221,28 @@
     <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">3. O QUÊ?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Quais as mensagens mais importantes da minha história?</p></div>
     <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">4. COMO?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Qual narrativa e quais elementos vou usar para passar essas mensagens?</p></div>
     <div><div style="font-size: 13px; color: var(--grafite); font-weight: 700; margin-bottom: 10px">5. COM O QUÊ?</div><p style="font-size:15px; line-height:1.4; margin:0; color:var(--grafite);">Qual meio ou produto vou usar para contar a história?</p></div>
+  </div>
+</section>
+
+<section class="slide" data-screen-label="26b Universo de fatos" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;" data-om-slide-id="d8f41a62">
+  <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
+
+  <div style="{{ vennHeadlineStyle }}">{{ vennHeadlineText }}</div>
+
+  <div style="{{ vennUniverseLabelStyle }}">O universo de fatos</div>
+  <div style="{{ vennChooseLabelStyle }}">O que você escolhe contar</div>
+  <div style="{{ vennPersonALabelStyle }}">O que uma pessoa na audiência vai entender</div>
+  <div style="{{ vennPersonBLabelStyle }}">O que outra pessoa na audiência vai entender</div>
+
+  <div style="{{ vennUniverseStyle }}"></div>
+  <div style="{{ vennChooseStyle }}"></div>
+  <div style="{{ vennPersonAStyle }}"></div>
+  <div style="{{ vennPersonBStyle }}"></div>
+  <div style="{{ vennMessageStyle }}"><span style="font-size:15px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--chumbo);">{{ vennMessageText }}</span></div>
+
+  <div style="position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:10px; z-index:3;">
+    <button onClick="{{ vennPrev }}" aria-label="Passo anterior" style="width:30px; height:30px; border-radius:50%; border:1px solid rgba(28,33,39,.18); background:transparent; color:var(--chumbo); font-size:14px; line-height:1; cursor:pointer; transition:opacity .2s ease; {{ vennPrevStyle }}">‹</button>
+    <button onClick="{{ vennNext }}" aria-label="Próximo passo" style="width:30px; height:30px; border-radius:50%; border:1px solid rgba(28,33,39,.18); background:transparent; color:var(--chumbo); font-size:14px; line-height:1; cursor:pointer; transition:opacity .2s ease; {{ vennNextStyle }}">›</button>
   </div>
 </section>
 
@@ -483,7 +502,7 @@
     
     <div style="border-top: 2px solid var(--urucum); padding-top: 16px; width: 318px; height: 80px"><div style="font-size:14px; color:var(--concreto); text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px;">explicar → compreender</div><p style="font-size:14px; line-height:1.4; margin:0; color:rgba(240,240,240,.75);">Fazer a audiência entender as nuances da situação.</p></div><div style="border-top: 2px solid var(--urucum); padding-top: 16px; width: 318px; height: 70px"><div style="font-size:14px; color:var(--concreto); text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px;">inspirar → sentir</div><p style="font-size:14px; line-height:1.4; margin:0; color:rgba(240,240,240,.75);">Causar emoções na audiência para engajar.</p></div>
     <div style="border-top: 2px solid var(--urucum); padding-top: 16px; width: 317px; height: 65px"><div style="font-size:14px; color:var(--concreto); text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px;">informar → decidir</div><p style="font-size:14px; line-height:1.4; margin:0; color:rgba(240,240,240,.75);">Apresentar resultados para melhores decisões.</p></div>
-    <div style="border-top: 2px solid var(--urucum); padding-top: 16px; width: 318px"><div style="font-size:14px; color:var(--concreto); text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px;">explorar → disponibilizar</div><p style="font-size:14px; line-height:1.4; margin:0; color:rgba(240,240,240,.75);">Disponibilizar dados para a audiência tirar as próprias conclusões.</p></div>
+    <div style="border-top: 2px solid var(--urucum); padding-top: 16px; width: 318px"><div style="font-size:14px; color:var(--concreto); text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px;">disponibilizar → explorar</div><p style="font-size:14px; line-height:1.4; margin:0; color:rgba(240,240,240,.75);">Disponibilizar dados para a audiência tirar as próprias conclusões.</p></div>
   </div></section>
 
 <section class="slide" data-screen-label="47 Explicar compreender" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;" data-om-slide-id="5399a32f">
@@ -540,10 +559,10 @@
   </div>
 </section>
 
-<section class="slide" data-screen-label="49 Explorar disponibilizar" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;" data-om-slide-id="ccd625a1">
+<section class="slide" data-screen-label="49 Disponibilizar explorar" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;" data-om-slide-id="ccd625a1">
   <div class="hdr"><div class="hdr-mark"><img src="assets/logo/kunumi-mark-chumbo.png" alt="" style="height:32px;"></div><img src="assets/logo/kunumi-wordmark-chumbo.png" alt="kunumi" style="height:32px;"></div>
   <div>
-    <div class="eyebrow" style="color:var(--urucum); margin-bottom:14px;">explorar → disponibilizar</div>
+    <div class="eyebrow" style="color:var(--urucum); margin-bottom:14px;">disponibilizar → explorar</div>
     <h2 style="font-weight:400; font-size:26px; line-height:1.35; margin:0 0 24px;">Eu quero disponibilizar dados para que a audiência tire as próprias conclusões</h2>
     <ul style="list-style:none; margin:0; padding:0; font-size:15px; color:var(--grafite); display:flex; flex-direction:column; gap:10px;">
       <li>A audiência tem conhecimento para explorar sozinha os dados?</li>
@@ -804,7 +823,61 @@ const ENDING_TABS = [
 ];
 
 class Component extends DCLogic {
-  state = { zoomSrc: null, zoomAlt: '', zoomOpen: false, lockedNodes: [], activeEndingKey: 'conclusao', layers: { message: false, secondary: false, context: false, data: false } };
+  state = { zoomSrc: null, zoomAlt: '', zoomOpen: false, lockedNodes: [], activeEndingKey: 'conclusao', layers: { message: false, secondary: false, context: false, data: false }, vennStep: 1 };
+
+  vennNext = () => this.setState(s => ({ vennStep: Math.min(7, (s.vennStep ?? 1) + 1) }));
+  vennPrev = () => this.setState(s => ({ vennStep: Math.max(1, (s.vennStep ?? 1) - 1) }));
+
+  buildVenn() {
+    const step = this.state.vennStep ?? 1;
+    const BASE = {
+      universe: { left: 443, top: 211, width: 621, height: 375 },
+      choose:   { left: 380, top: 160, width: 450, height: 400 },
+      personA:  { left: 180, top: 270, width: 620, height: 180 },
+      personB:  { left: 300, top: 320, width: 480, height: 200 },
+    };
+    const CONVERGE = {
+      6: {
+        choose:  { left: 379, top: 168, width: 441, height: 385 },
+        personA: { left: 177, top: 221, width: 609, height: 285 },
+        personB: { left: 299, top: 240, width: 477, height: 285 },
+      },
+      7: {
+        choose:  { left: 379, top: 168, width: 441, height: 385 },
+        personA: { left: 177, top: 221, width: 428, height: 245 },
+        personB: { left: 299, top: 394, width: 477, height: 131 },
+      },
+    };
+    const geom = (key) => (step >= 7 ? CONVERGE[7][key] : step >= 6 ? CONVERGE[6][key] : null) || BASE[key];
+    const box = (key, extra) => {
+      const g = geom(key);
+      return `position:absolute; left:${g.left}px; top:${g.top}px; width:${g.width}px; height:${g.height}px; pointer-events:none; ${extra} transition:left .7s cubic-bezier(.4,0,.2,1), top .7s cubic-bezier(.4,0,.2,1), width .7s cubic-bezier(.4,0,.2,1), height .7s cubic-bezier(.4,0,.2,1), opacity .5s ease;`;
+    };
+    const vis = (minStep) => step >= minStep;
+    const u = BASE.universe;
+    const choose = geom('choose'), personA = geom('personA'), personB = geom('personB');
+    const ixLeft = Math.max(u.left, choose.left, personA.left, personB.left);
+    const ixTop = Math.max(u.top, choose.top, personA.top, personB.top);
+    const ixRight = Math.min(u.left + u.width, choose.left + choose.width, personA.left + personA.width, personB.left + personB.width);
+    const ixBottom = Math.min(u.top + u.height, choose.top + choose.height, personA.top + personA.height, personB.top + personB.height);
+    const message = { left: ixLeft, top: ixTop, width: Math.max(0, ixRight - ixLeft), height: Math.max(0, ixBottom - ixTop) };
+    return {
+      vennUniverseStyle: box('universe', `background-image:repeating-linear-gradient(-45deg, rgba(147,85,160,.3) 0 10px, transparent 10px 22px); opacity:${vis(1) ? 1 : 0};`),
+      vennChooseStyle: box('choose', `background:var(--indigo-600); mix-blend-mode:multiply; opacity:${vis(2) ? .55 : 0};`),
+      vennPersonAStyle: box('personA', `background:var(--urucum); mix-blend-mode:multiply; opacity:${vis(3) ? .5 : 0};`),
+      vennPersonBStyle: box('personB', `background:var(--laranja); mix-blend-mode:multiply; opacity:${vis(4) ? .55 : 0};`),
+      vennMessageStyle: `position:absolute; left:${message.left}px; top:${message.top}px; width:${message.width}px; height:${message.height}px; pointer-events:none; background:#fff; border:2px solid var(--chumbo); border-radius:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:8px; box-shadow:0 10px 30px rgba(28,33,39,.18); opacity:${vis(5) ? 1 : 0}; transition:left .7s cubic-bezier(.4,0,.2,1), top .7s cubic-bezier(.4,0,.2,1), width .7s cubic-bezier(.4,0,.2,1), height .7s cubic-bezier(.4,0,.2,1), opacity .5s ease;`,
+      vennMessageText: step === 5 ? 'MENSAGEM PRINCIPAL' : '',
+      vennUniverseLabelStyle: `position:absolute; left:${u.left + u.width - 300}px; top:${u.top - 42}px; width:300px; text-align:right; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--violeta); opacity:${step >= 1 && step <= 5 ? 1 : 0}; transition:opacity .4s ease;`,
+      vennChooseLabelStyle: `position:absolute; left:${BASE.choose.left}px; top:${BASE.choose.top - 42}px; width:320px; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--indigo-600); opacity:${step >= 2 && step <= 5 ? 1 : 0}; transition:opacity .4s ease;`,
+      vennPersonALabelStyle: `position:absolute; left:64px; top:${BASE.personA.top - 56}px; width:300px; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; line-height:1.4; color:var(--urucum); opacity:${step >= 3 && step <= 5 ? 1 : 0}; transition:opacity .4s ease;`,
+      vennPersonBLabelStyle: `position:absolute; left:64px; top:${BASE.personB.top + BASE.personB.height + 16}px; width:300px; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; line-height:1.4; color:var(--laranja); opacity:${step >= 4 && step <= 5 ? 1 : 0}; transition:opacity .4s ease;`,
+      vennHeadlineText: step === 6 ? 'O que garante a maximização de transferência de conhecimento…' : step === 7 ? '…é o quanto você adapta a história para a audiência e a situação.' : '',
+      vennHeadlineStyle: `position:absolute; top:96px; left:72px; right:72px; font-weight:400; font-size:28px; line-height:1.4; color:var(--chumbo); max-width:62ch; opacity:${step >= 6 ? 1 : 0}; transition:opacity .4s ease;`,
+      vennPrevStyle: `opacity:${step <= 1 ? .25 : .7}; pointer-events:${step <= 1 ? 'none' : 'auto'};`,
+      vennNextStyle: `opacity:${step >= 7 ? .25 : .7}; pointer-events:${step >= 7 ? 'none' : 'auto'};`,
+    };
+  }
 
   buildEndingTabs() {
     return ENDING_TABS.map(t => {
@@ -929,6 +1002,9 @@ class Component extends DCLogic {
       endingTabs: this.buildEndingTabs(),
       activeEnding: this.buildActiveEnding(),
       layerButtons: this.buildLayerButtons(),
+      ...this.buildVenn(),
+      vennPrev: this.vennPrev,
+      vennNext: this.vennNext,
       handleZoom: this.handleZoom,
       handleZoomSrc: this.handleZoomSrc,
       handleZoomGallery: this.handleZoomGallery,

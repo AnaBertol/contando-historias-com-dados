@@ -11,32 +11,6 @@
 <helmet>
 <script src="./auth-gate.js"></script>
 <script src="./rail-toggle.js"></script>
-<script>
-  (function () {
-    if (window.__kunumiAula2LockInit) return;
-    window.__kunumiAula2LockInit = true;
-    var UNLOCK_DATE = new Date('2026-09-03T00:00:00');
-    function showLocked() {
-      var style = document.createElement('style');
-      style.textContent = 'html,body{visibility:hidden !important;}';
-      document.head.appendChild(style);
-      var overlay = document.createElement('div');
-      overlay.style.cssText = 'visibility:visible !important;position:fixed;inset:0;z-index:2147483647;background:#1c2127;display:flex;align-items:center;justify-content:center;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:24px;box-sizing:border-box;text-align:center;';
-      overlay.innerHTML = '<div style="visibility:visible;max-width:420px;color:#f0f0f0;">' +
-        '<div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:#9355a0;margin-bottom:14px;">Em breve</div>' +
-        '<h1 style="font-size:24px;font-weight:500;margin:0 0 12px;">Esta aula ainda não foi liberada</h1>' +
-        '<p style="font-size:14px;line-height:1.6;color:rgba(240,240,240,.65);margin:0 0 24px;">A Aula 2 fica disponível a partir de 03 de setembro de 2026.</p>' +
-        '<a href="index.dc.html" style="color:#f0f0f0;font-size:14px;text-decoration:underline;">Voltar para o início</a>' +
-        '</div>';
-      document.body.appendChild(overlay);
-    }
-    function check() {
-      if (new Date() < UNLOCK_DATE) showLocked();
-    }
-    if (window.KunumiAuth) window.KunumiAuth.onReady(check);
-    else check();
-  })();
-</script>
 <link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/fonts.css">
 <link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/colors.css">
 <link rel="stylesheet" href="_ds/kunumi-design-system-slides-933b5cf1-8d1d-4090-8d24-aa9727260e74/tokens/typography.css">
@@ -75,7 +49,6 @@
     <h1 style="font-weight:300; font-size:56px; line-height:1.1; letter-spacing:-0.02em; margin:0; max-width:24ch;">Visualizações de dados que falam por si</h1>
   </div>
   <div style="font-size:18px; color:rgba(240,240,240,.75);">com Ana</div>
-  <div style="font-size:14px; font-weight:600; letter-spacing:.06em; color:rgba(240,240,240,.85);">03.SET.2026</div>
 </section>
 
 <section class="slide" data-screen-label="Persuasão aristotélica" style="padding:0; background:var(--gelo); color:var(--chumbo); position:relative; overflow:hidden;" data-om-slide-id="a2c9f1d4">
@@ -937,6 +910,11 @@
   </div>
 </section>
 
+<section class="slide" data-screen-label="Exercicio final" style="padding:64px 72px; background:var(--urucum); color:var(--white); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center;" data-om-slide-id="6c415773">
+  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">EXERCÍCIO!</h2>
+  <h2 style="font-weight:700; font-size:26px; margin:0; max-width:44ch; line-height:1.4;">Voltem para os seus gráficos e façam os ajustes finos.<br><br>Quais dicas você conseguiu aplicar?</h2>
+</section>
+
 <section class="slide" data-screen-label="31i Section pathos" style="padding:64px 72px; background:var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; text-align:center;" data-om-slide-id="15c77e27">
   <h1 style="font-weight:300; font-size:38px; margin:0; max-width:26ch;">Como acrescentar <span style="color:var(--urucum); font-weight:600;">pathos</span> nas visualizações?</h1>
   <div style="display:flex; gap:14px;">
@@ -1137,11 +1115,6 @@
 
 <section class="slide" data-screen-label="31s Voz propria" style="padding:64px 72px; background:var(--gelo); color:var(--chumbo); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center;" data-om-slide-id="73dba2d1">
   <h1 style="font-weight:300; font-size:34px; margin:0; max-width:34ch;">O primeiro passo para seu gráfico ter voz própria é definir o quê ele precisa falar.</h1><h1 style="font-weight: 900; font-size: 20px; margin: 0; max-width: 34ch">E isso não aparece apenas na escolha do gráfico, mas nos detalhes que você adiciona.</h1>
-</section>
-
-<section class="slide" data-screen-label="Exercicio final" style="padding:64px 72px; background:var(--urucum); color:var(--white); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center;" data-om-slide-id="6c415773">
-  <h2 style="font-weight:300; font-size:34px; margin:0; max-width:36ch; opacity:.85;">EXERCÍCIO!</h2>
-  <h2 style="font-weight:700; font-size:26px; margin:0; max-width:44ch; line-height:1.4;">Voltem para os seus gráficos e façam os ajustes finos.<br><br>Quais dicas você conseguiu aplicar?</h2>
 </section>
 
 <section class="slide" data-screen-label="32 Fechamento" style="padding:64px 72px; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); color:var(--gelo); display:flex; flex-direction:column; justify-content:space-between;" data-om-slide-id="2bb5859d">

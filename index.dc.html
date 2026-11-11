@@ -25,23 +25,6 @@
   .lesson-card:hover { background: rgba(28,33,39,.7); transform: translateY(-2px); }
   .lesson-card.disabled { opacity: .45; cursor: default; pointer-events: none; }
 </style>
-<script>
-  (function () {
-    var UNLOCK_DATE = new Date('2026-09-03T00:00:00');
-    function lockAula2() {
-      if (new Date() < UNLOCK_DATE) {
-        document.addEventListener('DOMContentLoaded', function () {
-          var card = document.getElementById('aula2-card');
-          if (card) {
-            card.classList.add('disabled');
-            card.removeAttribute('href');
-          }
-        });
-      }
-    }
-    lockAula2();
-  })();
-</script>
 </helmet>
 
 <div style="min-height:100vh; background:url('assets/backgrounds/gradient-aurora.png') center/cover no-repeat, var(--chumbo); font-family:var(--font-sans); color:var(--gelo); padding:72px 88px; display:flex; flex-direction:column; gap:56px;">
@@ -60,17 +43,17 @@
 
   <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
     <a class="lesson-card" href="Aula 1 - Por que contar histórias.dc.html">
-      <div style="font-size:12px; font-weight:700; color:var(--indigo-400); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 1 · 2h30 · 02.SET.2026</div>
+      <div style="font-size:12px; font-weight:700; color:var(--indigo-400); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 1 · 2h30</div>
       <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">Por que contar histórias com dados?</h3>
       <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.65); margin:0;">Por que humanos gostam tanto de histórias e o que significa contar uma história em um contexto técnico e científico. Exemplos e dicas de como considerar a audiência e os seus objetivos na hora de planejar uma história.</p>
     </a>
     <a class="lesson-card" href="Aula 2.dc.html" id="aula2-card">
-      <div style="font-size:12px; font-weight:700; color:var(--violeta); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 2 · 2h30 · 03.SET.2026</div>
+      <div style="font-size:12px; font-weight:700; color:var(--violeta); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 2 · 2h30</div>
       <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">Visualizações de dados que falam por si</h3>
       <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.65); margin:0;">Visualizações de dados que falam por si. Qual o melhor tipo de gráfico? Posso usar gráficos de pizza? Dicas práticas de design para quem mal consegue segurar um lápis.</p>
     </a>
     <a class="lesson-card" href="Aula 3.dc.html">
-      <div style="font-size:12px; font-weight:700; color:var(--urucum); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 3 · 2h30 · 09.SET.2026</div>
+      <div style="font-size:12px; font-weight:700; color:var(--urucum); letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;">Aula 3 · 2h30</div>
       <h3 style="font-weight:500; font-size:21px; margin:0 0 8px;">E agora, o que eu faço com tudo isso?</h3>
       <p style="font-size:14px; line-height:1.5; color:rgba(240,240,240,.65); margin:0;">Um novo mundo se abriu e agora a gente descobriu possibilidades e preocupações que nem tínhamos antes. É hora de respirar fundo e convergir. Como seguir expandindo nossa criatividade sem ficar congelados pelas opções?</p>
     </a>
